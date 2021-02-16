@@ -6,32 +6,37 @@ body {
   font-size: 1.6rem;
   color: #EADCD2;
   background-color: #212026;
-}
-
-header {
-  border-bottom: 0.2rem solid #000;
-}
-
-nav {
-  text-align: right;
-}
-
-nav a {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: black;
-  text-decoration: none;
-  text-transform: uppercase;
+  text-align: justify;
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   height: 50px;
   background-color: #141316;
-  color: 505256;
+}
+
+.busStop { 
+  position: absolute;
+  right: 0px; 
+  width: 45%;
+  max-width: 300px;
+}
+.eyes { 
+  position: absolute;
+  right: 0px; 
+  left: 0px; 
+  width: 35%;
+  max-width: 250px;
+}
+.light { 
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  left: 0px; 
+  width: 35%;
+  max-width: 250px;
+}
+.homebox:hover .light {
+  opacity: 20%;
 }
 
 h1 {
@@ -48,97 +53,49 @@ article .header {
   color: #555;
 }
 
-.logo a {
-  font-weight: bold;
-  color: #000;
-  text-decoration: none;
-}
-
-@media (max-width: 319px) {
+@media (max-width: 999px) {
   body {
     width: 90%;
     margin: 0;
     padding: 0 5%;
   }
-  header {
-    margin: 4.2rem 0;
-  }
-  nav {
-    margin: 0 auto 3rem;
-    text-align: center;
-  }
   footer {
-    text-align: center;
+    position: relative;
+    width: 111.11%;
+    top: 150px;
+    left: -5.55%;
   }
-  .logo {
-    text-align: center;
-    margin: 1rem auto 3rem;
+  .busStop { 
+    bottom: 45px; 
   }
-  .logo a {
-    font-size: 2.4rem;
+  .eyes { 
+    bottom: 50px; 
   }
-  nav a {
-    display: block;
-    line-height: 1.6;
+  .light { 
+    left: 0px; 
+    bottom: 50px; 
   }
 }
 
-@media (min-width: 320px) {
-  body {
-    width: 90%;
-    margin: 0;
-    padding: 0 5%;
-  }
-  header {
-    margin: 4.2rem 0;
-  }
-  nav {
-    margin: 0 auto 3rem;
-    text-align: center;
-  }
-  footer {
-    text-align: center;
-  }
-  .logo {
-    text-align: center;
-    margin: 1rem auto 3rem;
-  }
-  .logo a {
-    font-size: 2.4rem;
-  }
-  nav a {
-    display: inline;
-    margin: 0 0.6rem;
-  }
-}
-
-@media (min-width: 640px) {
+@media (min-width: 1000px) {
   body {
     width: 60rem;
     margin: 0 auto;
     padding: 0;
   }
-  header {
-    margin: 0 0 3rem;
-    padding: 1.2rem 0;
-  }
-  nav {
-    margin: 0;
-    text-align: right;
-  }
-  nav a {
-    margin: 0 0 0 1.2rem;
-    display: inline;
-  }
   footer {
-    text-align: right;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
   }
-  .logo {
-    margin: 0;
-    text-align: left;
+  .busStop { 
+    bottom: 45px; 
   }
-  .logo a {
-    float: left;
-    font-size: 1.8rem;
+  .eyes { 
+    bottom: 40px; 
+  }
+  .light { 
+    bottom: 40px; 
   }
 }

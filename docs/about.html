@@ -4,28 +4,60 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Catbus: About</title>
+        <title>Catbus: About me</title>
         <link rel="stylesheet" href="./css/default.css" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
     </head>
     <body>
         <main role="main">
-            <h1>About</h1>
-            <p>Nullam imperdiet sodales orci vitae molestie. Nunc quam orci, pharetra a rhoncus vitae, eleifend id felis. Suspendisse potenti. Etiam vitae urna orci. Quisque pellentesque dignissim felis, egestas tempus urna luctus vitae. In hac habitasse platea dictumst. Morbi fringilla mattis odio, et mattis tellus accumsan vitae.</p>
+            <div class="title">
+                About me
+                
+                    <p class="lastmodified" , id="last">
+                    Last modified on:
+                    </p>
+
+                   <script language="Javascript">
+                      lastMod = document.getElementById("last");
+                      date = new Date(document.lastModified)
+                      lastMod.innerText = "Last updated on " + date.toDateString() + ".";
+                    </script>
+                
+            </div>
+            <div style=" width: 200px;
+ height: 200px;
+ background-image: url('./images/Parth.jpg');
+ background-size: cover;
+ display: block;
+ border-radius: 100px;
+ float: right;
+ margin-left: 15px; margin-bottom: 10px;">
+
+</div>
+<p>Nullam imperdiet sodales orci vitae molestie. Nunc quam orci, pharetra a rhoncus vitae, eleifend id felis. Suspendisse potenti. Etiam vitae urna orci. Quisque pellentesque dignissim felis, egestas tempus urna luctus vitae. In hac habitasse platea dictumst. Morbi fringilla mattis odio, et mattis tellus accumsan vitae.</p>
 <ol type="1">
 <li>Amamus Unicode 碁</li>
 <li>Interdum nex magna.</li>
 </ol>
 <p>Vivamus eget mauris sit amet nulla laoreet lobortis. Nulla in diam elementum risus convallis commodo. Cras vehicula varius dui vitae facilisis. Proin elementum libero eget leo aliquet quis euismod orci vestibulum. Duis rhoncus lorem consequat tellus vestibulum aliquam. Quisque orci orci, malesuada porta blandit et, interdum nec magna.</p>
         </main>
-
+        <div class="clear"></div>
         <footer> 
             <img src="./images/BusStop.png" class="busStop"> 
             <a href="./index.html">
                 <div class="homebox">
                     <img src="./images/Logo.png" class="eyes"> 
+
                     <img src="./images/Lights.png" class="light"> 
                 </div>
             </a>
+            <div class="hakyll">
+                Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+            </div>
+            <div class="catbusfooter">
+                <a href="./index.html">Catbus /</a> About me
+            </div>
        </footer>
     </body>
 </html>

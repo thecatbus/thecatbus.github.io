@@ -6,21 +6,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Catbus: $title$</title>
         <link rel="stylesheet" href="/css/default.css" />
+        <link href='https://fonts.googleapis.com/css?family=Vollkorn SC' rel='stylesheet'> 
+        <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet'>
     </head>
     <body>
         <main role="main">
-            <h1>$title$</h1>
+            <div class="title">
+                $title$
+                $if(date)$
+                $else$
+                    <p class="lastmodified", id="last">
+                    Last modified on:
+                    </p>
+
+                   <script language="Javascript">
+                      lastMod = document.getElementById("last");
+                      date = new Date(document.lastModified)
+                      lastMod.innerText = "Last updated on " + date.toDateString() + ".";
+                    </script>
+                $endif$
+            </div>
             $body$
         </main>
-
+        <div class="clear"></div>
         <footer> 
             <img src="/images/BusStop.png" class="busStop"> 
             <a href="/index.html">
                 <div class="homebox">
                     <img src="/images/Logo.png" class="eyes"> 
+
                     <img src="/images/Lights.png" class="light"> 
                 </div>
             </a>
+            <div class="hakyll">
+                Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+            </div>
+            <div class="catbusfooter">
+                <a href="./index.html">Catbus /</a> $title$
+            </div>
        </footer>
     </body>
 </html>

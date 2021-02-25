@@ -1,6 +1,16 @@
 ---
-title: About
+title: About me
 ---
+
+<div style=" width: 200px;
+ height: 200px;
+ background-image: url('./images/Parth.jpg');
+ background-size: cover;
+ display: block;
+ border-radius: 100px;
+ float: right;
+ margin-left: 15px; margin-bottom: 10px;"> </div>
+    
 Nullam imperdiet sodales orci vitae molestie. Nunc quam orci, pharetra a
 rhoncus vitae, eleifend id felis. Suspendisse potenti. Etiam vitae urna orci.
 Quisque pellentesque dignissim felis, egestas tempus urna luctus vitae. In hac

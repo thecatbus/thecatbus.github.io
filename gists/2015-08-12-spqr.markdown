@@ -1,5 +1,6 @@
 ---
 title: S.P.Q.R.
+tags: foo, bar
 ---
 
 Mauris in lorem nisl. Maecenas tempus facilisis ante, eget viverra nisl
@@ -57,3 +58,5 @@ commodo rhoncus nec vel augue. Pellentesque tortor massa, dignissim ut sagittis
 sed, hendrerit vitae nunc. Nam gravida, urna vitae hendrerit rutrum, felis augue
 vulputate tortor, ut varius velit libero nec lectus. In adipiscing massa in est
 scelerisque ullamcorper. Vivamus in nisi metus.
+
+<!--more-->

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: Posts / bar</title>
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href='https://fonts.googleapis.com/css?family=Vollkorn SC' rel='stylesheet'> 
+        <link href='https://fonts.googleapis.com/css?family=Castoro' rel='stylesheet'>
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title">
+                <div id="heading">
+                    Posts / bar
+                </div>
+                
+                    <p class="lastmodified", id="last">
+                    Last modified on:
+                    </p>
+
+                <div class="clear" style="height: 10px;"></div>
+
+                   <script language="Javascript">
+                      lastMod = document.getElementById("last");
+                      date = new Date(document.lastModified)
+                      lastMod.innerText = "Last updated on " + date.toDateString() + ".";
+                   </script>
+                
+            </div>
+            Things I have tried to learn properly at some point-- I find writing explanatory articles is the best way to internalise the concepts. 
+
+<div id="taglist" class="dropdown"> <a href="/posts/bytopic/bar.html">bar (1)</a>, <a href="/posts/bytopic/baz.html">baz (1)</a>, <a href="/posts/bytopic/foo.html">foo (4)</a> </div>
+
+<script>
+    tags = document.getElementById("taglist");
+    var taglist = tags.innerHTML.split(',');
+    heading = document.getElementById("heading");
+    html=heading.innerText;
+    html="Posts / <div class=\"dropdown\"> <div class=\"dropbtn\">" + html.substring(7) +"<\div> <div class=\"dropdown-content\"> <a href=\"/posts.html\">all</a>";
+    taglist.forEach(function(x) {
+        x = x.replace(/ \(\d*\)/,"");
+        console.log(x);
+        html+=x; 
+    });
+    html+="<\div> <\div>";
+    heading.innerHTML=html;
+    tags.innerHTML="";
+</script>
+
+<div class="clear" style="height: 20px;"></div>
+<hr>
+
+<div class="smalltitle">
+S.P.Q.R. 
+<p class="lastmodified" style="margin-top: -3pt;">
+August 12, 2015 (<a title="All pages tagged &#39;foo&#39;." href="/posts/bytopic/foo.html">foo</a>, <a title="All pages tagged &#39;bar&#39;." href="/posts/bytopic/bar.html">bar</a>)
+</p>
+</div>
+<p>Mauris in lorem nisl. Maecenas tempus facilisis ante, eget viverra nisl tincidunt et. Donec turpis lectus, mattis ac malesuada a, accumsan eu libero. Morbi condimentum, tortor et tincidunt ullamcorper, sem quam pretium nulla, id convallis lectus libero nec turpis. Proin dapibus nisi id est sodales nec ultrices tortor pellentesque. Vivamus vel nisi ac lacus sollicitudin vulputate ac ut ligula. Nullam feugiat risus eget eros gravida in molestie sapien euismod. Nunc sed hendrerit orci. Nulla mollis consequat lorem ac blandit. Ut et turpis mauris. Nulla est odio, posuere id ullamcorper sit amet, tincidunt vel justo. Curabitur placerat tincidunt varius. Nulla vulputate, ipsum eu consectetur mollis, dui nibh aliquam neque, at ultricies leo ligula et arcu. Proin et mi eget tellus sodales lobortis. Sed tempor, urna vel pulvinar faucibus, lectus urna vehicula ante, at facilisis dolor odio at lorem. Morbi vehicula euismod urna, et imperdiet urna ornare vitae.</p>
+
+<div class="lastmodified" style="display: flex;">
+    <a href="/posts/2015-08-12-spqr.html">read more...</a>
+</div>
+<hr>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/BusStop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/Logo.png" class="eyes"> 
+
+             <img src="/images/Lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / Posts / bar
+     </div>
+</footer>
+    </body>
+</html>

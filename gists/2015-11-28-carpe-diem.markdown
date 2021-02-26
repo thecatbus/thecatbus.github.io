@@ -1,5 +1,6 @@
 ---
 title: Carpe Diem
+tags: bar
 ---
 
 Fusce tortor quam, egestas in posuere quis, porttitor vel turpis. Donec
@@ -48,3 +49,6 @@ dui eros, hendrerit et vulputate vel, porta eu eros. Nullam nisi dui, commodo
 eget pharetra ut, ornare sit amet nunc. Fusce vel neque urna. Maecenas nulla
 ante, egestas at consequat quis, fermentum a enim. Aliquam id tristique urna.
 Integer augue justo, scelerisque et consectetur id, rhoncus eget enim.
+
+
+<!--more-->

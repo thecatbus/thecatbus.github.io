@@ -1,9 +1,14 @@
 <article>
-    <section class="header">
+    <section class="lastmodified">
         Posted on $date$
         $if(author)$
             by $author$
         $endif$
+        <div style="float:right;">
+        $if(tags)$
+            ($tags$)
+        $endif$
+        </div>
     </section>
     <section>
         $body$

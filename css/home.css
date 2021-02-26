@@ -9,6 +9,27 @@ body {
   background-color: #212026;
   text-align: justify;
 }
+.catbusfooter {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #2c2b31;
+}
+
+.catbusfooter a:link {
+  color: #575561;
+  text-decoration: none;
+}
+
+.catbusfooter a:hover {
+  color: #EADCD2;
+  text-decoration: none;
+}
+
+.catbusfooter a:visited {
+  color: #575561;
+  text-decoration: none;
+}
 
 a:link {
   color: #EADCD2;

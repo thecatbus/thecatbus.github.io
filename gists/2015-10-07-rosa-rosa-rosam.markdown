@@ -1,7 +1,7 @@
 ---
 title: Rosa Rosa Rosam
 author: Ovidius
-tags: Heck
+tags: foo
 ---
 
 Suspendisse pharetra ullamcorper sem et auctor. Suspendisse vitae tellus eu
@@ -45,3 +45,5 @@ quis tortor a arcu bibendum placerat non sed ante. Praesent orci sem, posuere
 sit amet cursus molestie, volutpat ut purus. Curabitur aliquam, purus in
 pharetra viverra, lorem leo aliquam tellus, vel consequat felis neque et mauris.
 Aliquam erat volutpat.
+
+<!--more-->

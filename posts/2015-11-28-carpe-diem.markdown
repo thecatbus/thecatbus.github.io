@@ -1,5 +1,6 @@
 ---
 title: Carpe Diem
+tags: foo
 ---
 
 Fusce tortor quam, egestas in posuere quis, porttitor vel turpis. Donec
@@ -9,6 +10,7 @@ Nullam nisi sem, dapibus id semper id, egestas vel arcu. Morbi porttitor ipsum
 placerat erat consequat sed consequat purus feugiat. Donec auctor elit ut risus
 mattis facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
+<!--more-->
 Proin vulputate sapien facilisis leo ornare pulvinar. Fusce tempus massa a risus
 semper iaculis. Suspendisse sollicitudin posuere nunc, sit amet rutrum leo
 facilisis mattis. Sed ornare auctor dui, vitae rutrum neque auctor sit amet.

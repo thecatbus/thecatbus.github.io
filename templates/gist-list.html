@@ -1,4 +1,4 @@
-Things I have tried to learn properly at some point-- I find writing explanatory articles is the best way to internalise the concepts. 
+All the things I have something to say about, but not enough to write an article. These range from equivalents of margin-scribbles to revision notes, small tricks I have picked here and there, and some original thoughts.
 
 <div id="taglist" class="dropdown"> $allTags$ </div>
 
@@ -7,7 +7,7 @@ Things I have tried to learn properly at some point-- I find writing explanatory
     var taglist = tags.innerHTML.split(',');
     heading = document.getElementById("heading");
     html=heading.innerText;
-    html="Posts / <div class=\"dropdown\"> <div class=\"dropbtn\">" + html.substring(7) +"<\div> <div class=\"dropdown-content\"> <a href=\"/posts.html\">all</a>";
+    html="Gists / <div class=\"dropdown\"> <div class=\"dropbtn\">" + html.substring(7) +"<\div> <div class=\"dropdown-content\"> <a href=\"/gists.html\">all</a>";
     taglist.forEach(function(x) {
         x = x.replace(/ \(\d*\)/,"");
         console.log(x);
@@ -28,8 +28,5 @@ $date$ ($tags$)
 </p>
 </div>
 $teaser$
-<div class="lastmodified" style="display: flex;">
-    <a href="$url$">read more...</a>
-</div>
 <hr>
 $endfor$

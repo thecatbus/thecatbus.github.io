@@ -19,39 +19,82 @@ main = hakyllWith myConfiguration $ do
         route   idRoute
         compile compressCssCompiler
 
-    match (fromList ["about.markdown", "contact.markdown"]) $ do
+    match "about.markdown" $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
+
+    postTags <- buildTags "posts/*" (fromCapture "posts/bytopic/*.html")
+
+    gistTags <- buildTags "gists/*" (fromCapture "gists/bytopic/*.html")
+
+    tagsRules postTags $ \tag pattern -> do
+        let title = "Posts / " ++ tag 
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAllSnapshots pattern "content"
+            let ctx = constField "title" title
+                      <> field "allTags" (\_->renderTagList postTags) 
+                      <> listField "posts" (postCtxWithTags postTags) (return posts)
+                      <> defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/post-list.html" ctx
+                >>= loadAndApplyTemplate "templates/default.html" ctx
+
+    tagsRules gistTags $ \tag pattern -> do
+        let title = "Gists / " ++ tag 
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAllSnapshots pattern "content"
+            let ctx = constField "title" title
+                      <> field "allTags" (\_->renderTagList gistTags) 
+                      <> listField "posts" (postCtxWithTags gistTags) (return posts)
+                      <> defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/gist-list.html" ctx
+                >>= loadAndApplyTemplate "templates/default.html" ctx
 
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
-            >>= relativizeUrls
+            >>= saveSnapshot "content" 
+            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags postTags)
+            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags postTags)
 
     match "gists/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default-gists.html" postCtx
-            >>= relativizeUrls
+            >>= saveSnapshot "content" 
+            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags gistTags)
+            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags gistTags)
 
-    create ["archive.html"] $ do
+    create ["posts.html"] $ do
         route idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
-            let archiveCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Archives"            `mappend`
-                    defaultContext
+            let archiveCtx = listField "posts" (postCtxWithTags postTags) (return posts) 
+                             <> field "allTags" (\_->renderTagList postTags) 
+                             <> constField "title" "Posts / all"
+                             <> defaultContext
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/post-list.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
-                >>= relativizeUrls
 
+    create ["gists.html"] $ do
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll "gists/*"
+            let archiveCtx = listField "posts" (postCtxWithTags gistTags) (return posts) 
+                             <> field "allTags" (\_->renderTagList gistTags) 
+                             <> constField "title" "Gists / all" 
+                             <> defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/gist-list.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
 
     match "index.html" $ do
         route idRoute
@@ -59,26 +102,13 @@ main = hakyllWith myConfiguration $ do
             getResourceBody
                 >>= applyAsTemplate defaultContext
                 >>= loadAndApplyTemplate "templates/home.html" defaultContext
-                >>= relativizeUrls
-
-    match "gists.html" $ do
-        route idRoute
-        compile $ do
-            gists <- recentFirst =<< loadAll "gists/*"
-            let indexCtx =
-                    listField "gists" postCtx (return gists) `mappend`
-                    defaultContext
-
-            getResourceBody
-                >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
 
-
 --------------------------------------------------------------------------------
-postCtx :: Context String
-postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
+
+postCtxWithTags :: Tags -> Context String 
+postCtxWithTags tags = teaserField "teaser" "content" 
+                       <> tagsField "tags" tags 
+                       <> dateField "date" "%B %e, %Y"
+                       <> defaultContext

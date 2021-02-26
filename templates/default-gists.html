@@ -11,32 +11,24 @@
     </head>
     <body>
         <main role="main">
-            <div class="title">
-                $title$
+            <div class="title" style="float: left; margin-top: -2.2rem;">
+                <a href="$url$" style="text-decoration: none; font-size: 2.5rem; color: #EADCD2;"> 
+                    $title$ 
+                </a>
                 $if(date)$
-                $else$
-                    <p class="lastmodified", id="last">
-                    Last modified on:
-                    </p>
-
-                <div class="clear" style="height: 10px;"></div>
-
-                   <script language="Javascript">
-                      lastMod = document.getElementById("last");
-                      date = new Date(document.lastModified)
-                      lastMod.innerText = "Last updated on " + date.toDateString() + ".";
-                    </script>
+                <p class="lastmodified">
+                    $date$
+                </p>
                 $endif$
             </div>
             $body$
         </main>
-        <div class="clear"></div>
+        <div class="clear" style="height: 20px"></div>
         <footer> 
             <img src="/images/BusStop.png" class="busStop"> 
             <a href="/index.html">
                 <div class="homebox">
                     <img src="/images/Logo.png" class="eyes"> 
-
                     <img src="/images/Lights.png" class="light"> 
                 </div>
             </a>

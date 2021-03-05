@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
+import           Text.Pandoc
 
 myConfiguration :: Configuration
 myConfiguration = defaultConfiguration
@@ -58,17 +59,17 @@ main = hakyllWith myConfiguration $ do
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ pandocCompilerWith defaultHakyllReaderOptions pandocOptions
             >>= saveSnapshot "content" 
             >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags postTags)
-            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags postTags)
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
     match "gists/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ pandocCompilerWith defaultHakyllReaderOptions pandocOptions
             >>= saveSnapshot "content" 
             >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags gistTags)
-            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags gistTags)
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
     create ["posts.html"] $ do
         route idRoute
@@ -112,3 +113,6 @@ postCtxWithTags tags = teaserField "teaser" "content"
                        <> tagsField "tags" tags 
                        <> dateField "date" "%B %e, %Y"
                        <> defaultContext
+                       
+pandocOptions :: WriterOptions 
+pandocOptions = defaultHakyllWriterOptions{ writerHTMLMathMethod = MathJax "" }

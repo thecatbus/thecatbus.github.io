@@ -4,10 +4,14 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: 'Castoro';
+  font-family: 'Caudex';
   color: #EADCD2;
   background-color: #212026;
   text-align: justify;
+}
+
+sc {
+  font-family: 'Vollkorn SC';
 }
 .catbusfooter {
   position: absolute;

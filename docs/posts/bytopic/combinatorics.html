@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Catbus: Posts / bar</title>
+        <title>Catbus: Posts / combinatorics</title>
         <link rel="stylesheet" href="/css/default.css" />
         <link href='https://fonts.googleapis.com/css?family=Vollkorn SC' rel='stylesheet'> 
-        <link href='https://fonts.googleapis.com/css?family=Castoro' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Caudex' rel='stylesheet'>
 
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -15,27 +15,31 @@
 
     <body>
         <main role="main">
-            <div class="title">
+            <div class="title"  style="text-align: left;" >
                 <div id="heading">
-                    Posts / bar
+                    Posts / combinatorics
                 </div>
+            </div>
                 
                     <p class="lastmodified", id="last">
                     Last modified on:
                     </p>
-
-                <div class="clear" style="height: 10px;"></div>
-
                    <script language="Javascript">
                       lastMod = document.getElementById("last");
                       date = new Date(document.lastModified)
                       lastMod.innerText = "Last updated on " + date.toDateString() + ".";
                    </script>
                 
-            </div>
-            Things I have tried to learn properly at some point-- I find writing explanatory articles is the best way to internalise the concepts. 
+            <head>
+    <style>
+        .teaser {
+            font-style: normal;
+        }
+    </style>
+</head>
 
-<div id="taglist" class="dropdown"> <a href="/posts/bytopic/bar.html">bar (1)</a>, <a href="/posts/bytopic/baz.html">baz (1)</a>, <a href="/posts/bytopic/foo.html">foo (4)</a> </div>
+<i>Over time, I have found that I learn best by explaining-- partly why this blog exists. These articles are on things I have tried to learn properly at some point, through coursework or otherwise. The articles present the subject in a form that made most sense to me, and are not guaranteed to be accurate representations of the topic. Importantly, I ask why any particular objects are natural things to think about, so contrary to a typical mathematical text, often the focus is on definitions rather than results. Nonetheless, there should be enough content in each article to start you off on a reading quest of your own.</i>
+<div id="taglist" class="dropdown"> <a href="/posts/bytopic/combinatorics.html">combinatorics (1)</a> </div>
 
 <script>
     tags = document.getElementById("taglist");
@@ -57,15 +61,17 @@
 <hr>
 
 <div class="smalltitle">
-S.P.Q.R. 
+Winning Strategies 
 <p class="lastmodified" style="margin-top: -3pt;">
-August 12, 2015 (<a title="All pages tagged &#39;foo&#39;." href="/posts/bytopic/foo.html">foo</a>, <a title="All pages tagged &#39;bar&#39;." href="/posts/bytopic/bar.html">bar</a>)
+August  6, 2020 (<a title="All pages tagged &#39;combinatorics&#39;." href="/posts/bytopic/combinatorics.html">combinatorics</a>)
 </p>
 </div>
-<p>asad <span class="math inline">\(1+4\)</span> \(1+1\) \begin{aligned} 1&amp;=1 \\ 2&amp;=2 \\ \mathbb{N} &amp;\rightarrow \Omega \end{aligned}</p>
+<div class="teaser">
+<p>The summer of 2020 found me working on set theoretic questions with Dr Thomas Forster– one of the first tasks he set me was to read about Conway’s Sylver Coinage. This simple question opens up a discussion of the theory of Gale-Stewart games, where two players take turns to build infinite sequences of natural numbers. The winner is decided based on whether or not the resulting sequence has some property– and knowing things as simple as the cardinality of all winning configurations can reveal a lot about whether the game has a winning strategy, i.e. is rigged in favour of one of the players.</p>
+</div>
 
 <div class="lastmodified" style="display: flex;">
-    <a href="/posts/2015-08-12-spqr.html">read more...</a>
+    <a href="/posts/2020-08-06-Winning-Strategies.html">read more...</a>
 </div>
 <hr>
 
@@ -85,7 +91,7 @@ August 12, 2015 (<a title="All pages tagged &#39;foo&#39;." href="/posts/bytopic
          Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
      </div>
      <div class="catbusfooter">
-         <a href="/index.html">Catbus</a> / Posts / bar
+         <a href="/index.html">Catbus</a> / Posts / combinatorics
      </div>
 </footer>
     </body>

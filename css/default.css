@@ -4,15 +4,49 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: 'Castoro';
+  font-family: 'Caudex';
   color: #EADCD2;
   background-color: #212026;
   text-align: justify;
 }
 
+sc {
+  font-family: 'Vollkorn SC'
+}
+
+.block { 
+  border-left: 4px solid #eadcd2;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgba(255, 255, 255, 0.048);
+}
+
+.remark { 
+  margin-left: 20px;
+  border-left: 4px solid #eadcd2;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.theorem { 
+  border-left: 4px solid #eadcd2;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgba(255, 255, 255, 0.048);
+}
+
+.proof { 
+  margin-left: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .clear { 
   clear: both; 
   height: 60px; 
+}
+
+.teaser {
+  font-style: italic;
 }
 
 a:link {
@@ -28,9 +62,10 @@ a:hover {
 }
 
 .title {
-  text-align: left;
+  text-align: center;
   font-family: 'Vollkorn SC';
-  font-size: 5rem;
+  font-size: 4rem;
+  padding-bottom: 40px;
   margin-right: 10pt;
   margin-bottom: -10pt;
   margin-top: 0pt;
@@ -51,7 +86,6 @@ a:hover {
   font-family: 'Vollkorn';
   font-style: italic;
   text-align: left;
-  margin-top: -10pt;
   color: #eadcd23d;
 }
 
@@ -174,7 +208,7 @@ article .header {
   display: none;
   position: absolute;
   background-color: #212026;
-  min-width: 160px;
+  min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.527);
   z-index: 1;
 }
@@ -186,6 +220,7 @@ article .header {
   display: block;
   font-size: 2rem;
   padding-left: 5%;
+  padding-right: 5%;
 }
 
 /* Change color of dropdown links on hover */

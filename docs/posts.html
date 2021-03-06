@@ -7,7 +7,7 @@
         <title>Catbus: Posts / all</title>
         <link rel="stylesheet" href="/css/default.css" />
         <link href='https://fonts.googleapis.com/css?family=Vollkorn SC' rel='stylesheet'> 
-        <link href='https://fonts.googleapis.com/css?family=Castoro' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Caudex' rel='stylesheet'>
 
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -15,27 +15,31 @@
 
     <body>
         <main role="main">
-            <div class="title">
+            <div class="title"  style="text-align: left;" >
                 <div id="heading">
                     Posts / all
                 </div>
+            </div>
                 
                     <p class="lastmodified", id="last">
                     Last modified on:
                     </p>
-
-                <div class="clear" style="height: 10px;"></div>
-
                    <script language="Javascript">
                       lastMod = document.getElementById("last");
                       date = new Date(document.lastModified)
                       lastMod.innerText = "Last updated on " + date.toDateString() + ".";
                    </script>
                 
-            </div>
-            Things I have tried to learn properly at some point-- I find writing explanatory articles is the best way to internalise the concepts. 
+            <head>
+    <style>
+        .teaser {
+            font-style: normal;
+        }
+    </style>
+</head>
 
-<div id="taglist" class="dropdown"> <a href="/posts/bytopic/bar.html">bar (1)</a>, <a href="/posts/bytopic/baz.html">baz (1)</a>, <a href="/posts/bytopic/foo.html">foo (4)</a> </div>
+<i>Over time, I have found that I learn best by explaining-- partly why this blog exists. These articles are on things I have tried to learn properly at some point, through coursework or otherwise. The articles present the subject in a form that made most sense to me, and are not guaranteed to be accurate representations of the topic. Importantly, I ask why any particular objects are natural things to think about, so contrary to a typical mathematical text, often the focus is on definitions rather than results. Nonetheless, there should be enough content in each article to start you off on a reading quest of your own.</i>
+<div id="taglist" class="dropdown"> <a href="/posts/bytopic/combinatorics.html">combinatorics (1)</a> </div>
 
 <script>
     tags = document.getElementById("taglist");
@@ -57,54 +61,17 @@
 <hr>
 
 <div class="smalltitle">
-Tu Quoque 
+Winning Strategies 
 <p class="lastmodified" style="margin-top: -3pt;">
-December  7, 2015 (<a title="All pages tagged &#39;foo&#39;." href="/posts/bytopic/foo.html">foo</a>)
+August  6, 2020 (<a title="All pages tagged &#39;combinatorics&#39;." href="/posts/bytopic/combinatorics.html">combinatorics</a>)
 </p>
 </div>
-<p>Vestibulum leo turpis, dignissim quis ultrices sit amet, iaculis ac ligula. Pellentesque tristique, velit eget scelerisque scelerisque, est dolor ultrices arcu, quis ullamcorper justo arcu luctus mauris. Integer congue molestie nisi id posuere. Fusce pellentesque gravida tempus. Integer viverra tortor nec eros mollis quis convallis sem laoreet. Nulla id libero ac erat varius laoreet. Proin sed est est. Curabitur lacinia fermentum lorem, elementum malesuada ipsum malesuada ut. Donec suscipit elit id leo vehicula mattis non sed leo. Morbi varius eleifend varius. Nulla vestibulum, neque vitae aliquam eleifend, nisi tellus placerat nunc, quis suscipit elit turpis eu tortor. Etiam euismod convallis lectus quis venenatis. Phasellus laoreet magna in nibh cursus eu egestas nulla convallis. Aliquam vel ullamcorper risus. Fusce dictum, massa id consequat viverra, nulla ante tristique est, a faucibus nisi enim nec dui. Donec metus ligula, condimentum at porttitor eget, lobortis at quam.</p>
+<div class="teaser">
+<p>The summer of 2020 found me working on set theoretic questions with Dr Thomas Forster– one of the first tasks he set me was to read about Conway’s Sylver Coinage. This simple question opens up a discussion of the theory of Gale-Stewart games, where two players take turns to build infinite sequences of natural numbers. The winner is decided based on whether or not the resulting sequence has some property– and knowing things as simple as the cardinality of all winning configurations can reveal a lot about whether the game has a winning strategy, i.e. is rigged in favour of one of the players.</p>
+</div>
 
 <div class="lastmodified" style="display: flex;">
-    <a href="/posts/2015-12-07-tu-quoque.html">read more...</a>
-</div>
-<hr>
-
-<div class="smalltitle">
-Carpe Diem 
-<p class="lastmodified" style="margin-top: -3pt;">
-November 28, 2015 (<a title="All pages tagged &#39;foo&#39;." href="/posts/bytopic/foo.html">foo</a>)
-</p>
-</div>
-<p>Fusce tortor quam, egestas in posuere quis, porttitor vel turpis. Donec vulputate porttitor augue at rhoncus. Proin iaculis consectetur sagittis. Curabitur venenatis turpis sit amet purus tristique nec posuere risus laoreet. Nullam nisi sem, dapibus id semper id, egestas vel arcu. Morbi porttitor ipsum placerat erat consequat sed consequat purus feugiat. Donec auctor elit ut risus mattis facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-<div class="lastmodified" style="display: flex;">
-    <a href="/posts/2015-11-28-carpe-diem.html">read more...</a>
-</div>
-<hr>
-
-<div class="smalltitle">
-Rosa Rosa Rosam 
-<p class="lastmodified" style="margin-top: -3pt;">
-October  7, 2015 (<a title="All pages tagged &#39;foo&#39;." href="/posts/bytopic/foo.html">foo</a>, <a title="All pages tagged &#39;baz&#39;." href="/posts/bytopic/baz.html">baz</a>)
-</p>
-</div>
-<p>Suspendisse pharetra ullamcorper sem et auctor. Suspendisse vitae tellus eu turpis dignissim gravida ut ut tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi aliquam sapien quis nisl sodales non aliquet nisl iaculis. Curabitur fermentum orci vel sapien pellentesque id condimentum metus vehicula. Curabitur turpis purus, scelerisque at interdum quis, placerat sit amet tortor. Aliquam erat volutpat.</p>
-
-<div class="lastmodified" style="display: flex;">
-    <a href="/posts/2015-10-07-rosa-rosa-rosam.html">read more...</a>
-</div>
-<hr>
-
-<div class="smalltitle">
-S.P.Q.R. 
-<p class="lastmodified" style="margin-top: -3pt;">
-August 12, 2015 (<a title="All pages tagged &#39;foo&#39;." href="/posts/bytopic/foo.html">foo</a>, <a title="All pages tagged &#39;bar&#39;." href="/posts/bytopic/bar.html">bar</a>)
-</p>
-</div>
-<p>asad <span class="math inline">\(1+4\)</span> \(1+1\) \begin{aligned} 1&amp;=1 \\ 2&amp;=2 \\ \mathbb{N} &amp;\rightarrow \Omega \end{aligned}</p>
-
-<div class="lastmodified" style="display: flex;">
-    <a href="/posts/2015-08-12-spqr.html">read more...</a>
+    <a href="/posts/2020-08-06-Winning-Strategies.html">read more...</a>
 </div>
 <hr>
 

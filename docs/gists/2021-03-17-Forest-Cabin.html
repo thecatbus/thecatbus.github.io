@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: Think like a DFA</title>
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href='https://fonts.googleapis.com/css?family=Vollkorn SC' rel='stylesheet'> 
+        <link href='https://fonts.googleapis.com/css?family=Caudex' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  style="text-align: left;" >
+                <div id="heading">
+                    Think like a DFA
+                </div>
+            </div>
+                
+                    <p class="lastmodified", id="last">
+                    Last modified on:
+                    </p>
+                   <script language="Javascript">
+                      lastMod = document.getElementById("last");
+                      date = new Date(document.lastModified)
+                      lastMod.innerText = "Last updated on " + date.toDateString() + ".";
+                   </script>
+                
+            <article>
+    <section class="lastmodified">
+        Posted on March 17, 2021
+        
+            by Parth
+        
+        <div style="float:right;">
+        
+            (<a title="All pages tagged &#39;logic&#39;." href="/gists/bytopic/logic.html">logic</a>)
+        
+        </div>
+    </section>
+    <section>
+        <p>A page stolen from Tom Forster’s book, here is a neat way to think about recursively enumerable languages (i.e. the languages recognised by a Deterministic Finite Automaton). Suppose you are sitting in a cabin in the middle of the forest, and are being sent an infinite stream of symbols. Every time you see a new symbol, you are supposed to flip a switch saying whether or not the string received <em>so far</em> is in the language <span class="math inline">\(L\)</span>.</p>
+<p>Tired, you wish to take a break and let your assistant take over. How much information about the string you have seen so far do you need to convey to the assistant, so that they can continue operating the switch? The least amount of information you could get away with passing on gives the number of states in the smallest DFA which recognises <span class="math inline">\(L\)</span>.</p>
+<!--more-->
+    </section>
+</article>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/BusStop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/Logo.png" class="eyes"> 
+
+             <img src="/images/Lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / Think like a DFA
+     </div>
+</footer>
+    </body>
+</html>

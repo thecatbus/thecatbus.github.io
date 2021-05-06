@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Catbus: Gists / algebra</title>
+        <title>Catbus: Gists / analysis</title>
         <link rel="stylesheet" href="/css/default.css" />
         <link href='https://fonts.googleapis.com/css?family=Vollkorn SC' rel='stylesheet'> 
         <link href='https://fonts.googleapis.com/css?family=Caudex' rel='stylesheet'>
@@ -17,7 +17,7 @@
         <main role="main">
             <div class="title"  style="text-align: left;" >
                 <div id="heading">
-                    Gists / algebra
+                    Gists / analysis
                 </div>
             </div>
                 
@@ -54,13 +54,13 @@
 <hr>
 
 <div class="smalltitle">
-Evil irreducibility 
+Intersection and measure 
 <p class="lastmodified" style="margin-top: -3pt;">
-March 16, 2021 (<a title="All pages tagged &#39;algebra&#39;." href="/gists/bytopic/algebra.html">algebra</a>)
+May  5, 2021 (<a title="All pages tagged &#39;analysis&#39;." href="/gists/bytopic/analysis.html">analysis</a>)
 </p>
 </div>
-<p>Watch out for analytical tricks to deduce irreducibility of a polynomial:</p>
-<p>Suppose <span class="math inline">\(a_1,...,a_n\)</span> are integers and <span class="math inline">\(p\)</span> is a prime such that <span class="math inline">\(\sum_{i=1}^n|a_i|&lt; p\)</span>. Then the polynomial <span class="math inline">\(a_nX^n+...+ a_1X+p\)</span> is irreducible over <span class="math inline">\(\mathbb{Z}\)</span>: if not, the polynomial can be written as <span class="math inline">\(f\cdot g\)</span> for non-constant polynomials <span class="math inline">\(f,g\)</span>. Then <span class="math inline">\(f(0)\cdot g(0)= p\)</span>, so wlog <span class="math inline">\(f(0)=\pm 1\)</span>. This implies the product of the (complex) roots of <span class="math inline">\(f\)</span> is <span class="math inline">\(1\)</span>, in particular there is a root <span class="math inline">\(\alpha\)</span> with <span class="math inline">\(|\alpha|\leq 1\)</span>. But then <span class="math inline">\(|p| = |a_n\alpha^n+...+a_1\alpha|\leq \sum_{i=1}^n |\alpha_i|\)</span>, a contradiction. 
+<p>Let <span class="math inline">\((E,\mathcal{E}, \mu)\)</span> be a measure space. If <span class="math inline">\(A,B\in \mathcal{E}\)</span> are such that <span class="math inline">\(\mu(A)+\mu(B)&gt; \mu(E)\)</span> then <span class="math inline">\(A\cap B \neq \emptyset\)</span>. A neat illustration:</p>
+<p>Suppose <span class="math inline">\(A\subset [0,1]\)</span> is measurable with <span class="math inline">\(\mu(A)= \frac{1+\alpha}{2}\)</span>. Then for any <span class="math inline">\(\alpha&#39;&lt;\alpha\)</span>, the set <span class="math inline">\(A&#39; =(\alpha&#39; + A)\cap [0,1]\)</span> has measure <span class="math inline">\(\geq \mu(A)-\alpha&#39;\)</span>, hence <span class="math inline">\(\mu(A)+\mu(A&#39;)&gt;1\)</span>. It follows that there is an (x) with ({x, x-’}A). Conclude that <span class="math inline">\((-\alpha, \alpha)\subset A-A\)</span>. 
 <hr>
 
         </main>
@@ -79,7 +79,7 @@ March 16, 2021 (<a title="All pages tagged &#39;algebra&#39;." href="/gists/byto
          Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
      </div>
      <div class="catbusfooter">
-         <a href="/index.html">Catbus</a> / Gists / algebra
+         <a href="/index.html">Catbus</a> / Gists / analysis
      </div>
 </footer>
     </body>

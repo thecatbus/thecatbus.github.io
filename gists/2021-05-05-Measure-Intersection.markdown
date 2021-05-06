@@ -1,7 +1,7 @@
 ---
 title: Intersection and measure
 author: Parth
-tags: algebra
+tags: analysis
 ---
 Let $(E,\mathcal{E}, \mu)$ be a measure space. If $A,B\in \mathcal{E}$ are such that $\mu(A)+\mu(B)> \mu(E)$ then $A\cap B \neq \emptyset$. A neat illustration: 
 

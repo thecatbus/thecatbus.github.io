@@ -40,6 +40,14 @@ sc {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.example {
+  margin-left: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #eadcd2;
+}
+
 .clear { 
   clear: both; 
   height: 60px; 

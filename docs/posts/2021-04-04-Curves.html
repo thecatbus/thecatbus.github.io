@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: About Curves</title>
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href='https://fonts.googleapis.com/css?family=Vollkorn SC' rel='stylesheet'> 
+        <link href='https://fonts.googleapis.com/css?family=Caudex' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  >
+                <div id="heading">
+                    About Curves
+                </div>
+            </div>
+                
+                
+            <article>
+    <section class="lastmodified">
+        Posted on April  4, 2021
+        
+            by Parth
+        
+        <div style="float:right;">
+        
+            (<a title="All pages tagged &#39;algebraic geometry&#39;." href="/posts/bytopic/algebraic%20geometry.html">algebraic geometry</a>)
+        
+        </div>
+    </section>
+    <section>
+        <div class="teaser">
+
+</div>
+<!--more-->
+<p>Henceforth, we work over an algebraically closed field <span class="math inline">\(k\)</span> of characteristic <span class="math inline">\(0\)</span>. A <em>curve</em> is a smooth projective variety of dimension <span class="math inline">\(1\)</span>, but often we only care about these up to isomorphism. An <em>abstract curve</em> will then refer to an isomorphism class of curves, whatever that might mean. These are the simplest classes of algebraic varieties, so we can say a lot about them– the goal we have is to classify all curves up to isomorphism.</p>
+<h1 id="local-structure">Local structure</h1>
+<p>Given an abstract projective irreducible curve <span class="math inline">\(C\)</span> and a point <span class="math inline">\(p\in C\)</span>, the function field <span class="math inline">\(\mathcal{O}_C(\eta)\)</span> has a local ring <span class="math inline">\(\mathcal{O}_{C,p}\)</span> of functions that are regular at <span class="math inline">\(p\)</span>. The functions that vanish at <span class="math inline">\(p\)</span> are the non-units of <span class="math inline">\(p\)</span>, and form the unique maximal ideal <span class="math inline">\(\mathfrak{m}_p\triangleleft\mathcal{O}_{C,p}\)</span>. Note that the quotient <span class="math inline">\(\mathcal{O}_{C,p}/\mathfrak{m}_p\)</span> is isomorphic to <span class="math inline">\(k\)</span> and the residue class of any function is the value it takes at <span class="math inline">\(p\)</span>.</p>
+<p>If <span class="math inline">\(p\)</span> is a smooth point, the dimension of <span class="math inline">\(C\)</span> can be calculated as the dimension of the cotangent space <span class="math inline">\(\mathfrak{m}_p/\mathfrak{m}_p^2\)</span> at <span class="math inline">\(p\)</span>. The fact that <span class="math inline">\(C\)</span> is a curve (i.e. has dimension <span class="math inline">\(1\)</span>) puts enough constraints to reduce this to a principal ideal.</p>
+<div class="theorem">
+<sc>Theorem</sc> Suppose <span class="math inline">\(C\)</span> is an irreducible projective curve and <span class="math inline">\(p\in C\)</span> is smooth. Then the maximal ideal <span class="math inline">\(\mathfrak{m}_p\)</span> of <span class="math inline">\(\mathcal{O}_{C,p}\)</span> is principal, i.e. <span class="math inline">\(\mathfrak{m}_p = (t)\)</span> for some <span class="math inline">\(t\in \mathcal{O}_{C,p}\)</span>.
+</div>
+<div class="proof">
+<p><sc>Proof</sc> Pick <span class="math inline">\(t\in \mathfrak{m}_p\setminus \mathfrak{m}_p^2\)</span>, then its image <span class="math inline">\(\bar{t}\)</span> in <span class="math inline">\(\mathfrak{m}_p/\mathfrak{m}_p^2\)</span> is non-zero and we have <span class="math inline">\(\mathfrak{m}_p/\mathfrak{m}_p^2 = \langle \bar{t} \rangle\)</span> as a <span class="math inline">\(k\)</span>-vector space. In other words, the composite map <span class="math inline">\((t)\hookrightarrow \mathfrak{m}_p \rightarrow \mathfrak{m}_p/\mathfrak{m}_p^2\)</span> is surjective, so <span class="math inline">\((t)+\mathfrak{m}_p^2 = \mathfrak{m}_p\)</span>. But now we see that <span class="math inline">\(\mathfrak{m}_p \cdot \mathfrak{m}_p/(t) = (t)+\mathfrak{m}_p^2 \;/(t) = \mathfrak{m}_p/(t)\)</span>.</p>
+<p>Now it is a true fact that any localization of a commutative Noetherian ring (in particular, the coordinate ring <span class="math inline">\(\mathcal{O}_{C}\)</span>) is itself Noetherian. This implies <span class="math inline">\(\mathfrak{m}_p\)</span>, and hence <span class="math inline">\(\mathfrak{m}_p/(t)\)</span> are finitely generated <span class="math inline">\(\mathcal{O}_{C,p}\)</span>-modules. Nakayama’s lemma then gives us <span class="math inline">\(\mathfrak{m}_p/(t)=(0)\)</span>, i.e. <span class="math inline">\(\mathfrak{m}_p = (t)\)</span>. <span class="math inline">\(\quad\square\)</span></p>
+</div>
+<p>If <span class="math inline">\(\mathfrak{m}_p = (t)\)</span>, we call <span class="math inline">\(t\)</span> a <em>local parameter</em> at <span class="math inline">\(p\)</span>. This is unique up to multiplication by a unit.</p>
+<p>Writing <span class="math inline">\(\mathfrak{m}_p^0 = \mathcal{O}_{C,p}\)</span>, we have the strictly decreasing chain of ideals <span class="math inline">\(\mathfrak{m}_p^0\supset \mathfrak{m}_p^1 \supset \mathfrak{m}_p^2 \supset ...\)</span> Moreover, <span class="math inline">\(\bigcap_i \mathfrak{m}_p^i = \{0\}\)</span>: this is a simple application of Nakayama’s lemma since <span class="math inline">\(\mathfrak{m}_p \cdot \bigcap_i \mathfrak{m}_p^i =\bigcap_i \mathfrak{m}_p^i\)</span>. Hence every non-zero function <span class="math inline">\(f\in \mathcal{O}_{C,p}\)</span> can be assigned a well-defined integer <span class="math inline">\(v_p(f)=\max\{i\;|\; f\in \mathfrak{m}_p^i\}\)</span>. It is immediate that if <span class="math inline">\(v_p(f) = k\)</span> then <span class="math inline">\(f=t^kg\)</span> for some <span class="math inline">\(g\in \mathcal{O}_{C,p}\setminus \mathfrak{m}_p\)</span>. This allows us to extend <span class="math inline">\(v_p\)</span> to a group homomorphism <span class="math inline">\(\mathcal{O}_{C}(\eta)^\times \rightarrow \mathbb{Z}\)</span>; for any function <span class="math inline">\(f\in \mathcal{O}_{C}(\eta)\)</span> we say <span class="math inline">\(v_p(f)\)</span> is the <em>order of vanishing</em> of <span class="math inline">\(f\)</span> at <span class="math inline">\(p\)</span>. We say <span class="math inline">\(\mathcal{O}_{C,p}\)</span> is a <em>discrete valuation ring</em>, and <span class="math inline">\(v_p\)</span> is a <em>valuation</em>.</p>
+<p>If <span class="math inline">\(v_p(f)&gt;0\)</span> we say <span class="math inline">\(f\)</span> has a <em>zero</em> of order <span class="math inline">\(v_p(f)\)</span> at <span class="math inline">\(p\)</span>, and if <span class="math inline">\(v_p(f)&lt;0\)</span> we say <span class="math inline">\(f\)</span> has a <em>pole</em> of order <span class="math inline">\(-v_p(f)\)</span> at <span class="math inline">\(p\)</span>. Then a non-zero function is regular at <span class="math inline">\(p\)</span> iff it does not have a pole at <span class="math inline">\(p\)</span>, i.e. <span class="math inline">\(\mathcal{O}_{C,p}=\{0\}\cup \{f\in\mathcal{O}_{C}(\eta)^\times\;|\;v_p(f)\geq 0 \}\)</span>. Since this allows us to determine <span class="math inline">\(\mathcal{O}_{C,p}\)</span> given <span class="math inline">\(v_p\)</span>, we say <span class="math inline">\(\mathcal{O}_{C,p}\)</span> is the <em>valuation ring</em> of <span class="math inline">\(v_p\)</span>.</p>
+<p>The local parameter gives us a complete understanding of maps on curves – for instance, if <span class="math inline">\(f\in \mathcal{O}_{C}(\eta)\)</span> then at least one of <span class="math inline">\(f,f^{-1}\)</span> is regular. A more substantial consequence is the following:</p>
+<div class="theorem">
+<sc>Corollary</sc> Suppose <span class="math inline">\(C\)</span> is an irreducible projective curve and <span class="math inline">\(\phi:C\dashrightarrow \mathbb{P}^n\)</span> is a rational map. Then <span class="math inline">\(\phi\)</span> can be extended to a morphism.
+</div>
+<div class="proof">
+<sc>Proof</sc> Suppose <span class="math inline">\(\phi\)</span> is determined by the rational functions <span class="math inline">\([g_0:g_1:\,... \,:g_n]\)</span>, then <span class="math inline">\(\phi\)</span> is defined at <span class="math inline">\(p\in C\)</span> if all <span class="math inline">\(g_i\)</span> are regular at <span class="math inline">\(p\)</span> and there is some <span class="math inline">\(i\)</span> with <span class="math inline">\(g_i(p)\neq 0\)</span>. If <span class="math inline">\(p\)</span> is a point where <span class="math inline">\(\phi\)</span> is not defined, write <span class="math inline">\(k=\min\{v_p(g_0),...,v_p(g_n)\}\)</span> and let <span class="math inline">\(t\)</span> be the local parameter at <span class="math inline">\(p\)</span>. Then the rational map <span class="math inline">\([t^{-k}g_0:\,...\,:t^{-k}g_n]\)</span> is equivalent to <span class="math inline">\(\phi\)</span>, and is defined at <span class="math inline">\(p\)</span>. <span class="math inline">\(\quad\square\)</span>
+</div>
+<h1 id="functions-zeros-and-poles">Functions, zeros and poles</h1>
+    </section>
+</article>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/BusStop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/Logo.png" class="eyes"> 
+
+             <img src="/images/Lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / About Curves
+     </div>
+</footer>
+    </body>
+</html>

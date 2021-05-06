@@ -1,0 +1,87 @@
+---
+title: About Curves 
+author: Parth 
+date: 4 April 2021
+tags: algebraic geometry 
+---
+
+<div class="teaser"> 
+</div>
+<!--more-->
+
+Henceforth, we work over an algebraically closed field $k$ of characteristic $0$. A _curve_ is a smooth projective variety of dimension $1$, but often we only care about these up to isomorphism. An _abstract curve_ will then refer to an isomorphism class of curves, whatever that might mean. These are the simplest classes of algebraic varieties, so we can say a lot about them-- the goal we have is to classify all curves up to isomorphism. 
+
+# Local structure
+Given an abstract projective irreducible curve $C$ and a point $p\in C$, the
+function field $\mathcal{O}_C(\eta)$ has a local ring $\mathcal{O}_{C,p}$ of
+functions that are regular at $p$. The functions that vanish at $p$ are the
+non-units of $p$, and form the unique maximal ideal
+$\mathfrak{m}_p\triangleleft\mathcal{O}_{C,p}$. Note that the quotient
+$\mathcal{O}_{C,p}/\mathfrak{m}_p$ is isomorphic to $k$ and the residue class of
+any function is the value it takes at $p$.
+
+If $p$ is a smooth point, the dimension of $C$ can be calculated as the
+dimension of the cotangent space $\mathfrak{m}_p/\mathfrak{m}_p^2$ at $p$. The
+fact that $C$ is a curve (i.e. has dimension $1$) puts enough constraints to
+reduce this to a principal ideal.
+
+<div class="theorem">
+<sc>Theorem</sc> Suppose $C$ is an irreducible projective curve and $p\in C$ is
+smooth.  Then the maximal ideal $\mathfrak{m}_p$ of $\mathcal{O}_{C,p}$ is
+principal, i.e. $\mathfrak{m}_p = (t)$ for some $t\in \mathcal{O}_{C,p}$.</div>
+<div class="proof">
+<sc>Proof</sc> Pick $t\in \mathfrak{m}_p\setminus \mathfrak{m}_p^2$, then its
+image $\bar{t}$ in $\mathfrak{m}_p/\mathfrak{m}_p^2$ is non-zero and 
+we have $\mathfrak{m}_p/\mathfrak{m}_p^2 = \langle \bar{t} \rangle$ as a
+$k$-vector space. In other words, the composite map $(t)\hookrightarrow
+\mathfrak{m}_p \rightarrow \mathfrak{m}_p/\mathfrak{m}_p^2$ is surjective, so
+$(t)+\mathfrak{m}_p^2 = \mathfrak{m}_p$. But now we see that $\mathfrak{m}_p
+\cdot \mathfrak{m}_p/(t) = (t)+\mathfrak{m}_p^2 \;/(t) = \mathfrak{m}_p/(t)$.
+
+Now it is a true fact that any localization of a commutative Noetherian ring (in
+particular, the coordinate ring $\mathcal{O}_{C}$) is itself Noetherian. This
+implies $\mathfrak{m}_p$, and hence $\mathfrak{m}_p/(t)$ are finitely generated
+$\mathcal{O}_{C,p}$-modules. Nakayama's lemma then gives us
+$\mathfrak{m}_p/(t)=(0)$, i.e. $\mathfrak{m}_p = (t)$. $\quad\square$
+</div>
+
+If $\mathfrak{m}_p = (t)$, we call $t$ a _local parameter_ at $p$. This is
+unique up to multiplication by a unit. 
+
+Writing $\mathfrak{m}_p^0 = \mathcal{O}_{C,p}$, we have the strictly decreasing chain of
+ideals $\mathfrak{m}_p^0\supset \mathfrak{m}_p^1 \supset \mathfrak{m}_p^2
+\supset ...$ Moreover, $\bigcap_i \mathfrak{m}_p^i = \{0\}$: this is a simple application
+of Nakayama's lemma since 
+$\mathfrak{m}_p \cdot \bigcap_i \mathfrak{m}_p^i =\bigcap_i \mathfrak{m}_p^i$.  Hence every non-zero function $f\in \mathcal{O}_{C,p}$ can be assigned a well-defined
+integer $v_p(f)=\max\{i\;|\; f\in \mathfrak{m}_p^i\}$. It is immediate that if
+$v_p(f) = k$ then $f=t^kg$ for some $g\in \mathcal{O}_{C,p}\setminus
+\mathfrak{m}_p$. This allows us to extend $v_p$ to a group homomorphism
+$\mathcal{O}_{C}(\eta)^\times \rightarrow \mathbb{Z}$; for any function $f\in
+\mathcal{O}_{C}(\eta)$ we say $v_p(f)$ is the _order of vanishing_ of $f$ at
+$p$. We say $\mathcal{O}_{C,p}$ is a _discrete valuation ring_, and $v_p$ is a
+_valuation_.
+
+If $v_p(f)>0$ we say $f$ has a _zero_ of order $v_p(f)$ at $p$, and if
+$v_p(f)<0$ we say $f$ has a _pole_ of order $-v_p(f)$ at $p$. Then a non-zero
+function is regular at $p$ iff it does not have a pole at $p$, i.e.
+$\mathcal{O}_{C,p}=\{0\}\cup \{f\in\mathcal{O}_{C}(\eta)^\times\;|\;v_p(f)\geq 0
+\}$. Since this allows us to determine $\mathcal{O}_{C,p}$ given $v_p$, we say
+$\mathcal{O}_{C,p}$ is the _valuation ring_ of $v_p$.
+
+The local parameter gives us a complete understanding of maps on curves -- for
+instance, if $f\in \mathcal{O}_{C}(\eta)$ then at least one of $f,f^{-1}$ is
+regular. A more substantial consequence is the following: 
+
+<div class="theorem">
+<sc>Corollary</sc> Suppose $C$ is an irreducible projective curve and
+$\phi:C\dashrightarrow \mathbb{P}^n$ is a rational map. Then $\phi$ can be
+extended to a morphism. </div>
+<div class="proof">
+<sc>Proof</sc> Suppose $\phi$ is determined by the rational functions
+$[g_0:g_1:\,... \,:g_n]$, then $\phi$ is defined at $p\in C$ if all $g_i$ are regular
+at $p$ and there is some $i$ with $g_i(p)\neq 0$. If $p$ is a point where $\phi$
+is not defined, write $k=\min\{v_p(g_0),...,v_p(g_n)\}$ and let $t$ be the local
+parameter at $p$. Then the rational map $[t^{-k}g_0:\,...\,:t^{-k}g_n]$ is
+equivalent to $\phi$, and is defined at $p$. $\quad\square$</div>
+
+# Functions, zeros and poles

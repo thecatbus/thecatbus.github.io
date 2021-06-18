@@ -54,10 +54,7 @@ ideals $\mathfrak{m}_p^0\supset \mathfrak{m}_p^1 \supset \mathfrak{m}_p^2
 of Nakayama's lemma since 
 $\mathfrak{m}_p \cdot \bigcap_i \mathfrak{m}_p^i =\bigcap_i \mathfrak{m}_p^i$.  Hence every non-zero function $f\in \mathcal{O}_{C,p}$ can be assigned a well-defined
 integer $v_p(f)=\max\{i\;|\; f\in \mathfrak{m}_p^i\}$. It is immediate that if
-$v_p(f) = k$ then $f=t^kg$ for some $g\in \mathcal{O}_{C,p}\setminus
-\mathfrak{m}_p$. This allows us to extend $v_p$ to a group homomorphism
-$\mathcal{O}_{C}(\eta)^\times \rightarrow \mathbb{Z}$; for any function $f\in
-\mathcal{O}_{C}(\eta)$ we say $v_p(f)$ is the _order of vanishing_ of $f$ at
+$v_p(f) = k$ then $f=t^kg$ for some $g\in \mathcal{O}_{C,p}^\times$. This allows us to extend $v_p$ to a group homomorphism $\mathcal{O}_{C}(\eta)\setminus\{0\} \rightarrow \mathbb{Z}$; for any function $f\in \mathcal{O}_{C}(\eta)$ we say $v_p(f)$ is the _order of vanishing_ of $f$ at
 $p$. We say $\mathcal{O}_{C,p}$ is a _discrete valuation ring_, and $v_p$ is a
 _valuation_.
 
@@ -75,13 +72,16 @@ regular. A more substantial consequence is the following:
 <div class="theorem">
 <sc>Corollary</sc> Suppose $C$ is an irreducible projective curve and
 $\phi:C\dashrightarrow \mathbb{P}^n$ is a rational map. Then $\phi$ can be
-extended to a morphism. </div>
+extended to a morphism.</div>
 <div class="proof">
 <sc>Proof</sc> Suppose $\phi$ is determined by the rational functions
 $[g_0:g_1:\,... \,:g_n]$, then $\phi$ is defined at $p\in C$ if all $g_i$ are regular
 at $p$ and there is some $i$ with $g_i(p)\neq 0$. If $p$ is a point where $\phi$
 is not defined, write $k=\min\{v_p(g_0),...,v_p(g_n)\}$ and let $t$ be the local
 parameter at $p$. Then the rational map $[t^{-k}g_0:\,...\,:t^{-k}g_n]$ is
-equivalent to $\phi$, and is defined at $p$. $\quad\square$</div>
+equivalent to $\phi$, and is defined at $p$. $\quad\square$ 
+</div>
+
+
 
 # Functions, zeros and poles

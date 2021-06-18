@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: Why is Lambda Calculus</title>
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href='https://fonts.googleapis.com/css?family=Vollkorn SC' rel='stylesheet'> 
+        <link href='https://fonts.googleapis.com/css?family=Caudex' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  >
+                <div id="heading">
+                    Why is Lambda Calculus
+                </div>
+            </div>
+                
+                
+            <article>
+    <section class="lastmodified">
+        Posted on October  5, 2020
+        
+            by Parth
+        
+        <div style="float:right;">
+        
+            (<a title="All pages tagged &#39;foundations&#39;." href="/posts/bytopic/foundations.html">foundations</a>)
+        
+        </div>
+    </section>
+    <section>
+        <div class="teaser">
+<p>Alonzo Church’s Lambda Calculus is what makes type-free functional programming work. A powerful model of computation, at its heart is a very simple abstract rewrite system– a directed graph. This short article touches upon why Lambda-calculus might be a natural thing to think about, and presents an elegant proof of the Church-Rosser theorem.</p>
+</div>
+<!--more-->
+<h1 id="functions-in-intention">Functions in Intention</h1>
+<p>In the Zermelo-Fraenkel view of mathematical foundations, sets are first-class objects. Everything you can talk about, can be encoded as a set– sets are sets, ordered pairs <span class="math inline">\((a,b)\)</span> are sets <span class="math inline">\(\{\{a\},\{a,b\}\}\)</span>, and functions are sets of ordered pairs. A function, then, is nothing more than a dictionary which takes an object and associates it to exactly one other object almost artificially. This viewpoint is great for thinking about ‘arbitrary’ functions, permutations are great examples. But is that really all there is to it? When asked what is <span class="math inline">\(2+3\)</span> your computer does not open the <span class="math inline">\(+\)</span>-dictionary and look up <span class="math inline">\((2,3)\)</span>, instead it takes the input and performs a series of logical operations on the input to convert it to the desired result. (Indeed, storing the entire <span class="math inline">\(+\)</span>-dictionary is not even physically possible, let alone reasonable.)</p>
+<p>And in intention, that is what you would expect a function to be– a recipe, a rule of computation, a ‘box’ which takes in some object and spits out another (depending only on the input). This completely different approach to foundations of mathematics, where functions are first-class objects, led to what is called Lambda calculus. This provides a rich language where, unlike sets which are simple unordered lists, functions are living breathing objects that take arguments and can be composed. We then have a very powerful model of computation.</p>
+<h1 id="the-language-lambda">The Language <span class="math inline">\(\Lambda\)</span></h1>
+<p>Suppose <span class="math inline">\(\texttt{square}\)</span> defines a function that takes in <span class="math inline">\(x\)</span> and spits out <span class="math inline">\(x^2\)</span>. This ‘rule applied to object’ approach can be written symbolically in a variety of ways-</p>
+<p><span class="math display">\[\begin{gather*}
+\texttt{square}(x)=x^2 \\ \\
+x\xrightarrow{\texttt{square}}x^2 \\ \\
+\texttt{square}=\lambda x .x^2
+\end{gather*}\]</span></p>
+<p>The last one is due to Alonzo Church, who (quite arbitrarily) chose <span class="math inline">\(\lambda\)</span> to denote a quantifier that specifies what object the rule should be applied to. Church’s notation has one notable advantage over the rest– the name of the function and its description are separated and made equivalent; writing <span class="math inline">\((\lambda x. x^2)\)</span> is the same as writing <span class="math inline">\(\texttt{square}\)</span>. To see how powerful this is, contrast how the two systems would express the same fact:</p>
+<p><span class="math display">\[\begin{gather*}
+(\lambda x.x^2)3=9 \\ \\
+\texttt{square}(x)=x^2, \quad \texttt{square}(3)=9
+\end{gather*}\]</span></p>
+<p>The latter system (which most mathematicians are used to) needs to introduce an arbitrary name to express even the simplest of facts, whereas Church’s notation reduces the name to what it should be– mere convenience. Multi-argument functions would then be written like <span class="math inline">\(\texttt{sum}=\lambda xy.x+y\)</span>, a function that takes in two numbers and returns their sum. Frege realised that by letting the output itself be a function, this input-output correspondence could be made one-to-one while keeping all the expressive power. Then by partially applying <span class="math inline">\(\texttt{sum}\)</span> to a single argument <span class="math inline">\(a\)</span>, we get another function <span class="math inline">\(\texttt{sum}\, a = \lambda x. (x + a)\)</span>. This in turn means that the original function can be written as <span class="math inline">\(\texttt{sum}= \lambda y . \texttt{sum}\, y \,(x) = \lambda y.\lambda x. x + y\)</span>. Although originally due to Frege, this idea of partially applying functions was rediscovered by Haskell Curry and is called <em>currying</em>: it says functions <span class="math inline">\(X\times Y \rightarrow Z\)</span> are the same as functions <span class="math inline">\(X \rightarrow (Y \rightarrow Z)\)</span>. And this should be natural, for the first corresponds to <span class="math inline">\(Z^{X\times Y}\)</span> while the latter is <span class="math inline">\((Z^Y)^X\)</span>.</p>
+<p>In principle, these ideas could lead to a foundation for all mathematics, solely in terms of functions and their application. The <span class="math inline">\(\lambda\)</span>-calculus is an attempt at capturing this idea, that eventually paved the way for modern functional programming. This formalization by Alonzo Church gave, at the very least, an elegant notation for manipulating functions.</p>
+<h2 id="conventions">Conventions</h2>
+<p>Still keeping the old convention, we choose to read <span class="math inline">\(\lambda x y z .F\)</span> as <span class="math inline">\(\lambda x.(\lambda y.( \lambda z. F))\)</span>. Left associativity is the natural convention to follow for application- <span class="math inline">\(Fxyz=((Fx)y)z\)</span>.</p>
+<div class="definition">
+<p><sc>Definition</sc> The set of <span class="math inline">\(\lambda\)</span>-terms is defined inductively as:</p>
+<ul>
+<li>Variables are <span class="math inline">\(\lambda\)</span>-terms.</li>
+<li>If <span class="math inline">\(M,N\)</span> are <span class="math inline">\(\lambda\)</span>-terms then so is <span class="math inline">\(MN\)</span>. Terms formed this way are called application terms.</li>
+<li>If <span class="math inline">\(M\)</span> is a <span class="math inline">\(\lambda\)</span>-term and <span class="math inline">\(x\)</span> is a variable then <span class="math inline">\(\lambda x . M\)</span> is a <span class="math inline">\(\lambda\)</span>-term. Terms formed this way are called abstraction terms.</li>
+</ul>
+</div>
+<p>This is a purely syntactic notion– we now have a set of all possible terms made out of functions, abstraction and application. I like to think of application explicitly as a binary relation and compare the definition of <span class="math inline">\(\lambda\)</span>-terms with how one would inductively define the set of terms for a given predicate logic.</p>
+<h2 id="term-equivalence-and-hyperintention">Term equivalence and Hyperintention</h2>
+<p>The question of when two functions are the same raises profound questions– if your view is limited to the extensional perspective of functions-as-dictionaries, then it is reasonable to call two functions the same if they are the same dictionary. But what about the intentional variant, functions-as-rules? On the domain of all neutral atoms the functions <span class="math inline">\(\texttt{Number_of_electrons}\)</span> and <span class="math inline">\(\texttt{Number_of_protons}\)</span> have the same behaviour as dictionaries, but they are clearly different in intention. What about <span class="math inline">\(\lambda x. (x+1)\)</span> and <span class="math inline">\(\lambda x.  (x+2-1)\)</span>? You know they mean the same thing, even though they appear different as rules. Lambda-calculus treats them differently, and is hence a hyperintensional theory. Since <span class="math inline">\(\lambda\)</span>-terms are finite strings of symbols, we write <span class="math inline">\(M\equiv N\)</span> (<span class="math inline">\(M\)</span> is identical to <span class="math inline">\(N\)</span>) if they correspond to exactly the same string.</p>
+<p>This is more restrictive than it should be– for <span class="math inline">\(\lambda x. x\)</span> and <span class="math inline">\(\lambda y.y\)</span> are not identical. Indeed, relabelling all occurrences of any bound variable should not change the meaning of the term. Call such a transformation (replacing all bound occurrences of <span class="math inline">\(x\)</span> in <span class="math inline">\(M\)</span> with <span class="math inline">\(y\)</span>) an <span class="math inline">\(\alpha\)</span>-reduction. Call two terms <span class="math inline">\(\alpha\)</span>-equivalent if there is a sequence of alpha reductions from one to the other. In abuse of notation, I shall use <span class="math inline">\(\equiv\)</span> to denote this relation henceforth. We shall also assume that no term shall have a variable occuring as both free and bound (by applying enough <span class="math inline">\(\alpha\)</span>-reductions to ensure this is true.)</p>
+<p>Similarly one would naturally expect <span class="math inline">\(\lambda x. (Mx)\)</span> to be the same function as <span class="math inline">\(M\)</span>, however they are syntactically very different. Hence we introduce the notion of an <span class="math inline">\(\eta\)</span>-reduction: if <span class="math inline">\(T\)</span> is a term, we replace some subterm of form <span class="math inline">\(\lambda x.(Mx)\)</span> with <span class="math inline">\(M\)</span>.</p>
+<h1 id="computation">Computation</h1>
+<p>The final reduction in our toolbox is what enables us to use our functions, by allowing them to accept inputs. If <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are <span class="math inline">\(\lambda\)</span>-terms, we write <span class="math inline">\([N/x]M\)</span> for the term obtained by replacing every free occurence of <span class="math inline">\(x\)</span> inside <span class="math inline">\(M\)</span> with <span class="math inline">\(N\)</span>. Thus if <span class="math inline">\(x\)</span> is bound in <span class="math inline">\(M\)</span> then <span class="math inline">\([N/x]M\equiv M\)</span>.</p>
+<p>The quantifier <span class="math inline">\(\lambda\)</span> and the binary relation of application work in synchrony– application indicates that the second term acts as an argument to the first, and abstraction with <span class="math inline">\(\lambda\)</span> binds that argument to some variable. This forms the most important computational step in <span class="math inline">\(\lambda\)</span>-calculus, a <span class="math inline">\(\beta\)</span>-reduction. In particular, the term <span class="math inline">\((\lambda x.M )N\)</span> <span class="math inline">\(\beta\)</span>-reduces to <span class="math inline">\([N/x]M\)</span>.</p>
+<p>More generally for a term <span class="math inline">\(T\)</span>, call a subterm a <span class="math inline">\(\beta\)</span>-redex if it has form <span class="math inline">\((\lambda x. M )N\)</span>. We say there is a <span class="math inline">\(1\)</span>-step <span class="math inline">\(\beta\)</span>-reduction from <span class="math inline">\(T\)</span> to <span class="math inline">\(T&#39;\)</span> (written <span class="math inline">\(T\rightarrow_{1\beta} T&#39;\)</span>) if <span class="math inline">\(T&#39;\)</span> is obtained by replacing a single <span class="math inline">\(\beta\)</span>-redex <span class="math inline">\((\lambda x. M) N\)</span> in <span class="math inline">\(T\)</span> with <span class="math inline">\([N/x]M\)</span>. Write <span class="math inline">\(\rightarrow_{*\beta}\)</span> for the transitive closure.</p>
+<p>Terms without <span class="math inline">\(\beta\)</span>-redexes are said to be <span class="math inline">\(\beta\)</span>-normal or <span class="math inline">\(\beta\)</span>-irreducible. If <span class="math inline">\(M\rightarrow_{*\beta}N\)</span> and <span class="math inline">\(N\)</span> is <span class="math inline">\(\beta\)</span>-normal, we say <span class="math inline">\(N\)</span> is a <span class="math inline">\(\beta\)</span>-normal form of <span class="math inline">\(M\)</span>.</p>
+<p>These relations (and their equivalence closures) form an abstract rewriting system, and a very powerful model of computation. A <span class="math inline">\(\lambda\)</span>-computation involves simply walking down the so-created digraph, and any relevant problem could be appropriately encoded in the terms such that walking down the tree would mean successively simplifying the problem and working towards a solution. Let us encode a very simple system as an example:</p>
+<h2 id="a-model-of-boolean-algebra">A model of Boolean algebra</h2>
+<p>Since Boolean algebra revolves around two truth-values, one possible way to encode them is in the form of a choice:</p>
+<p><span class="math display">\[\texttt{True}=\lambda xy.x \quad \quad \texttt{False}=\lambda xy.y\]</span></p>
+<p>This has the advantage that one can encode “<span class="math inline">\(\texttt{if} \; P \; \texttt{then} \; Q \; \texttt{else}\;R\)</span>” simply as the term <span class="math inline">\(PQR\)</span>: if <span class="math inline">\(P\)</span> is <span class="math inline">\(\texttt{True}\)</span> then the term automatically <span class="math inline">\(\beta\)</span>-reduces to <span class="math inline">\(Q\)</span>. The following are possible encodings of the logic gates: I encourage you to verify they work as intended.</p>
+<p><span class="math display">\[\begin{gather*}
+\texttt{Not}=\lambda x. x \; \texttt{True} \; \texttt{False} \\
+\texttt{And} = \lambda x y . x \; (y \; \texttt{True} \; \texttt{False})\; \texttt{False} \\
+\texttt{Or}=\lambda x y . x \; \texttt{True} \; (y \; \texttt{True} \; \texttt{False})
+\end{gather*}\]</span></p>
+<div class="block">
+<p><sc>Exercise</sc> Encode <span class="math inline">\(\texttt{Xor}\)</span>, <span class="math inline">\(\texttt{Implies}\)</span>, <span class="math inline">\(\texttt{Equal}\)</span>, <span class="math inline">\(\texttt{Equivalent}\)</span>.</p>
+</div>
+<h2 id="consistency">Consistency</h2>
+<p>A natural question that arises is the meaningfulness of this computation– it is not a very useful system if it cannot distinguish between <span class="math inline">\(\texttt{True}\)</span> and <span class="math inline">\(\texttt{False}\)</span>. We need some notion of consistency. Of course <span class="math inline">\(\lambda\)</span>-calculus is not a logical theory so it does not make sense to ask if it proves false statements. We can however generalise the principle of explosion to call the theory <em>inconsistent</em> if it equates all pair of terms.</p>
+<p>Since each reduction corresponds to a logical simplification, we see that two <span class="math inline">\(lambda\)</span>-terms are equivalent if they lie in the same connected component of the directed graph. Church and Rosser proved the remarkable result that there is a natural injection <span class="math display">\[\{\beta-\texttt{irreducible terms}\}\rightarrow \{\texttt{connected components of the graph}\}\]</span> i.e. each connected component of the graph has at most one irreducible term, to which every point in the component can be reduced. It immediately follows that distinct <span class="math inline">\(\beta\)</span>-normal forms like <span class="math inline">\(\texttt{True}\)</span> and <span class="math inline">\(\texttt{False}\)</span> cannot be equated, and the model of computation is consistent. The result is called the Church-Rosser Theorem.</p>
+<h1 id="the-church-rosser-theorem">The Church-Rosser Theorem</h1>
+<p>An abstract rewriting system (such as <span class="math inline">\(\lambda\)</span>-calculus) is a relation <span class="math inline">\(\rightarrow\)</span> on a set of points, thereby forming a directed graph. We say <span class="math inline">\(y\)</span> is a <em>successor</em> of <span class="math inline">\(x\)</span> (written <span class="math inline">\(x \xrightarrow{*} y\)</span>) if there is some finite sequence of reductions from <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span> (including <span class="math inline">\(x\xrightarrow{*}x\)</span>). Points <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are <em>connected</em> (written <span class="math inline">\(x \overset{*}{\leftrightarrow} y\)</span>) if they are connected on the undirected graph (formed by forgetting directionality of <span class="math inline">\(\rightarrow\)</span>). Points <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are <em>joinable</em> (written <span class="math inline">\(x \downarrow y\)</span>) if they have a common successor.</p>
+<div class="definition">
+<sc>Definition</sc> We say <span class="math inline">\(\rightarrow\)</span> has the <em>Church-Rosser Property</em> if any two connected points are joinable. In symbols, <span class="math inline">\(x \overset{*}{\leftrightarrow} y \Rightarrow x \downarrow y\)</span>.
+</div>
+<p>Our task is then to precisely show that <span class="math inline">\(\beta\)</span>-reduction has the Church-Rosser property. We show that the Church-Rosser property is equivalent to a simpler property, confluence.</p>
+<div class="definition">
+<sc>Definition</sc> A reduction <span class="math inline">\(\rightarrow\)</span> is <em>confluent</em> if for every <span class="math inline">\(x,y_1,y_2\)</span> such that <span class="math inline">\(y_1 \xleftarrow{*}x \xrightarrow{*} y_2\)</span> there is a <span class="math inline">\(z\)</span> such that <span class="math inline">\(y_1 \xrightarrow{*}z\xleftarrow{*} y_2\)</span>.
+</div>
+<p>In other words, all diversions eventually meet in a confluent system. This should be a natural property to desire in your rewrite system– think about how you simplify <span class="math inline">\(1 \times 2 + 3 \times 4\)</span>: there are two distinct redexes <span class="math inline">\(1\times 2\)</span> and <span class="math inline">\(3 \times 4\)</span>, but the choice of which way you go does not influence the final answer.</p>
+<div class="theorem">
+<p><sc>Lemma</sc> The Church-Rosser property is equivalent to confluence, i.e. a reduction is confluent iff it has the Church-Rosser property.</p>
+</div>
+<div class="proof">
+<p><sc>Proof</sc> It is clear that confluent systems have the Church-Rosser property. For the converse, observe that if <span class="math inline">\(x\overset{\ast}\leftrightarrow y\)</span>, then there are points <span class="math inline">\(x_1,x_2,...,x_n\)</span> (not necessarily distinct) such that <span class="math inline">\(x\xleftarrow{\ast}x_1\xrightarrow{\ast}x_2\xleftarrow{\ast}x_3\xrightarrow{\ast}...\xrightarrow{\ast}y\)</span>. Now the Church-Rosser property allows us to ‘complete the squares’ as in the figure: <img src="../images/Confluence-iff-CR.png" width=900"/> Repeatedly using this gives a <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\xrightarrow{\ast}z\xleftarrow{\ast}y\)</span>. <span class="math inline">\(\square\)</span></p>
+</div>
+ 
+<div class="theorem">
+<p><sc>Theorem</sc> (Church-Rosser) <span class="math inline">\(\beta\)</span>-reduction is confluent.</p>
+</div>
+<p>In what follows, we reconstruct a proof due to <a href="https://www.jstor.org/stable/43651794">Komori, Matsuda and Yamakawa</a>, who improved upon Takahashi’s elegant proof using the idea of parallel reductions. Since a diversion is created only when a term has multiple redexes, we employ the key idea of a Takahashi translation, which involves reducing all <span class="math inline">\(\beta\)</span>-redexes in a term simultaneously.</p>
+<div class="definition">
+<p><sc>Definition</sc> The Takahashi translation <span class="math inline">\(T^*\)</span> of a term <span class="math inline">\(T\)</span> is defined inductively on the set of terms as: <span class="math display">\[\begin{align*}
+x^* &amp;\equiv x \\
+((\lambda x. M)N)^* &amp;\equiv[N^*/x]M^* \\
+(MN)^* &amp;\equiv M^*N^* \\
+(\lambda x. M)^* &amp;\equiv \lambda x. M^* 
+\end{align*}\]</span> (Rules higher up in the list are prioritized.)</p>
+<p>We write <span class="math inline">\(M^{n*}\)</span> for <span class="math inline">\(n\)</span> Takahashi translations successively applied to <span class="math inline">\(M\)</span>.</p>
+</div>
+<p>This interacts well with <span class="math inline">\(\beta\)</span>-reductions:</p>
+<div class="theorem">
+<p><sc>Lemma</sc> If <span class="math inline">\(M\)</span> is a term and <span class="math inline">\(M^*\)</span> is its Takahashi translation then there is a reduction <span class="math inline">\(M \rightarrow_{*\beta} M^*\)</span>.</p>
+</div>
+<div class="proof">
+<p><sc>Proof</sc> We induct on <span class="math inline">\(\lambda\)</span>-terms: if <span class="math inline">\(M\)</span> is a variable, then there is a <span class="math inline">\(0\)</span>-step reduction from <span class="math inline">\(M\)</span> to <span class="math inline">\(M^*\)</span>.</p>
+<p>Suppose the result is true for all terms with lower complexity than <span class="math inline">\(M\)</span>, then</p>
+<ul>
+<li>If <span class="math inline">\(M \equiv \lambda x. P\)</span>, then <span class="math inline">\(M \equiv \lambda x.P\)</span> which reduces to <span class="math inline">\(\lambda x. P^*\)</span> by taking a proof of <span class="math inline">\(P \rightarrow_{*\beta}P^*\)</span> and prepending <span class="math inline">\(\lambda x.\)</span> to each step.</li>
+<li>If <span class="math inline">\(M \equiv P Q\)</span> for <span class="math inline">\(P\)</span> not an abstraction term, then <span class="math inline">\(M \equiv PQ \quad \rightarrow_{*\beta}\quad P^* Q \quad \rightarrow_{*\beta} \quad P^*Q^* \equiv M^*\)</span>.</li>
+<li>If <span class="math inline">\(M \equiv (\lambda x. P) Q\)</span>, then the induction hypothesis gives the reductions <span class="math inline">\(M \equiv (\lambda x.P)Q \quad \rightarrow_{*\beta} \quad (\lambda x.P) Q^* \quad \rightarrow_{*\beta} \quad (\lambda x.P^*) Q^*\)</span>. Applying a single <span class="math inline">\(\beta\)</span>-reduction to this term gives <span class="math inline">\([Q^*/x]P^*\equiv M^*\)</span>. <span class="math inline">\(\square\)</span></li>
+</ul>
+</div>
+<div class="theorem">
+<p><sc>Corollary</sc> If <span class="math inline">\(m\leq n\)</span> then <span class="math inline">\(M^{m*} \rightarrow_{*\beta} M^{n*}\)</span>.</p>
+</div>
+<p>Moreover, Takahashi translations preserve the digraph structure: this should be intuitive since Takahashi translations simply specify an order for <span class="math inline">\(\beta\)</span>-reductions, by dictating that you do not touch a newly created redex until you have exhausted all redexes at the base level.</p>
+<div class="theorem">
+<p><sc>Lemma</sc> If <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are <span class="math inline">\(\lambda\)</span>-terms such that <span class="math inline">\(M \rightarrow_{1\beta} N\)</span>, then <span class="math inline">\(M^* \rightarrow_{*\beta} N^*\)</span></p>
+</div>
+<div class="proof">
+<p><sc>Proof</sc> We prove this by induction, considering the forms <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> could have and assume the statement is true for lower complexity terms.</p>
+<ul>
+<li><p>If <span class="math inline">\(M \equiv \lambda x. P\)</span>, then <span class="math inline">\(N \equiv \lambda x. P&#39;\)</span> for <span class="math inline">\(P\rightarrow_{1\beta} P&#39;\)</span>. Then the induction hypothesis says <span class="math inline">\(P^* \rightarrow_{*\beta} P&#39;^*\)</span>, and prepending <span class="math inline">\(\lambda x.\)</span> to each term gives a proof of <span class="math inline">\(M^* \equiv \lambda x. P^* \rightarrow_{*\beta} \lambda x. P&#39; ^* \equiv N^*.\)</span></p></li>
+<li><p>If <span class="math inline">\(M \equiv PQ\)</span> for <span class="math inline">\(P\)</span> not an abstraction term, then we can have  </p>
+<ul>
+<li><span class="math inline">\(N \equiv P&#39; Q\)</span>  where  <span class="math inline">\(P \rightarrow_{1\beta} P&#39;\)</span>, <span class="math inline">\(P&#39;\)</span> not an abstraction term. Take the reduction <span class="math inline">\(P^* \rightarrow_{*\beta} P&#39;^*\)</span> and append <span class="math inline">\(Q^*\)</span> at each stage.</li>
+<li><span class="math inline">\(N \equiv (\lambda x. P&#39;) Q\)</span> where <span class="math inline">\(P \rightarrow_{1\beta} \lambda x. P&#39;\)</span>. Then <span class="math inline">\(M^* \equiv P^* Q^* \rightarrow_{*\beta} (\lambda x. P&#39;^*) Q^*\)</span>, which reduces to <span class="math inline">\([Q^*/x] P&#39;^* \equiv N^*\)</span>.</li>
+<li><span class="math inline">\(N \equiv PQ&#39;\)</span> where <span class="math inline">\(Q \rightarrow_{1\beta}Q&#39;\)</span>. Take the reduction <span class="math inline">\(Q^* \rightarrow_{*\beta} Q&#39;^*\)</span> and prepend <span class="math inline">\(P^*\)</span> at each stage.</li>
+</ul></li>
+<li><p>If <span class="math inline">\(M \equiv (\lambda x.P)Q\)</span>, we can have:</p>
+<ul>
+<li><span class="math inline">\(N \equiv (\lambda x. P&#39;) Q\)</span> for <span class="math inline">\(P \rightarrow_{1\beta} P&#39;\)</span>. Take a proof of <span class="math inline">\(P^* \rightarrow_{*\beta} P&#39;^*\)</span> and replace each <span class="math inline">\(x\)</span> with <span class="math inline">\(Q^*\)</span> to get a proof of <span class="math inline">\(M^* \equiv [Q^*/x] P^* \rightarrow_{*\beta} [Q^*/x] P&#39;^* \equiv N^*\)</span>.</li>
+<li><span class="math inline">\(N \equiv (\lambda x. P) Q&#39;\)</span> for <span class="math inline">\(Q \rightarrow_{1\beta} Q&#39;\)</span>. There are finitely many occurrences of x <span class="math inline">\(P\)</span>, so finitely many occurrences of <span class="math inline">\(Q^*\)</span> in <span class="math inline">\(M^*\)</span>. Each occurrence can be reduced to <span class="math inline">\(Q&#39;^*\)</span> in finitely many steps, so we have <span class="math inline">\(M^* \equiv [Q^*/x]P^* \rightarrow_{*\beta} [Q&#39;^*/x] P^* \equiv N^*\)</span>.</li>
+<li><span class="math inline">\(N \equiv [Q/x] P\)</span>: if <span class="math inline">\(Q\)</span> is not an abstraction term, then it can be observed that <span class="math inline">\([Q^*/x]P^* = ([Q/x]P)^*\)</span>. If <span class="math inline">\(Q \equiv \lambda y. R\)</span>, then $M<sup>* P</sup>* $ can have finitely many new redexes arising from occurrences like <span class="math inline">\(\dots xT \dots\)</span>, each of which can be reduced further to get to <span class="math inline">\(([\lambda y.R/x]P)^*\)</span>. (This can, and should be formally proven by induction on structure of <span class="math inline">\(P\)</span>). <span class="math inline">\(\square\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div class="theorem">
+<p><sc>Corollary</sc> <span class="math inline">\(M \rightarrow_{*\beta} N \Rightarrow M^{n*} \rightarrow_{*\beta} N^{n*}\)</span></p>
+</div>
+<p>Lastly, we show that it is possible to ‘extend’ every single-step <span class="math inline">\(\beta\)</span>-reduction to an entire Takahashi translation at that level.</p>
+<div class="theorem">
+<p><sc>Lemma</sc> If <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are <span class="math inline">\(\lambda\)</span>-terms with <span class="math inline">\(M \rightarrow_{1\beta} N\)</span> then <span class="math inline">\(N\rightarrow_{*\beta} M^{*}.\)</span></p>
+</div>
+<div class="proof">
+<p><sc>Proof</sc> <span class="math inline">\(M*\)</span> obtained by reducing all redexes at the current level, while <span class="math inline">\(N\)</span> is obtained by reducing a single redex. <span class="math inline">\(\square\)</span></p>
+</div>
+<p>This can be generalised to the case <span class="math inline">\(M \rightarrow_{n\beta} N\)</span>, but we have to keep in mind that all the reductions need not be on the same level if we create new redexes at each stage. Keeping that in mind, we have</p>
+<div class="theorem">
+<sc>Lemma</sc> If <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are <span class="math inline">\(\lambda\)</span>-terms and <span class="math inline">\(n\geq 0\)</span> is such that <span class="math inline">\(M \rightarrow_{n\beta} N\)</span> then <span class="math inline">\(N\rightarrow_{*\beta} M^{n*}\)</span>.
+</div>
+<div class="proof">
+<p><sc>Proof</sc> By induction on <span class="math inline">\(n\)</span>, clearly true for <span class="math inline">\(n=0\)</span>. Assume true for <span class="math inline">\(n\)</span>, then <span class="math inline">\(M\rightarrow_{(n+1)\beta} N\Rightarrow M \rightarrow_{1\beta}R\rightarrow_{n\beta}N\)</span> for some <span class="math inline">\(R\)</span>. Using induction hypothesis, <span class="math inline">\(N\rightarrow_{*\beta} R^{n*}\)</span>. Moreover, <span class="math inline">\(M\rightarrow_{1\beta}R\Rightarrow R\rightarrow_{*\beta}M^*\Rightarrow R^{n*}\rightarrow_{*\beta}M^{(n+1)*}\)</span>. Then <span class="math inline">\(N \rightarrow_{*\beta} M^{(n+1)*}\)</span> <span class="math inline">\(_\square\)</span>.</p>
+</div>
+We are now ready to prove the confluence of <span class="math inline">\(\beta\)</span>-reduction:
+<div class="theorem">
+<p><sc>Theorem</sc> (Church Rosser) If <span class="math inline">\(M, M_1, M_2\)</span> are <span class="math inline">\(\lambda\)</span>-terms such that <span class="math inline">\(M \rightarrow_{*\beta}M_1\)</span> and <span class="math inline">\(M \rightarrow_{*\beta}M_2\)</span>, then there is a <span class="math inline">\(\lambda\)</span>-term <span class="math inline">\(N\)</span> such that <span class="math inline">\(M_1 \rightarrow_{*\beta}N\)</span> and <span class="math inline">\(M_2 \rightarrow_{*\beta}N\)</span>. In other words, <span class="math inline">\(\beta\)</span>-reduction is confluent.</p>
+</div>
+<div class="proof">
+<p><sc>Proof</sc> Suppose <span class="math inline">\(M \rightarrow_{m\beta} M_1\)</span> and <span class="math inline">\(M\rightarrow_{n\beta} M_2\)</span> and wlog <span class="math inline">\(n\geq m\)</span>. Then <span class="math inline">\(M_2\rightarrow_{*\beta}M^{n*}\)</span>, and <span class="math inline">\(M_1 \rightarrow_{*\beta} M^{m*}\rightarrow_{*\beta}M^{n*}\)</span>. <span class="math inline">\(_\square\)</span></p>
+</div>
+<p>We have thus proved one of the most important results about <span class="math inline">\(\lambda\)</span>-calculus, that the computations it does are consistent. It is immediate that each term has at-most one normal form, and thus the job of the computation is to get there. For instance, we have a very elegant computer that can simplify Peano-arithmetic expressions.</p>
+<h1 id="encoding-peano-arithmetic">Encoding Peano arithmetic</h1>
+<p>We look at one possible encoding of <span class="math inline">\(\texttt{0}\)</span> and <span class="math inline">\(\texttt{Succ}\)</span>, the Church encoding, from which the rest of Peano arithmetic follows naturally.</p>
+<p><span class="math display">\[\texttt{0}= \lambda f x. x \quad \quad \texttt{Succ}=\lambda n. \lambda f x. f(nfx)\]</span></p>
+<p>Essentially, the ‘natural number’ <span class="math inline">\(\texttt{n}\)</span> takes a function and a value as inputs, and applies the function <span class="math inline">\(n\)</span> times to the value. From this I can immediately write <span class="math inline">\(\texttt{1}=\texttt{Succ}\; \texttt{0}\)</span>, and</p>
+<p><span class="math display">\[\texttt{Add}=\lambda m n. m\;\texttt{Succ}\; n \quad \quad \texttt{Mult}=\lambda mn. m \; (\texttt{Add} \; n )\; \texttt{0} \quad \quad \texttt{Exp}=\lambda mn. n \;(\texttt{Mult} \; m) \;\texttt{1}.\]</span></p>
+<div class="block">
+<p><sc>Exercise</sc> Encode the above directly, without referring to previously defined operations. You should discover the rather curious and simple form <span class="math inline">\(\texttt{Exp}=\lambda m n . n \; m.\)</span></p>
+</div>
+<div class="block">
+<p><sc>Difficult</sc> Encode <span class="math inline">\(\texttt{Pred}\)</span> and hence <span class="math inline">\(\texttt{Minus}\)</span>.</p>
+</div>
+<p>A function <span class="math inline">\(F:\mathbb{N}\rightarrow\mathbb{N}\)</span> is said to be <span class="math inline">\(\lambda\)</span>-computable if it has an encoding <span class="math inline">\(f\)</span> such that one can <span class="math inline">\(\beta\)</span>-reduce <span class="math inline">\(f x\)</span> to <span class="math inline">\(F(x)\)</span>. Turns out the set of all <span class="math inline">\(\lambda\)</span>-computable terms is exactly the set of all Turing-computable functions, so the <span class="math inline">\(\lambda\)</span>-calculus is exactly as strong as a Turing machine. This result is the <em>Church-Turing thesis</em>.</p>
+<h2 id="loop-loop">Loop = Loop</h2>
+<p>The simplicity of <span class="math inline">\(\lambda\)</span>-calculus is what makes it expressive, but also non-terminating. Not everything necessarily has a normal form, for instance the term <span class="math inline">\(\texttt{loop} = (\lambda x. \, x x) (\lambda x. \, x x)\)</span> is a fixed point of <span class="math inline">\(\beta\)</span>-reduction (such programs that evaluate to themselves are termed <em><a href="https://en.wikipedia.org/wiki/Quine_(computing)">Quines</a></em>.) More generally, you have the powerful fixpoint combinator <span class="math inline">\(\texttt{Y}= \lambda f. \; ( \lambda x. \, f (x x)) \,  (\lambda x. \, f (x x))\)</span> which takes a function and returns a fixed point for it (check this!).</p>
+<p>These recursive terms however lead to problems– especially if you are Haskell Curry, trying to investigate the foundations of mathematics. If <span class="math inline">\(\Lambda\)</span> (or its sister theory, Combinatory logic) provided for sound mathematical foundations, we would have a <span class="math inline">\(\lambda\)</span>-term <span class="math inline">\(\texttt{P}\)</span> that acted like logical implication– <span class="math inline">\(\texttt{P}xy\)</span> would have to correspond to <span class="math inline">\(x \supset y\)</span>, and <span class="math inline">\(\texttt{P} x x\)</span> would have to be true for all <span class="math inline">\(x\)</span>. The theorem <span class="math inline">\(x \supset (x \supset y) \Rightarrow x \supset y\)</span> of logic would mean <span class="math inline">\(\texttt{P}x(\texttt{P}xy) = \texttt{P} x y\)</span> would also be true. Then for any <span class="math inline">\(z\)</span>, we can construct the <span class="math inline">\(\lambda\)</span>-term <span class="math inline">\(N = \lambda x. \texttt{P} \, x z\)</span>, which checks if <span class="math inline">\(x\)</span> implies <span class="math inline">\(z\)</span>. The <span class="math inline">\(\texttt{Y}\)</span>-combinator gives a fixed point for this, call it <span class="math inline">\(M = \texttt{Y} N = NM\)</span>. Now starting from the axiom <span class="math inline">\(\texttt{P} M M\)</span>, we have the following sequence of simplifications: <span class="math display">\[\begin{align*}
+\texttt{P}MM &amp;= \texttt{P}M(NM) \\
+&amp;= \texttt{P}M ((\lambda x. \texttt{P} x z) M ) \\
+&amp;= \texttt{P}M(\texttt{P}Mz) \\
+&amp;= \texttt{P} Mz \\
+&amp;= NM  \\
+&amp;= M
+\end{align*}\]</span></p>
+<p>But then from the same axiom we have derived both <span class="math inline">\(\texttt{P}Mz \;( M \supset z)\)</span> and <span class="math inline">\(M\)</span>, and hence <span class="math inline">\(z\)</span> which was arbitrary to begin with. The system could then prove every statement and hence be utterly useless, much to Mr. Curry’s disappointment. This is an instance of <em>Curry’s Paradox</em>, and in words it reads “If this sentence is true, then <span class="math inline">\(z\)</span>”. At the heart of the paradox is self-reference, which lives in <span class="math inline">\(\texttt{Y}\)</span>– aptly called Curry’s paradoxical combinator.</p>
+<p>Such ill-foundation spells disaster, and a considerable part of the development of foundational theories is spent getting rid of self-reference. ZFC did it by the axiom of foundation, while those who preferred a functional world came up with a system of Types. But this should be the subject matter of  another post.</p>
+    </section>
+</article>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/BusStop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/Logo.png" class="eyes"> 
+
+             <img src="/images/Lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / Why is Lambda Calculus
+     </div>
+</footer>
+    </body>
+</html>

@@ -129,7 +129,26 @@ If $f\in \mathcal{O}_{\mathbb{P}^n}$ is any homogeneous polynomial of degree $1$
 
 On the other hand if $f$ is a holomorphic section of $\mathcal{O}(1)=\mathcal{O}(-1)^\ast$, then for each $(x_0:...:x_n)\in \mathbb{P}^1$ we can extract from $f$ a $F(x_0,...,x_n)\in\mathbb{C}$, the image of $(x_0,...,x_n)$ in $f(x_0:...:x_n)$. $F$ is a well-defined holomorphic function $\mathbb{C}^{n+1}\setminus \{0\} \rightarrow \mathbb{C}$. From the description it is clear that $F(\lambda x_0,...,\lambda x_n) = \lambda F(x_0,...,x_n)$, so $F$ is in fact linear and homogeneous. In particular, the singularity at $0$ is removable, and we have a homogeneous polynomial of degree $1$. Thus linear homogeneous polynomials are precisely sections of the hyperplane bundles $\mathcal{O}(1)\rightarrow \mathbb{P}^n$.
 
-Writing $\mathcal{O}(k)=\mathcal{O}(1)^{\oprod k}$, sections of $\mathcal{O}(k)\rightarrow \mathbb{P}^n$ would correspond to formal products of $k$ sections of $\mathcal{O}(1)\rightarrow \mathbb{P}^n$ which we expect are degree $k$ homogeneous polynomials. That is indeed what happens, and all homogeneous polynomials on $\mathbb{P}^n$ can be obtained in this way.
+Writing $\mathcal{O}(k)=\mathcal{O}(1)^{\otimes k}$, sections of $\mathcal{O}(k)\rightarrow \mathbb{P}^n$ would correspond to formal products of $k$ sections of $\mathcal{O}(1)\rightarrow \mathbb{P}^n$ which we expect are degree $k$ homogeneous polynomials. That is indeed what happens, and all homogeneous polynomials on $\mathbb{P}^n$ can be obtained in this way.
 
 # A lens to view the base space
+
+Going back to the initial motivation, we study covering spaces because the isomorphism classes of covering spaces on a space are a measure of its complexity (roughly the same measure as the fundamental group). We can play similar games with vector bundles. 
+
+Observe that $\mathbb{R}\setminus \{0\}$ is homotopy equivalent to the discrete two-point space $S^0$, so if $E\rightarrow B$ is a real line bundle with zero-section $Z$ then $E\setminus Z$ has the homotopy type of a fiber bundle with fibers $S^0$ i.e. a double-cover of $B$. It is an easy check that the trivial line bundle gives the trivial double cover (i.e.\ $B\times S^0$). This gives us another way to see that the Mobius bundle is non-trivial: removing the zero-section leaves us with (up to homotopy) the non-trivial double-cover of $S^1$. 
+
+Just like covering spaces, the classes of vector bundles on a compact Hausdorff base space is a homotopy invariant. In particular, we have the following result 
+
+<div class="theorem">
+<sc>Theorem</sc> Every vector bundle over a contractible compact Hausdorff space is trivial.</div>
+
+Of course, the whole article was an elaborate proof of the fact that $S^1$ is not contractible.
+
+# References 
+- Chapter 1 of [Hatcher's book on Vector Bundles](https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf)
+- Chapter 2 of [Kovalev's part III Differential Geometry notes](https://www.dpmms.cam.ac.uk/~agk22/vb.pdf)
+- Chapter 6 of [Differential forms in Algebraic Topology (Bott and Tu)](https://books.google.co.uk/books/about/Differential_Forms_in_Algebraic_Topology.html?id=S6Ve0KXyDj8C&redir_esc=y)
+- Stephen Stolz's document on [Classification of Bundles](https://www3.nd.edu/~stolz/Math70330(F2008)/cohen.pdf)
+- This [mathoverflow thread](https://mathoverflow.net/questions/7836/why-is-it-useful-to-study-vector-bundles)
+
 

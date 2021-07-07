@@ -130,3 +130,6 @@ If $f\in \mathcal{O}_{\mathbb{P}^n}$ is any homogeneous polynomial of degree $1$
 On the other hand if $f$ is a holomorphic section of $\mathcal{O}(1)=\mathcal{O}(-1)^\ast$, then for each $(x_0:...:x_n)\in \mathbb{P}^1$ we can extract from $f$ a $F(x_0,...,x_n)\in\mathbb{C}$, the image of $(x_0,...,x_n)$ in $f(x_0:...:x_n)$. $F$ is a well-defined holomorphic function $\mathbb{C}^{n+1}\setminus \{0\} \rightarrow \mathbb{C}$. From the description it is clear that $F(\lambda x_0,...,\lambda x_n) = \lambda F(x_0,...,x_n)$, so $F$ is in fact linear and homogeneous. In particular, the singularity at $0$ is removable, and we have a homogeneous polynomial of degree $1$. Thus linear homogeneous polynomials are precisely sections of the hyperplane bundles $\mathcal{O}(1)\rightarrow \mathbb{P}^n$.
 
 Writing $\mathcal{O}(k)=\mathcal{O}(1)^{\oprod k}$, sections of $\mathcal{O}(k)\rightarrow \mathbb{P}^n$ would correspond to formal products of $k$ sections of $\mathcal{O}(1)\rightarrow \mathbb{P}^n$ which we expect are degree $k$ homogeneous polynomials. That is indeed what happens, and all homogeneous polynomials on $\mathbb{P}^n$ can be obtained in this way.
+
+# A lens to view the base space
+

@@ -147,7 +147,7 @@ Of course, the whole article was an elaborate proof of the fact that $S^1$ is no
 # References 
 - Chapter 1 of [Hatcher's book on Vector Bundles](https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf)
 - Chapter 2 of [Kovalev's part III Differential Geometry notes](https://www.dpmms.cam.ac.uk/~agk22/vb.pdf)
-- Chapter 6 of [Differential forms in Algebraic Topology (Bott and Tu)](https://books.google.co.uk/books/about/Differential_Forms_in_Algebraic_Topology.html?id=S6Ve0KXyDj8C&redir_esc=y)
+- Chapter 1, section 6 of [Differential forms in Algebraic Topology (Bott and Tu)](https://books.google.co.uk/books/about/Differential_Forms_in_Algebraic_Topology.html?id=S6Ve0KXyDj8C&redir_esc=y)
 - Stephen Stolz's document on [Classification of Bundles](https://www3.nd.edu/~stolz/Math70330(F2008)/cohen.pdf)
 - This [mathoverflow thread](https://mathoverflow.net/questions/7836/why-is-it-useful-to-study-vector-bundles)
 

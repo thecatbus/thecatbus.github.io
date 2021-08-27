@@ -137,19 +137,25 @@ h2 {
   color: #eadcd23d;
 }
 
-@media (max-width: 600pt) {
+@media screen and (max-width: 600pt) {
   body {
     width: 90%;
     margin: 0;
     padding: 0 5%;
   }
+  .title {
+    font-size: 12vw;
+  }
 }
 
-@media (min-width: 601pt) {
+@media screen and (min-width: 601pt) {
   body {
     width: 60rem;
     margin: 0 auto;
     padding: 0;
+  }
+  .title {
+    font-size: 8rem;
   }
 }
 

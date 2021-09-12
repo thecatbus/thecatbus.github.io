@@ -1,7 +1,7 @@
 ---
 title: Why constant symbols
 author: Parth
-tags: logic
+tags: foundations
 ---
 We define the signature of a first-order language as a collection of symbols for functions, predicates and _constants_. Does removing any of them make the language less expressive? Here we look at an example that shows constant-symbols (or some equivalent) are necessary to express certain properties.
 <!--more-->

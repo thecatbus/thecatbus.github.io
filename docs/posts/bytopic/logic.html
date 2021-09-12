@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Catbus: Gists / logic</title>
+        <title>Catbus: Posts / logic</title>
         <link rel="stylesheet" href="/css/default.css" />
         <link href='https://fonts.googleapis.com/css?family=Vollkorn SC' rel='stylesheet'> 
         <link href='https://fonts.googleapis.com/css?family=Caudex' rel='stylesheet'>
@@ -17,7 +17,7 @@
         <main role="main">
             <div class="title"  style="text-align: left;" >
                 <div id="heading">
-                    Gists / logic
+                    Posts / logic
                 </div>
             </div>
                 
@@ -30,16 +30,23 @@
                       lastMod.innerText = "Last updated on " + date.toDateString() + ".";
                    </script>
                 
-            All the things I have something to say about, but not enough to write an article. These range from equivalents of margin-scribbles to revision notes, small tricks I have picked here and there, and some original thoughts.
+            <head>
+    <style>
+        .teaser {
+            font-style: normal;
+        }
+    </style>
+</head>
 
-<div id="taglist" class="dropdown"> <a href="/gists/bytopic/algebra.html">algebra (2)</a>, <a href="/gists/bytopic/analysis.html">analysis (1)</a>, <a href="/gists/bytopic/logic.html">logic (1)</a> </div>
+<i>Over time, I have found that I learn best by explaining-- partly why this blog exists. These articles are on things I have tried to learn properly at some point, through coursework or otherwise. The articles present the subject in a form that made most sense to me, and are not guaranteed to be accurate representations of the topic. Importantly, I ask why any particular objects are natural things to think about, so contrary to a typical mathematical text, often the focus is on definitions rather than results. Nonetheless, there should be enough content in each article to start you off on a reading quest of your own.</i>
+<div id="taglist" class="dropdown"> <a href="/posts/bytopic/combinatorics.html">combinatorics (1)</a>, <a href="/posts/bytopic/foundations.html">foundations (1)</a>, <a href="/posts/bytopic/geometry.html">geometry (1)</a>, <a href="/posts/bytopic/logic.html">logic (1)</a> </div>
 
 <script>
     tags = document.getElementById("taglist");
     var taglist = tags.innerHTML.split(',');
     heading = document.getElementById("heading");
     html=heading.innerText;
-    html="Gists / <div class=\"dropdown\"> <div class=\"dropbtn\">" + html.substring(7) +"<\div> <div class=\"dropdown-content\"> <a href=\"/gists.html\">all</a>";
+    html="Posts / <div class=\"dropdown\"> <div class=\"dropbtn\">" + html.substring(7) +"<\div> <div class=\"dropdown-content\"> <a href=\"/posts.html\">all</a>";
     taglist.forEach(function(x) {
         x = x.replace(/ \(\d*\)/,"");
         console.log(x);
@@ -54,14 +61,15 @@
 <hr>
 
 <div class="smalltitle">
-Think like a DFA 
+Why constant symbols 
 <p class="lastmodified" style="margin-top: -3pt;">
-March 17, 2021 (<a title="All pages tagged &#39;logic&#39;." href="/gists/bytopic/logic.html">logic</a>)
+March 16, 2021 (<a title="All pages tagged &#39;logic&#39;." href="/posts/bytopic/logic.html">logic</a>)
 </p>
 </div>
-<p>A page stolen from Tom Forster’s book, here is a neat way to think about recursive languages (i.e. the languages recognised by a Deterministic Finite Automaton). Suppose you are sitting in a cabin in the middle of the forest, and are being sent an infinite stream of symbols. Every time you see a new symbol, you are supposed to flip a switch saying whether or not the string received <em>so far</em> is in the language <span class="math inline">\(L\)</span>.</p>
-<p>Tired, you wish to take a break and let your assistant take over. How much information about the string you have seen so far do you need to convey to the assistant, so that they can continue operating the switch? The least amount of information you could get away with passing on gives the number of states in the smallest DFA which recognises <span class="math inline">\(L\)</span>.</p>
-
+<p>We define the signature of a first-order language as a collection of symbols for functions, predicates and <em>constants</em>. Does removing any of them make the language less expressive? Here we look at an example that shows constant-symbols (or some equivalent) are necessary to express certain properties. 
+<div class="lastmodified" style="display: flex;">
+    <a href="/posts/2021-03-16-Constant-Symbols.html">read more...</a>
+</div>
 <hr>
 
         </main>
@@ -80,7 +88,7 @@ March 17, 2021 (<a title="All pages tagged &#39;logic&#39;." href="/gists/bytopi
          Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
      </div>
      <div class="catbusfooter">
-         <a href="/index.html">Catbus</a> / Gists / logic
+         <a href="/index.html">Catbus</a> / Posts / logic
      </div>
 </footer>
     </body>

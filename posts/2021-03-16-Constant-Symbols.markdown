@@ -3,7 +3,10 @@ title: Why constant symbols
 author: Parth
 tags: logic
 ---
-We define the signature of a first-order language as a collection of symbols for functions, predicates and _constants_. Does removing any of them make the language less expressive? The theory of groups is usually written in the signature $\{\ast,e\}$ where $\ast$ is a binary function-symbol and $e$ is a constant-symbol to be interpreted as the group identity. However, the axioms involving identity can very well be stated without using a constant-symbol:
+We define the signature of a first-order language as a collection of symbols for functions, predicates and _constants_. Does removing any of them make the language less expressive? Here we look at an example that shows constant-symbols (or some equivalent) are necessary to express certain properties.
+<!--more-->
+
+The theory of groups is usually written in the signature $\{\ast,e\}$ where $\ast$ is a binary function-symbol and $e$ is a constant-symbol to be interpreted as the group identity. However, the axioms involving identity can very well be stated without using a constant-symbol:
 \begin{gather}
 (\exists w)((\forall x)(\exists y)(x\ast y = w \;\wedge \; y\ast x = w) \; \wedge \; (\forall x)(x\ast w = x \;\wedge w \ast x = x))
 \end{gather}
@@ -19,4 +22,3 @@ Suppose there were a $\sigma_g$ theory $S\subset T_g$ that did axiomatise the sa
 
 Hence we _need_ a constant-symbol (or some equivalent encoding as a predicate) to axiomatise this theory: constant-symbols are essential!
 
-<!--more-->

@@ -30,7 +30,7 @@
                       lastMod.innerText = "Last updated on " + date.toDateString() + ".";
                    </script>
                 
-            All the things I have something to say about, but not enough to write an article. These range from equivalents of margin-scribbles to revision notes, small tricks I have picked here and there, and some original thoughts.
+            Things I have something to say about, but not enough to write an article. These range from equivalents of margin-scribbles to revision notes, small tricks I have picked here and there, and some original thoughts.
 
 <div id="taglist" class="dropdown"> <a href="/gists/bytopic/algebra.html">algebra (2)</a>, <a href="/gists/bytopic/analysis.html">analysis (1)</a>, <a href="/gists/bytopic/logic.html">logic (1)</a> </div>
 
@@ -59,6 +59,8 @@ Image of an Ideal
 September 12, 2021 (<a title="All pages tagged &#39;algebra&#39;." href="/gists/bytopic/algebra.html">algebra</a>)
 </p>
 </div>
+<div class="hiddenifbig" style="width: 100%; height: 40px"> </div>
+<p> 
 <p><em>The image of an ideal is an ideal of the image</em>.</p>
 <p>If <span class="math inline">\(\phi: A\rightarrow B\)</span> is a ring homomorphism and <span class="math inline">\(J\subset A\)</span> is an ideal then <span class="math inline">\(\phi(A)\)</span> is a subring of <span class="math inline">\(B\)</span> and <span class="math inline">\(\phi(J)\)</span> is an ideal of this subring: for any <span class="math inline">\(a,b\in J\)</span> and <span class="math inline">\(t\in A\)</span>, we have <span class="math inline">\(\phi(a)+\phi(t)\cdot \phi(b)=\phi(a+tb)\in \phi(J)\)</span>. In particular, surjectivity is sufficient for the image of an ideal to be an ideal. 
 <hr>
@@ -69,6 +71,8 @@ Measure Pigeonhole
 May  5, 2021 (<a title="All pages tagged &#39;analysis&#39;." href="/gists/bytopic/analysis.html">analysis</a>)
 </p>
 </div>
+<div class="hiddenifbig" style="width: 100%; height: 40px"> </div>
+<p> 
 <p>Let <span class="math inline">\((E,\mathcal{E}, \mu)\)</span> be a measure space. If <span class="math inline">\(A,B\in \mathcal{E}\)</span> are such that <span class="math inline">\(\mu(A)+\mu(B)&gt; \mu(E)\)</span> then <span class="math inline">\(A\cap B \neq \emptyset\)</span>. A neat illustration:</p>
 <p>Suppose <span class="math inline">\(A\subset [0,1]\)</span> is measurable with <span class="math inline">\(\mu(A)= \frac{1+\alpha}{2}\)</span>. Then for any <span class="math inline">\(\alpha&#39;&lt;\alpha\)</span>, the set <span class="math inline">\(A&#39; =(\alpha&#39; + A)\cap [0,1]\)</span> has measure <span class="math inline">\(\geq \mu(A)-\alpha&#39;\)</span>, hence <span class="math inline">\(\mu(A)+\mu(A&#39;)&gt;1\)</span>. It follows that there is an <span class="math inline">\(x\)</span> with <span class="math inline">\(\{x, x-\alpha&#39;\}\in A\)</span>. Conclude that <span class="math inline">\((-\alpha, \alpha)\subset A-A\)</span>. 
 <hr>
@@ -79,6 +83,8 @@ Think like a DFA
 March 17, 2021 (<a title="All pages tagged &#39;logic&#39;." href="/gists/bytopic/logic.html">logic</a>)
 </p>
 </div>
+<div class="hiddenifbig" style="width: 100%; height: 40px"> </div>
+<p> 
 <p>A page stolen from Tom Forster’s book, here is a neat way to think about recursive languages (i.e. the languages recognised by a Deterministic Finite Automaton). Suppose you are sitting in a cabin in the middle of the forest, and are being sent an infinite stream of symbols. Every time you see a new symbol, you are supposed to flip a switch saying whether or not the string received <em>so far</em> is in the language <span class="math inline">\(L\)</span>.</p>
 <p>Tired, you wish to take a break and let your assistant take over. How much information about the string you have seen so far do you need to convey to the assistant, so that they can continue operating the switch? The least amount of information you could get away with passing on gives the number of states in the smallest DFA which recognises <span class="math inline">\(L\)</span>.</p>
 
@@ -90,9 +96,12 @@ Evil irreducibility
 March 16, 2021 (<a title="All pages tagged &#39;algebra&#39;." href="/gists/bytopic/algebra.html">algebra</a>)
 </p>
 </div>
+<div class="hiddenifbig" style="width: 100%; height: 40px"> </div>
+<p> 
 <p>Watch out for analytical tricks to deduce irreducibility of a polynomial:</p>
 <p>Suppose <span class="math inline">\(a_1,...,a_n\)</span> are integers and <span class="math inline">\(p\)</span> is a prime such that <span class="math inline">\(\sum_{i=1}^n|a_i|&lt; p\)</span>. Then the polynomial <span class="math inline">\(a_nX^n+...+ a_1X+p\)</span> is irreducible over <span class="math inline">\(\mathbb{Z}\)</span>: if not, the polynomial can be written as <span class="math inline">\(f\cdot g\)</span> for non-constant polynomials <span class="math inline">\(f,g\)</span>. Then <span class="math inline">\(f(0)\cdot g(0)= p\)</span>, so wlog <span class="math inline">\(f(0)=\pm 1\)</span>. This implies the product of the (complex) roots of <span class="math inline">\(f\)</span> is <span class="math inline">\(1\)</span>, in particular there is a root <span class="math inline">\(\alpha\)</span> with <span class="math inline">\(|\alpha|\leq 1\)</span>. But then <span class="math inline">\(|p| = |a_n\alpha^n+...+a_1\alpha|\leq \sum_{i=1}^n |\alpha_i|\)</span>, a contradiction. 
 <hr>
+
 
         </main>
 

@@ -144,7 +144,10 @@ h2 {
     padding: 0 5%;
   }
   .title {
-    font-size: 12vw;
+    font-size: 5rem;
+  }
+  .lastmodified{
+      font-size: 1.2rem;
   }
 }
 

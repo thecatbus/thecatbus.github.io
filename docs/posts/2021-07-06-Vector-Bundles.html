@@ -12,13 +12,15 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
         <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
             MathJax.Hub.Config({ 
-            "HTML-CSS" : { webFont : "Neo-Euler",
-                           imageFont : "Neo-Euler",
-                           preferredFont : "Neo-Euler",
-                           availableFonts : [],
-                           mtextFontInherit : true},
-            "SVG"      : { font : "Neo-Euler" }
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
             }); 
         </script>
         <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"> </script> 
@@ -49,7 +51,7 @@
     </section>
     <section>
         <div class="teaser">
-One of the first tools one encounters in the study of homotopy groups is to consider covering spaces– things that <em>locally</em> look like products with some discrete topological space <span class="math inline">\(\Delta\)</span> but can have vastly different global properties than a simple product space. In fact the number of non-trivial covering spaces is a measure of the topological complexity of the space, in a sense made precise by the Galois correspondence of fundamental groups. It is then natural to ask what happens if one replaces <span class="math inline">\(\Delta\)</span> with more a complicated topological space <span class="math inline">\(F\)</span>: what results is a richer analogue of a covering space called a <em>fiber bundle</em>, or a <em>vector bundle</em> if <span class="math inline">\(F\)</span> is a vector space.
+Among the first ideas one encounters in the study of homotopy groups is to consider covering spaces– things that <em>locally</em> look like products with some discrete topological space <span class="math inline">\(\Delta\)</span> but can have vastly different global properties than a simple product space. In fact the number of non-trivial covering spaces is a measure of the topological complexity of the space, in a sense made precise by the Galois correspondence of fundamental groups. It is then natural to ask what happens if one replaces <span class="math inline">\(\Delta\)</span> with more a complicated topological space <span class="math inline">\(F\)</span>: what results is a richer analogue of a covering space called a <em>fiber bundle</em>, or a <em>vector bundle</em> if <span class="math inline">\(F\)</span> is a vector space.
 </div>
 <!--more-->
 <h1 id="locally-product-like-spaces">Locally product-like spaces</h1>

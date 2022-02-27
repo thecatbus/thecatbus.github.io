@@ -12,13 +12,15 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
         <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
             MathJax.Hub.Config({ 
-            "HTML-CSS" : { webFont : "Neo-Euler",
-                           imageFont : "Neo-Euler",
-                           preferredFont : "Neo-Euler",
-                           availableFonts : [],
-                           mtextFontInherit : true},
-            "SVG"      : { font : "Neo-Euler" }
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
             }); 
         </script>
         <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"> </script> 

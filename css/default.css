@@ -4,6 +4,7 @@ html {
 
 body {
   font-size: 1.6rem;
+  line-height: 1.8em;
   font-family: 'Caudex'; 
   color: #EADCD2;
   background-color: #212026;
@@ -77,10 +78,10 @@ a:hover {
 .title {
   text-align: center;
   font-family: 'Vollkorn SC';
-  font-size: 4rem;
+  font-size: 4.5rem;
   margin-right: 10pt;
-  margin-bottom: -10pt;
-  margin-top: 0pt;
+  margin-bottom: 0pt;
+  margin-top: 20pt;
 }
 
 .smalltitle {

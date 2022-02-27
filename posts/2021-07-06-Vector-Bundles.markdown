@@ -5,7 +5,7 @@ date: 6 July 2021
 tags: geometry
 ---
 <div class="teaser"> 
-One of the first tools one encounters in the study of homotopy groups is to
+Among the first ideas one encounters in the study of homotopy groups is to
 consider covering spaces-- things that _locally_ look like products with some
 discrete topological space $\Delta$ but can have vastly different global
 properties than a simple product space. In fact the number of non-trivial

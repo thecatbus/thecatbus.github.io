@@ -4,7 +4,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  line-height: 1.8em;
+  line-height: 1.6em;
   font-family: 'Caudex';
   color: #EADCD2;
   background-color: #212026;
@@ -125,7 +125,7 @@ h2 {
   font-size: 8rem;
   float: left;
   margin-right: 10pt;
-  margin-bottom: -10pt;
+  margin-bottom: -20pt;
   margin-top: 25pt;
 }
 
@@ -134,7 +134,7 @@ h2 {
   font-family: 'Vollkorn';
   font-style: italic;
   text-align: left;
-  margin-top: 20pt;
+  margin-top: 15pt;
   color: #eadcd23d;
 }
 

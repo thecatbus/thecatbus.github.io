@@ -4,8 +4,6 @@ author: Parth
 date: 6 July 2021
 tags: geometry
 ---
-1+1 $x+x$
-
 <div class="teaser"> 
 One of the first tools one encounters in the study of homotopy groups is to
 consider covering spaces-- things that _locally_ look like products with some

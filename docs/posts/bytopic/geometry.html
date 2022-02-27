@@ -6,11 +6,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Catbus: Posts / geometry</title>
         <link rel="stylesheet" href="/css/default.css" />
-        <link href='https://fonts.googleapis.com/css?family=Vollkorn SC' rel='stylesheet'> 
-        <link href='https://fonts.googleapis.com/css?family=Caudex' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
 
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ 
+            "HTML-CSS" : { webFont : "Neo-Euler",
+                           imageFont : "Neo-Euler",
+                           preferredFont : "Neo-Euler",
+                           availableFonts : [],
+                           mtextFontInherit : true},
+            "SVG"      : { font : "Neo-Euler" }
+            }); 
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"> </script> 
+
     </head>
 
     <body>
@@ -39,7 +51,7 @@
 </head>
 
 <i>Over time, I have found that I learn best by explaining-- partly why this blog exists. These articles are on things I have tried to learn properly at some point, through coursework or otherwise. The articles present the subject in a form that made most sense to me, and are not guaranteed to be accurate representations of the topic. Importantly, I ask why any particular objects are natural things to think about, so contrary to a typical mathematical text, often the focus is on definitions rather than results. Nonetheless, there should be enough content in each article to start you off on a reading quest of your own.</i>
-<div id="taglist" class="dropdown"> <a href="/posts/bytopic/combinatorics.html">combinatorics (1)</a>, <a href="/posts/bytopic/foundations.html">foundations (2)</a>, <a href="/posts/bytopic/geometry.html">geometry (2)</a> </div>
+<div id="taglist" class="dropdown"> <a href="/posts/bytopic/combinatorics.html">combinatorics (1)</a>, <a href="/posts/bytopic/foundations.html">foundations (2)</a>, <a href="/posts/bytopic/geometry.html">geometry (1)</a> </div>
 
 <script>
     tags = document.getElementById("taglist");
@@ -61,30 +73,15 @@
 <hr>
 
 <div class="smalltitle">
-Quasicoherent Sheaves 
-<p class="lastmodified" style="margin-top: -3pt;">
-December  8, 2021 (<a title="All pages tagged &#39;geometry&#39;." href="/posts/bytopic/geometry.html">geometry</a>)
-</p>
-</div>
-<div class="hiddenifbig" style="width: 100%; height: 40px"> </div>
-<div class="teaser">
-<p>[UNDER CONSTRUCTION] Having seen vector bundles and their geometric value, we want to use them to study structures more complicated than a topological space– but building smooth manifolds and schemes (whatever they are) is expensive, these demand a lot more data than a topology. Here we make two observations– firstly, almost all the utility of vector bundles comes from studying sections. Secondly, euclidean spaces (and their reasonable equivalents) come canonically pre-equipped with most geometric structures you would want to put on them. By their very construction, sections of vector bundles are maps that <em>locally</em> look like functions to euclidean space, with interesting structure coming from twisted gluings. This gives an alternate construction to vector bundles, where packaging the data of sections by giving a total space, we use a more elaborate tool.</p>
-</div>
-
-<div class="lastmodified" style="display: flex;">
-    <a href="/posts/2021-12-08-Coherent-Sheaves.html">read more...</a>
-</div>
-<hr>
-
-<div class="smalltitle">
 Vector Bundles 
 <p class="lastmodified" style="margin-top: -3pt;">
 July  6, 2021 (<a title="All pages tagged &#39;geometry&#39;." href="/posts/bytopic/geometry.html">geometry</a>)
 </p>
 </div>
 <div class="hiddenifbig" style="width: 100%; height: 40px"> </div>
+<p>1+1 <span class="math inline">\(x+x\)</span></p>
 <div class="teaser">
-<p>One of the first tools one encounters in the study of homotopy groups is to consider covering spaces– things that <em>locally</em> look like products with some discrete topological space <span class="math inline">\(\Delta\)</span> but can have vastly different global properties than a simple product space. In fact the number of non-trivial covering spaces is a measure of the topological complexity of the space, in a sense made precise by the Galois correspondence of fundamental groups. It is then natural to ask what happens if one replaces <span class="math inline">\(\Delta\)</span> with more a complicated topological space <span class="math inline">\(F\)</span>: what results is a richer analogue of a covering space called a <em>fiber bundle</em>, or a <em>vector bundle</em> if <span class="math inline">\(F\)</span> is a vector space.</p>
+One of the first tools one encounters in the study of homotopy groups is to consider covering spaces– things that <em>locally</em> look like products with some discrete topological space <span class="math inline">\(\Delta\)</span> but can have vastly different global properties than a simple product space. In fact the number of non-trivial covering spaces is a measure of the topological complexity of the space, in a sense made precise by the Galois correspondence of fundamental groups. It is then natural to ask what happens if one replaces <span class="math inline">\(\Delta\)</span> with more a complicated topological space <span class="math inline">\(F\)</span>: what results is a richer analogue of a covering space called a <em>fiber bundle</em>, or a <em>vector bundle</em> if <span class="math inline">\(F\)</span> is a vector space.
 </div>
 
 <div class="lastmodified" style="display: flex;">

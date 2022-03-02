@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Catbus: Posts / foundations</title>
+        <title>Catbus: Gists / algebraic geometry</title>
         <link rel="stylesheet" href="/css/default.css" />
         <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
@@ -31,7 +31,7 @@
         <main role="main">
             <div class="title"  style="text-align: left;" >
                 <div id="heading">
-                    Posts / foundations
+                    Gists / algebraic geometry
                 </div>
             </div>
                 
@@ -44,23 +44,17 @@
                       lastMod.innerText = "Last updated on " + date.toDateString() + ".";
                    </script>
                 
-            <head>
-    <style>
-        .teaser {
-            font-style: normal;
-        }
-    </style>
-</head>
+            This is a list of short stand-alone results, (counter) examples, and tricks
+that I have picked up here and there.
 
-<i>This is my semi-active blog, each article is a by-product of me attempting to understand some mathematics. Most articles, hence, are just rehashes of existing literature and my only original contributions are mistakes which I apologise for in advance. I tend to reorder material in a way that seems most 'natural' to me at the time, so at best they can hint you towards an alternate approach to the subject.</i>
-<div id="taglist" class="dropdown"> <a href="/posts/bytopic/combinatorics.html">combinatorics (1)</a>, <a href="/posts/bytopic/foundations.html">foundations (2)</a>, <a href="/posts/bytopic/geometry.html">geometry (1)</a> </div>
+<div id="taglist" class="dropdown"> <a href="/gists/bytopic/algebra.html">algebra (2)</a>, <a href="/gists/bytopic/algebraic%20geometry.html">algebraic geometry (1)</a>, <a href="/gists/bytopic/analysis.html">analysis (1)</a>, <a href="/gists/bytopic/logic.html">logic (1)</a> </div>
 
 <script>
     tags = document.getElementById("taglist");
     var taglist = tags.innerHTML.split(',');
     heading = document.getElementById("heading");
     html=heading.innerText;
-    html="Posts / <div class=\"dropdown\"> <div class=\"dropbtn\">" + html.substring(7) +"<\div> <div class=\"dropdown-content\"> <a href=\"/posts.html\">all</a>";
+    html="Gists / <div class=\"dropdown\"> <div class=\"dropbtn\">" + html.substring(7) +"<\div> <div class=\"dropdown-content\"> <a href=\"/gists.html\">all</a>";
     taglist.forEach(function(x) {
         x = x.replace(/ \(\d*\)/,"");
         console.log(x);
@@ -75,32 +69,14 @@
 <hr>
 
 <div class="smalltitle">
-Why constant symbols 
+Hartog's lemma requires normality 
 <p class="lastmodified" style="margin-top: -3pt;">
-March 16, 2021 (<a title="All pages tagged &#39;foundations&#39;." href="/posts/bytopic/foundations.html">foundations</a>)
+February 28, 2022 (<a title="All pages tagged &#39;algebraic geometry&#39;." href="/gists/bytopic/algebraic%20geometry.html">algebraic geometry</a>)
 </p>
 </div>
 <div class="hiddenifbig" style="width: 100%; height: 40px"> </div>
-<p>We define the signature of a first-order language as a collection of symbols for functions, predicates and <em>constants</em>. Does removing any of them make the language less expressive? Here we look at an example that shows constant-symbols (or some equivalent) are necessary to express certain properties. 
-<div class="lastmodified" style="display: flex;">
-    <a href="/posts/2021-03-16-Constant-Symbols.html">read more...</a>
-</div>
-<hr>
+<p> 
 
-<div class="smalltitle">
-Why is Lambda Calculus 
-<p class="lastmodified" style="margin-top: -3pt;">
-October  5, 2020 (<a title="All pages tagged &#39;foundations&#39;." href="/posts/bytopic/foundations.html">foundations</a>)
-</p>
-</div>
-<div class="hiddenifbig" style="width: 100%; height: 40px"> </div>
-<div class="teaser">
-<p>Alonzo Church’s Lambda Calculus is what makes type-free functional programming work. A powerful model of computation, at its heart is a very simple abstract rewrite system– a directed graph. This short article touches upon why Lambda-calculus might be a natural thing to think about, and presents an elegant proof of the Church-Rosser theorem.</p>
-</div>
-
-<div class="lastmodified" style="display: flex;">
-    <a href="/posts/2020-10-05-Lambda-Calculus.html">read more...</a>
-</div>
 <hr>
 
 
@@ -120,7 +96,7 @@ October  5, 2020 (<a title="All pages tagged &#39;foundations&#39;." href="/post
          Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
      </div>
      <div class="catbusfooter">
-         <a href="/index.html">Catbus</a> / Posts / foundations
+         <a href="/index.html">Catbus</a> / Gists / algebraic geometry
      </div>
 </footer>
     </body>

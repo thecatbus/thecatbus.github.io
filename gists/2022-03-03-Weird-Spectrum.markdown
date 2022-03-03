@@ -1,7 +1,7 @@
 ---
 title: Connected Tripleton?
 author: Parth
-tags: algebra
+tags: algebraic geometry
 ---
 
 We know that the affine spectrum of a local ring is a _connected doubleton_,

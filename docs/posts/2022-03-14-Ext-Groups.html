@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: The Extension Problem</title>
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+        <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
+            MathJax.Hub.Config({ 
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
+            }); 
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"> </script> 
+
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  >
+                <div id="heading">
+                    The Extension Problem
+                </div>
+            </div>
+                
+                
+            <article>
+    <hr>
+    <section class="lastmodified">
+        Posted on March 14, 2022
+        
+            by Parth
+        
+        <div style="float:right;">
+        
+            (<a title="All pages tagged &#39;algebra&#39;." href="/posts/bytopic/algebra.html">algebra</a>)
+        
+        </div>
+    </section>
+    <section>
+        <div class="teaser">
+<p>If you know what abelian groups <span class="math inline">\(A\)</span> and <span class="math inline">\(B=X/A\)</span> are, then what can you say about <span class="math inline">\(X\)</span>? The fact that <span class="math inline">\(X=A\oplus B\)</span> is not the only possibility has probably taken many first-year undergrads by surprise, but the subsequent question of <em>how many such solutions are there</em> goes far deeper than the scope of a first course in group theory.</p>
+<p>This is a sketch for my Part III seminar talk, and I shall ambitiously aim to use the <em>extension problem</em> for abelian groups to motivate homological methods and resolutions.</p>
+</div>
+<p><!--more--></p>
+<p><span class="math inline">\(\renewcommand{\xrightarrow}[1]{\overset{\small{#1}}{\longrightarrow}}\)</span> In the early 1900s, homological methods were the topologist’s tool to attach invariants to spaces– in the work of Riemann and Betti these were the <em>Betti numbers</em>, which were computed and recomputed in a variety of ways by Poincaré, Čech, de Rham, and others. In 1925 Emmy Noether made a revolutionary observation which upgraded the invariants from mere numbers to groups. Subsequent developments, notably the Universal coefficients theorem(s), deeply intertwined homological methods with the study of groups and exact sequences– particularly the question of extending a group <span class="math inline">\(B\)</span> by another group <span class="math inline">\(A\)</span>. More precisely, we seek to understand the <em>extension set</em> defined below.</p>
+<div class="definition">
+<sc>Definition</sc> For abelian groups <span class="math inline">\(A,B\)</span>, let <span class="math inline">\(\text{Ext}(B,A)\)</span> be the set of exact sequences <span class="math inline">\(0\rightarrow A \rightarrow X \rightarrow B \rightarrow 0\)</span>, up to isomorphism of chain complexes.
+</div>
+<p>A simple application of the <a href="https://en.wikipedia.org/wiki/Five_lemma">five lemma</a> shows that two such solutions <span class="math inline">\(X,Y\)</span> are isomorphic if and only if there is a map <span class="math inline">\(X\rightarrow Y\)</span> making the diagram commute:</p>
+<center>
+<img align="middle" src="../images/ext-fig1.png" width="300"/>
+</center>
+<p>(If you are unfamiliar with what this means, you can take the above to be the definition of the isomorphism.)</p>
+<p>Of course, the simplicity of this question meant it was of interest even before homological algebra existed. But more than just being a tool in answering questions about the homology of geometric spaces, it provided a purely algebraic question that homological methods could solve– thus showing that invariants could in fact be attached to algebraic systems themselves.</p>
+<p>Note abelian groups are simply <span class="math inline">\(\mathbb{Z}\)</span>-modules, and it makes sense to ask the question for modules over any commutative ring <span class="math inline">\(R\)</span> with a unit. Hence, to avoid writing “abelian group” every time, I will continue the discussion for the slightly shorter term “<span class="math inline">\(R\)</span>-module”.</p>
+<h1 id="elementary-properties-of-extcdot-cdot">Elementary properties of <span class="math inline">\(Ext(\cdot, \cdot)\)</span></h1>
+<p>Like every good mathematical construction, <span class="math inline">\(Ext(\cdot, \cdot)\)</span> is functorial: given an extension <span class="math inline">\(0\rightarrow A\xrightarrow{i} X \xrightarrow{p} B \rightarrow 0\)</span> and a map <span class="math inline">\(A\xrightarrow{f}A&#39;\)</span>, take the pushout <span class="math inline">\(X&#39;=X\otimes_A A&#39;=X\oplus A&#39; \; / \; \{(i(a), -f(a))\;|\; a\in A\}\)</span>. Then the natural map <span class="math inline">\(A&#39;\rightarrow X&#39;\)</span> is injective and has cokernel <span class="math inline">\(B\)</span>, giving an extension <span class="math inline">\(0\rightarrow A&#39;\rightarrow X\rightarrow B\rightarrow 0\)</span>. Thus we have a map <span class="math inline">\(Ext(B,f): Ext(B,A)\rightarrow Ext(B,A&#39;)\)</span>, and we can check that this makes <span class="math inline">\(Ext(B,\cdot)\)</span> a functor.</p>
+<center>
+<img align="middle" src="../images/ext-fig3.png" width="300"/>
+</center>
+<p>For a map <span class="math inline">\(B&#39;\xrightarrow{g} B\)</span>, we can repeat this construction (taking the pullback <span class="math inline">\(X\times_B B&#39;\)</span> instead) to get a map <span class="math inline">\(Ext(g,A):Ext(B,A)\rightarrow Ext(B&#39;,A)\)</span>. Note <span class="math inline">\(Ext(\cdot,\cdot)\)</span> is contravariantly functorial in the first argument and covariantly in the second, just like <span class="math inline">\(Hom\)</span>. So, adapting the notation, we will write <span class="math inline">\(f\circ \xi:= Ext(B,f)(\xi)\)</span> and <span class="math inline">\(\xi\circ g:= Ext(g,A)(\xi)\)</span>. Of course this isn’t purely formal and there is a deeper connection, but we won’t worry about it here.</p>
+<h2 id="the-baer-sum">The Baer Sum</h2>
+<p>In 1934, Reinhold Baer observed that pushouts and pullbacks can be used to enhance <span class="math inline">\(Ext(B,A)\)</span> with a group structure. We shall summarise his construction using the functorial language– given extensions <span class="math inline">\(\xi: 0\rightarrow A \xrightarrow{i} X\xrightarrow{p} B\rightarrow 0\)</span> and <span class="math inline">\(\eta: 0\rightarrow A\xrightarrow{i&#39;} X&#39;\xrightarrow{p&#39;} B\rightarrow 0\)</span>, we have an exact sequence <span class="math display">\[\xi\oplus \eta:0\rightarrow A\oplus A \xrightarrow{i\oplus i&#39;} X\oplus X&#39;
+\xrightarrow{p\oplus p&#39;} B\oplus B&#39; \rightarrow 0.\]</span> There are natural maps <span class="math inline">\(\Delta: B\rightarrow B\oplus B\)</span> and <span class="math inline">\(\nabla: A\oplus A \rightarrow A\)</span> (given by the diagonal and codiagonal i.e. the group law respectively), and we can use the functoriality of <span class="math inline">\(Ext(\cdot, \cdot)\)</span> to obtain an exact sequence <span class="math display">\[\nabla \circ (\xi\oplus \eta) \circ \Delta \quad : \quad 0\rightarrow
+A\rightarrow [((X\oplus X&#39;)\times_{B\oplus B} B) \otimes_{A\oplus A}A]
+\rightarrow B \rightarrow 0.\]</span> This is what we shall define to be the <em>Baer sum</em> of <span class="math inline">\(\xi\)</span> and <span class="math inline">\(\eta\)</span>. Explicitly, take the group <span class="math inline">\(\Gamma = \{(x,x&#39;)\in X\oplus X&#39;\;|\; p(x)=p&#39;(x&#39;)\}\)</span> and quotient by the subgroup <span class="math inline">\(N=\{(i(a),-i&#39;(a))\;|\;a\in A\}\)</span>. The inclusion <span class="math inline">\(A\ni a\mapsto [(a,0)]=[(0,a)]\in \Gamma/N\)</span> and the projection <span class="math inline">\(\Gamma/N\ni[(x,x&#39;)]\mapsto p(x)=p&#39;(x&#39;)\in B\)</span> give the extension we want.</p>
+<p>It is immediate that the group law is commutative, and some thought shows the trivial (split) extension <span class="math inline">\(0\rightarrow A\rightarrow A\oplus B \rightarrow B\rightarrow 0\)</span> is the identity: indeed, using the notation above, for <span class="math inline">\(X&#39;=A\oplus B\)</span> we have <span class="math inline">\(\Gamma = \{(x,a+b)\;|\; p(x)=b\} \cong X\oplus A\)</span> where the isomorphism is given by <span class="math inline">\(\Gamma \ni(x,a+b)\mapsto (x+i(a),a)\in X\oplus A\)</span>. Under this identification, <span class="math inline">\(N=\{(i(a),-a)\;|\;a\in A\} \cong 0\oplus A\)</span> so that <span class="math inline">\(\Gamma/N \cong X\)</span>.</p>
+<div class="block">
+<p><sc>Exercise</sc> Show that the extension <span class="math inline">\(0\rightarrow A\xrightarrow{-i}X\xrightarrow{p}B\rightarrow 0\)</span> is the inverse to <span class="math inline">\(0\rightarrow A\xrightarrow{i}X\xrightarrow{p}B\rightarrow 0\)</span> (i.e. their Baer sum is split).</p>
+</div>
+<p>Making a deal with the devil shows the Baer sum is associative, and hence we have a group. Baer in fact gave a nice description of this group, along with an efficient way to compute it which paved the way for modern homological methods.</p>
+<h1 id="the-first-c">The first C</h1>
+<p>Suppose <span class="math inline">\(0\rightarrow A \rightarrow X \rightarrow B \rightarrow 0\)</span> is an extension of <span class="math inline">\(B\)</span> by <span class="math inline">\(A\)</span>. Fix a presentation <span class="math inline">\(B=F/R\)</span>, where <span class="math inline">\(F\)</span> is a free module and <span class="math inline">\(R\)</span> is a subgroup of relations defining <span class="math inline">\(B\)</span>. For each generator <span class="math inline">\(e_i\in F\)</span>, choose a lift <span class="math inline">\(h(e_i)\in X\)</span> of <span class="math inline">\(e_i+R\in B\)</span>. Thus we have a commutative diagram where the bottom row is exact.</p>
+<center>
+<img align="middle" src="../images/ext-fig2.png" width="300"/>
+</center>
+<p>Now if <span class="math inline">\(r\in R\)</span>, then <span class="math inline">\(g(h(r))=0\)</span> so that <span class="math inline">\(h(r)\in A\)</span>. Moreover, if <span class="math inline">\(h&#39;:F\rightarrow X\)</span> was another choice of lifts then <span class="math inline">\((h-h&#39;)\circ g = 0\)</span> so <span class="math inline">\((h-h&#39;)\in Hom(F,A)\)</span>. Thus in fact for each extension <span class="math inline">\(\xi: 0\rightarrow A\rightarrow X\rightarrow B\rightarrow 0\)</span>, we can pick an element of <span class="math inline">\(Hom(R,A)/Hom(F,A)\)</span>, the cokernel of the restriction map <span class="math inline">\(Hom(F,A)\rightarrow Hom(R,A)\)</span>. In fact, this correspondence is bijective.</p>
+<div class="theorem">
+<sc> Theorem </sc> (Baer) Suppose we have <span class="math inline">\(R\)</span>-modules <span class="math inline">\(A,B\)</span> where <span class="math inline">\(B\)</span> has presentation <span class="math inline">\(B=F/R\)</span> for <span class="math inline">\(F\)</span> free. Then there is a natural bijection between <span class="math inline">\(Ext(B,A)\)</span> and the cokernel of the restriction map <span class="math inline">\(Hom(F,A)\rightarrow Hom(R,A)\)</span>
+<div class="proof">
+<p><sc> Proof </sc> We have already shown how, given an extension <span class="math inline">\(\xi\in Ext(B,A)\)</span> we can obtain a well-defined element <span class="math inline">\([h]\in \text{coker}[Hom(F,A)\rightarrow Hom(R,A)]\)</span>. Conversely given a map <span class="math inline">\(h:R\rightarrow A\)</span>, let <span class="math inline">\(X\)</span> be the pushout <span class="math inline">\(A\otimes_R F = A\oplus F \;/\; \{(h(r), r)\;|\; r\in R\}\)</span>. We have a surjection <span class="math inline">\(X\twoheadrightarrow B\)</span> induced from <span class="math inline">\(A\times F \twoheadrightarrow F \twoheadrightarrow B\)</span>, and the kernel of this surjection is precisely <span class="math inline">\(A\oplus R\;/\;\{(h(r), r)\;|\; r\in R\}=A\otimes_R R \cong A\)</span>. Thus we have an extension <span class="math inline">\(\xi: 0\rightarrow A\rightarrow X\rightarrow B\rightarrow 0\)</span>, and moreover if <span class="math inline">\(h-h&#39;\)</span> extends to a map <span class="math inline">\(F\rightarrow A\)</span> then .</p>
+</div>
+</div>
+<h1 id="freshmans-dream">Freshman’s dream?</h1>
+<p>As mentioned, there is always the trivial solution <span class="math inline">\(0\rightarrow A \rightarrow A\oplus B \rightarrow B \rightarrow 0\)</span>. Such exact sequences are said to be <em>split</em>, and it seems like a good idea to ask for what <span class="math inline">\(A,B\)</span> is the only solution to the extension problem split?</p>
+<p>We understand split exact sequences quite well:</p>
+<div class="lemma">
+<p><sc> Lemma </sc> (Splitting lemma) For an exact sequence <span class="math inline">\(0\rightarrow A\xrightarrow{f} X \xrightarrow{g} B \rightarrow 0\)</span> of <span class="math inline">\(R\)</span>-modules, the following are equivalent:</p>
+<ol type="1">
+<li>The sequence is split, i.e. <span class="math inline">\(X=A\oplus B\)</span>.</li>
+<li>There is a retract of <span class="math inline">\(f\)</span>, i.e. a map <span class="math inline">\(X\xrightarrow{r}A\)</span> such that <span class="math inline">\(r\circ f = \text{id}_A\)</span>.</li>
+<li>There is a section of <span class="math inline">\(g\)</span>, i.e. a map <span class="math inline">\(B\xrightarrow{s}X\)</span> such that <span class="math inline">\(g\circ s = \text{id}_B\)</span>.
+<div class="proof">
+<sc> Proof </sc> If <span class="math inline">\(X=A\oplus B\)</span>, then we can take <span class="math inline">\(r,s\)</span> to be the canonical projection and injection respectively. For the rest of the proof, identify <span class="math inline">\(A\)</span> with its image in <span class="math inline">\(X\)</span>. <br> If <span class="math inline">\(f\)</span> has a retraction <span class="math inline">\(r\)</span>, then for any <span class="math inline">\(x\in X\)</span> we have <span class="math inline">\(x=(x-r(x))+r(x)\)</span>, where <span class="math inline">\(x-r(x)\in \ker(r)\)</span> and <span class="math inline">\(r(x)\in A\)</span>. Moreover this decomposition is unique since <span class="math inline">\(\ker(r)\cap A= 0\)</span>. Thus <span class="math inline">\(X\cong A\oplus \ker(r)\)</span>. Then observe <span class="math inline">\(\ker(r)\cong X/A = B\)</span>. <br> Lastly, if <span class="math inline">\(g\)</span> has a section <span class="math inline">\(s\)</span> then any <span class="math inline">\(x\in X\)</span> can be written <span class="math inline">\(x=(x-s\circ g(x))+ s\circ g(x)\)</span> where <span class="math inline">\(x-s\circ g(x)\in \ker(g) = A\)</span>, and <span class="math inline">\(s\circ g(x) \in \text{im}(s)\)</span>. Moreover, this decomposition is unique since <span class="math inline">\(A \cap \text{im}(s) = 0\)</span>. Thus <span class="math inline">\(X\cong A\oplus \text{im}(s)\)</span>. Then observe <span class="math inline">\(\text{im}(s)\cong X/A=B\)</span>. <span class="math inline">\(\square\)</span> </proof></li>
+</ol>
+</div>
+<p>One immediate application is that the exact sequence <span class="math inline">\(0\rightarrow A\xrightarrow{f} X \xrightarrow{g} B \rightarrow 0\)</span> splits whenever <span class="math inline">\(B\)</span> is free since giving a section of <span class="math inline">\(g\)</span> would simply correspond to choosing lifts of the generators of <span class="math inline">\(B\)</span>. In this case, <span class="math inline">\(Ext(B,A)\cong\{0\}\)</span> is the one-element set.</p>
+<div class="definition">
+<sc>Definition</sc> Say a module <span class="math inline">\(P\)</span> is <em>projective</em> if every exact sequence <span class="math inline">\(0\rightarrow A \rightarrow X \rightarrow P \rightarrow 0\)</span> splits. Equivalently, every surjection <span class="math inline">\(X\twoheadrightarrow P\)</span> has a section. Equivalently, <span class="math inline">\(Ext(P,A)\cong \{0\}\)</span> for every module <span class="math inline">\(A\)</span>.
+</div>
+<p>Note for any module <span class="math inline">\(P\)</span> there is always a free module that surjects onto <span class="math inline">\(P\)</span> (just take the free module generated by elements of <span class="math inline">\(P\)</span>), so by the splitting lemma, every projective module is a direct summand of some free module. In fact, the converse is true too.</p>
+<div class="theorem">
+<sc>Theorem</sc> A module <span class="math inline">\(P\)</span> is projective if and only if there is a module <span class="math inline">\(Q\)</span> such that <span class="math inline">\(P\oplus Q\)</span> is free.
+<div class="proof">
+<p><sc> Proof </sc> If <span class="math inline">\(P\)</span> is projective, then we observed above that it can be written as a direct summand of some free module. To show the converse, suppose we have a <span class="math inline">\(Q\)</span> such that <span class="math inline">\(P\oplus Q\)</span> is free, and <span class="math inline">\(0\rightarrow A\rightarrow X\rightarrow P\rightarrow 0\)</span> is exact. Then we have an exact sequence <span class="math inline">\(0\rightarrow A\oplus 0\rightarrow X\oplus Q \rightarrow P\oplus Q\rightarrow 0\)</span>. But <span class="math inline">\(P\oplus Q\)</span> is free so <span class="math inline">\(X\oplus Q \twoheadrightarrow A\oplus P \oplus Q\)</span> is an isomorphism. Since it acts as identity on <span class="math inline">\(Q\)</span>, it follows that <span class="math inline">\(X\cong A\oplus P\)</span> and hence <span class="math inline">\(P\)</span> is projective. <span class="math inline">\(\square\)</span></p>
+</div>
+</div>
+<p>This gives a complete characterisation of projective modules.</p>
+<div class="example">
+<p><sc> Example </sc> (Projectivity is stronger than freeness) The simplest example of a non-free projective module is obtained by considering the product ring <span class="math inline">\(R\times R&#39;\)</span>. Then <span class="math inline">\(R\times 0\)</span> is a direct summand of <span class="math inline">\(R\times R&#39;\)</span> so is projective, but clearly isn’t free. So, for instance, <span class="math inline">\(\mathbb{Z}/2\mathbb{Z}\)</span> is a projective <span class="math inline">\(\mathbb{Z}/6\mathbb{Z}\)</span>-module.</p>
+<p>By the <a href="https://en.wikipedia.org/wiki/Structure_theorem_for_finitely_generated_modules_over_a_principal_ideal_domain">structure theorem</a> for finitely generated modules over a principal ideal domain, we can show that a finitely generated module over a PID is projective if and only if it is free. In fact, one can (non constructively) show that <em>all projective abelian groups are free</em> by showing <a href="https://en.wikipedia.org/wiki/Nielsen–Schreier_theorem">every subgroup of a free group is free</a>.</p>
+</div>
+<p>We can dually define a module <span class="math inline">\(I\)</span> to be <em>injective</em> if every exact sequence <span class="math inline">\(0\rightarrow I \rightarrow X \rightarrow B \rightarrow 0\)</span> splits. Equivalently, if every injection <span class="math inline">\(I\hookrightarrow X\)</span> admits a retract. Equivalently, if <span class="math inline">\(Ext(B,I)\cong 0\)</span> for every module <span class="math inline">\(B\)</span>.</p>
+<p>Characterising injective and projective modules goes a part of the way towards understanding <span class="math inline">\(Ext(\cdot,\cdot)\)</span>; they are (in a sense that can be made precise) ‘simple’ objects, and we can exploit their simplicity to understand other extension problems.</p>
+<h1 id="references">References</h1>
+<ul>
+<li>Weibel’s essay on the <a href="https://sites.math.rutgers.edu/~weibel/HA-history.pdf">History of Homological Algebra</a></li>
+</ul>
+    </section>
+    <hr>
+</article>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/BusStop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/Logo.png" class="eyes"> 
+
+             <img src="/images/Lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / The Extension Problem
+     </div>
+</footer>
+    </body>
+</html>

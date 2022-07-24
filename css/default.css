@@ -318,3 +318,10 @@ article .header {
     bottom: 50px; 
   }
 }
+
+.tikzpicture {
+  height: 200px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -4,6 +4,14 @@ import           Data.Monoid (mappend)
 import           Hakyll
 import           Text.Pandoc
 
+import Data.Text (pack, unpack)
+import Text.Pandoc.Definition
+import Text.Pandoc.Walk (walk, walkM)
+import Control.Monad ((>=>))
+import Hakyll.Core.Compiler
+import Data.ByteString.Lazy.Char8 (pack, unpack)
+import qualified Network.URI.Encode as URI (encode)
+
 myConfiguration :: Configuration
 myConfiguration = defaultConfiguration
     { destinationDirectory = "docs"
@@ -22,7 +30,7 @@ main = hakyllWith myConfiguration $ do
 
     match "about.markdown" $ do
         route   $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ myPandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
     postTags <- buildTags "posts/*" (fromCapture "posts/bytopic/*.html")
@@ -59,14 +67,14 @@ main = hakyllWith myConfiguration $ do
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompilerWith defaultHakyllReaderOptions pandocOptions
+        compile $ myPandocCompiler 
             >>= saveSnapshot "content" 
             >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags postTags)
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
     match "gists/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompilerWith defaultHakyllReaderOptions pandocOptions
+        compile $ myPandocCompiler 
             >>= saveSnapshot "content" 
             >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags gistTags)
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
@@ -116,3 +124,19 @@ postCtxWithTags tags = teaserField "teaser" "content"
                        
 pandocOptions :: WriterOptions 
 pandocOptions = defaultHakyllWriterOptions{ writerHTMLMathMethod = MathJax "" }
+
+--------------------------------------------------------------------------------
+
+tikzFilter :: Block -> Compiler Block
+tikzFilter (CodeBlock (id, "tikzpicture":extraClasses, namevals) contents) =
+  (imageBlock . ("data:image/svg+xml;utf8," ++) . URI.encode . filter (/= '\n') . itemBody <$>) $
+    makeItem (Data.Text.unpack contents)
+     >>= loadAndApplyTemplate (fromFilePath "templates/tikz.tex") (bodyField "body")
+     >>= withItemBody (return . Data.ByteString.Lazy.Char8.pack 
+                       >=> unixFilterLBS "rubber-pipe" ["--pdf"] 
+                       >=> unixFilterLBS "pdftocairo" ["-svg", "-", "-"] 
+                       >=> return . Data.ByteString.Lazy.Char8.unpack)
+  where imageBlock fname = Para [Image (id, "tikzpicture":extraClasses, namevals) [] (Data.Text.pack fname, "")]
+tikzFilter x = return x
+
+myPandocCompiler = pandocCompilerWithTransformM defaultHakyllReaderOptions pandocOptions $ walkM tikzFilter 

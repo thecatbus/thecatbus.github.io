@@ -26,7 +26,16 @@ $\phi_\alpha: U_\alpha \times F \rightarrow p^{-1}(U_\alpha)$ which makes the
 following diagram commute (here $\pi_i$ can _any_ of the projection maps which
 the product comes with.)
 
-<center> <img align="middle" src="../images/diagram-20210706.png" width="300"/> </center>
+```{.tikzpicture style="height: 200px;"}
+\begin{scope}[node distance=3cm]
+  \node (UaXF) {$U_\alpha \times F$};
+  \node (PinvUa) [right of=UaXF] {$p^{-1}(U_\alpha)$};
+  \node (Ua) [below of=PinvUa] {$p^{-1}(U_\alpha)$};
+  \draw[->] (UaXF) to node {$\phi_\alpha$} (PinvUa);
+  \draw[->] (PinvUa) to node {$p$} (Ua);
+  \draw[->] [swap] (UaXF) to node {$\pi_i$} (Ua);
+\end{scope}
+```
 
 This motivates the definition of a vector bundle: 
 <div class="definition">

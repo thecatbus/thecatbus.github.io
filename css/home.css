@@ -64,7 +64,7 @@ footer {
   position: absolute;
   right: 0px; 
   bottom: 45px; 
-  width: 35%;
+  width: 25%;
   max-width: 800px;
 }
 .eyes { 
@@ -72,7 +72,7 @@ footer {
   bottom: 40px; 
   right: 0px; 
   left: 0px; 
-  width: 25%;
+  width: 20%;
   max-width: 600px;
 }
 .light { 
@@ -81,7 +81,7 @@ footer {
   opacity: 0;
   z-index: -1;
   left: 0px; 
-  width: 25%;
+  width: 20%;
   max-width: 500px;
 }
 .homebox:hover .light {
@@ -149,6 +149,18 @@ h2 {
   }
   .lastmodified{
       font-size: 1.2rem;
+  }
+  .catbusfooter{
+      visibility: hidden;
+  }
+  .eyes{
+      visibility: hidden;
+  }
+  .light{
+      visibility: hidden;
+  }
+  .busStop{
+      visibility: hidden;
   }
 }
 

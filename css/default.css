@@ -9,7 +9,24 @@ body {
   color: #EADCD2;
   background-color: #212026;
   text-align: justify;
+  padding-bottom: 200px;
 }
+
+a:link {
+  color: #EADCD2;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #b6aaa0;
+  text-decoration: none;
+}
+
+a:hover { 
+  color: #fff;
+  text-decoration: none;
+}
+
 
 sc {
   font-family: 'Vollkorn SC'
@@ -251,13 +268,15 @@ article .header {
   body {
     width: 90%;
     margin: 0;
-    padding: 0 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 200px;
   }
   footer {
-    position: relative;
-    width: 111.11%;
-    top: 150px;
-    left: -5.55%;
+    position: fixed;
+    width: 100.5%;
+    bottom: 0px;
+    left: -0.5%;
   }
   .busStop { 
     bottom: 45px; 
@@ -275,16 +294,26 @@ article .header {
   .hiddenifbig {
       display: block;
   }
-  .catbusfooter {
+  .hakyll {
       visibility: hidden;
   }
+ .eyes{
+      visibility: hidden;
+  }
+  .light{
+      visibility: hidden;
+  }
+  .busStop{
+      visibility: hidden;
+  }
+
 }
 
 @media (min-width: 601px) {
   body {
     width: 60rem;
     margin: 0 auto;
-    padding: 0;
+    padding-bottom: 200px;
   }
   footer {
     position: fixed;

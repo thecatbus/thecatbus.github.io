@@ -2,7 +2,7 @@
 title: Parth ( पार्थ ,  パース) 
 ---
 I'm a mathematician at <a href="https://gla.ac.uk">Glasgow</a>, where my PhD is
-supervised by <a href="https://www.maths.gla.ac.uk/~mwemyss/">Michael Wemyss</a>. I am interested in homological phenomena in algebraic geometry and commutative algebra, such as the McKay correspondence and various other equivalences of derived categories.
+supervised by <a href="https://www.maths.gla.ac.uk/~mwemyss/">Michael Wemyss</a>. I am interested in homological phenomena in algebraic geometry and representation theory.
 <div style="width: 100%; padding-bottom: 100%;">
 <div style="width: 32.3%; height: 100%; float: left">
 <img src='images/Parth 3.jpeg' style="width: 100%;" /> 

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: First Čech Cohomology</title>
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Hubballi' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+        <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
+            MathJax.Hub.Config({ 
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
+            }); 
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"> </script> 
+
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  >
+                <div id="heading">
+                    First Čech Cohomology
+                </div>
+            </div>
+                
+                
+            <article>
+    <hr>
+    <section class="lastmodified">
+        Posted on October 31, 2022
+        
+            by Parth
+        
+        <div style="float:right;">
+        
+            (<a title="All pages tagged &#39;geometry&#39;." href="/posts/bytopic/geometry.html">geometry</a>)
+        
+        </div>
+    </section>
+    <section>
+        <div class="teaser">
+<p>Cohomology is often described as measuring obstruction to triviality of some sort– but building up to this intuition takes time and a lot of examples. Here we sketch three scenarios arising naturally in algebraic geometry and topology, and show how studying these might naturally lead one to the Čech complex.</p>
+</div>
+<p><!--more--></p>
+<h1 id="the-mittag-leffler-and-cousin-problems">The Mittag-Leffler and Cousin Problems</h1>
+<p>In its simplest variant the Mittag-Leffler problem asks if, given a discrete set of points <span class="math inline">\(P_i\in \mathbb{C}\)</span> and corresponding natural numbers <span class="math inline">\(n_i &gt;0\)</span>, there exists a meromorphic function on <span class="math inline">\(\mathbb{C}\)</span> which has poles of order <span class="math inline">\(n_i\)</span> at <span class="math inline">\(P_i\)</span> and is holomorphic elsewhere. Clearly the problem is locally trivial, and the difficulty lies in ‘patching together’ local solutions.</p>
+<p>We propose a generalisation of the Mittag-Leffler problem – given an integral scheme <span class="math inline">\(X\)</span> with field of rational functions <span class="math inline">\(K(X)\)</span>, say the rational functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> have the same <em>principal parts</em> on an open set <span class="math inline">\(U\)</span> if <span class="math inline">\(f-g\in \mathscr{O}_X(U)\)</span>. Then a <em>Cousin data</em> on <span class="math inline">\(X\)</span> consists of an open cover <span class="math inline">\(X=\bigcup_i U_i\)</span> and rational functions <span class="math inline">\(f_i\in K(X)\)</span> for each <span class="math inline">\(U_i\)</span>, such that <span class="math inline">\(f_i\)</span> and <span class="math inline">\(f_j\)</span> have the same principal parts on <span class="math inline">\(U_i\cap U_j\)</span>. This # References - Weibel’s essay on the <a href="https://sites.math.rutgers.edu/~weibel/HA-history.pdf">History of Homological Algebra</a></p>
+    </section>
+    <hr>
+</article>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/BusStop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/Logo.png" class="eyes"> 
+
+             <img src="/images/Lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / First Čech Cohomology
+     </div>
+</footer>
+    </body>
+</html>

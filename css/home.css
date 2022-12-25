@@ -38,17 +38,21 @@ sc {
 
 a:link {
   color: #EADCD2;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: #616066
 }
 
 a:visited {
   color: #b6aaa0;
-  text-decoration: none;
+  text-decoration-style: dotted;
+  text-decoration-color: #616066
 }
 
 a:hover { 
-  color: #fff;
-  text-decoration: none;
+  text-shadow: 0px 0px 1px white;
+  text-decoration-style: dotted;
+  text-decoration-color: #616066
 }
 
 footer {

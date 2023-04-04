@@ -13,6 +13,13 @@ body {
 
 sc {font-family: 'Vollkorn SC';}
 
+.homepage-list {
+    margin: 0;
+}
+
+.homepage-list li {padding: 0; text-align: left; font-size: 0.9em;}
+/*-- .homepage-list li:nth-child(even) {background-color: #141316;} --*/
+
 .catbusfooter {
   position: absolute;
   left: 10px;

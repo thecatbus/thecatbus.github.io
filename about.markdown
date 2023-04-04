@@ -5,12 +5,12 @@ I'm a mathematician at <a href="https://gla.ac.uk">Glasgow</a>, where my PhD is
 supervised by <a href="https://www.maths.gla.ac.uk/~mwemyss/">Michael Wemyss</a>. I am interested in homological phenomena in algebraic geometry and representation theory.
 <div style="width: 100%; padding-bottom: 100%;">
 <div style="width: 32.3%; height: 100%; float: left">
-<img src='images/Parth 3.jpeg' style="width: 100%;" /> 
-<img src='images/Parth 1.JPG' style="width: 100%;" /> 
-<img src='images/Parth 2.JPG' style="width: 100%;" /> 
+<img src='images/about-3.jpeg' style="width: 100%;" /> 
+<img src='images/about-1.jpeg' style="width: 100%;" /> 
+<img src='images/about-2.jpeg' style="width: 100%;" /> 
 </div> 
 <div style="width: 66%; float: right"> 
-<img src='images/Parth 0.jpeg' style="width: 100%; height: 100%" /> 
+<img src='images/about-0.jpeg' style="width: 100%; height: 100%" /> 
 </div> 
 </div>
 <br>
@@ -22,9 +22,7 @@ In Cambridge I was involved with the <a href="https://archim.org.uk">The Archime
 
  I sometimes write <a href="https://github.com/thecatbus">software</a>, and briefly
  worked with <a href="https://twitter.com/1geek0">Nilay Kulkarni</a> as a
- back-end engineer at <a href="https://www.stoa.com/about">Stoa</a> in Bangalore. These days
- the coding is limited to the use computer algebra systems and maintenance of
- <a href="https://github.com/thecatbus/thecatbus.github.io">this website</a>.
+ back-end engineer at <a href="https://www.stoa.com/about">Stoa</a> in Bangalore.
 
 <hr>
  Why 'Catbus', you ask? I could be fancy and say the cat stands for

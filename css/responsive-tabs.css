@@ -28,7 +28,7 @@ label.panel-label:hover {
   opacity: 0;
   transition: all 600ms;
   overflow-y: hidden;
-  transform: translateY(10%);
+  transform: translateY(5%);
 }
 
 #panel-1-ctrl:checked ~ #panels #panel-1 main {
@@ -109,6 +109,7 @@ label.panel-label:hover {
     padding-top: 15px; 
     padding-bottom: 15px;
     padding-left: 75px;
+    width: 50%;
   }
   #tabs-list #li-for-panel-1 {
     max-height: 0px;

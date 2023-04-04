@@ -10,16 +10,12 @@ ul#tabs-list {
 }
 
 label.panel-label {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   display: block;
   width: 100%;
   color: #EADCD2;
   cursor: pointer;
   transition-property: color, text-shadow;
-  transition-duration: 500ms; 
+  transition-duration: 300ms; 
   font-family: 'Vollkorn SC';
 }
 label.panel-label:hover {
@@ -30,35 +26,42 @@ label.panel-label:hover {
 #panels section main {
   max-height: 0;
   opacity: 0;
-  transition: opacity 600ms;
+  transition: all 600ms;
   overflow-y: hidden;
+  transform: translateY(10%);
 }
 
 #panel-1-ctrl:checked ~ #panels #panel-1 main {
   max-height: initial;
   opacity: 1;
+  transform: translateY(0%);
 }
 #panel-2-ctrl:checked ~ #panels #panel-2 main {
   max-height: initial;
   opacity: 1;
+  transform: translateY(0%);
 }
 #panel-3-ctrl:checked ~ #panels #panel-3 main {
   max-height: initial;
   opacity: 1;
+  transform: translateY(0%);
 }
 #panel-4-ctrl:checked ~ #panels #panel-4 main {
   max-height: initial;
   opacity: 1;
+  transform: translateY(0%);
 }
 #panel-5-ctrl:checked ~ #panels #panel-5 main {
   max-height: initial;
   opacity: 1;
+  transform: translateY(0%);
 }
 
 /*-- On phones --*/
 @media all and (max-width: 767px) {
   ul#tabs-list {
       margin-top: -35px;
+      margin-bottom: -35px;
       background-color: #141316;
       font-size: 1.55em;
       text-align: left; 
@@ -134,192 +137,33 @@ label.panel-label:hover {
   }
 
   #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 {
+    color: white; background-color: #212026;
     max-height: 55px;
-    opacity: 1;
   }
-  #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 label.panel-label {
-    color: #EADCD2; background-color: #212026;
-  }
-
   #panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 {
+    color: white; background-color: #212026;
     max-height: 55px;
-    opacity: 1;
   }
-  #panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 label.panel-label {
-    color: #EADCD2; background-color: #212026;
-  }
-
   #panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 {
+    color: white; background-color: #212026;
     max-height: 55px;
-    opacity: 1;
-  }
-  #panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 label.panel-label {
-    color: #EADCD2; background-color: #212026;
   }
   #panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4 {
+    color: white; background-color: #212026;
     max-height: 55px;
-    opacity: 1;
-  }
-  #panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4 label.panel-label {
-    color: #EADCD2; background-color: #212026;
   }
   #panel-5-ctrl:checked ~ #tabs-list #li-for-panel-5 {
+    color: white; background-color: #212026;
     max-height: 55px;
-    opacity: 1;
   }
-  #panel-5-ctrl:checked ~ #tabs-list #li-for-panel-5 label.panel-label {
-    color: #EADCD2; background-color: #212026;
+
+  .big-screen-only {
+      display : none;
   }
 }
 
 /*-- On big screens --*/
 @media all and (min-width: 768px) {
-  #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 {
-    pointer-events: none;
-    cursor: default;
-    box-shadow: none;
-    border: none;
-  }
-  #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 label.panel-label {
-    color: white; 
-    text-shadow: 0px 0px 0.5px white;
-    background-color: #212026;
-    padding-top: 10px;
-    border-left: 0.5px solid #EADCD2;
-    border-right: 0.5px solid #EADCD2;
-    border-bottom: 2px solid #212026;
-    border-top: 6px solid #EADCD2;
-    transform: translate3d(0, 1.5px, 0);
-    transition: border-top 600ms;
-  }
-  #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 label.panel-label::after {
-    height: 6px;
-  }
-
-  #panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 {
-    pointer-events: none;
-    cursor: default;
-    box-shadow: none;
-    border-right: none;
-  }
-  #panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 label.panel-label {
-    color: white; 
-    text-shadow: 0px 0px 0.5px white;
-    background-color: #212026;
-    padding-top: 10px;
-    border-left: 0.5px solid #EADCD2;
-    border-right: 0.5px solid #EADCD2;
-    border-bottom: 2px solid #212026;
-    border-top: 6px solid #EADCD2;
-    transform: translate3d(0, 1.5px, 0);
-    transition: border-top 600ms;
-  }
-  #panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 label.panel-label::after {
-    height: 6px;
-  }
-
-  #panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 {
-    pointer-events: none;
-    cursor: default;
-    box-shadow: none;
-    border-right: none;
-  }
-  #panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 label.panel-label {
-    color: white; 
-    text-shadow: 0px 0px 0.5px white;
-    background-color: #212026;
-    padding-top: 10px;
-    border-left: 0.5px solid #EADCD2;
-    border-right: 0.5px solid #EADCD2;
-    border-bottom: 2px solid #212026;
-    border-top: 6px solid #EADCD2;
-    transform: translate3d(0, 1.5px, 0);
-    transition: border-top 600ms;
-  }
-  #panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 label.panel-label::after {
-    height: 6px;
-  }
-
-  #panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4 {
-    pointer-events: none;
-    cursor: default;
-    box-shadow: none;
-    border-right: none;
-  }
-  #panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4 label.panel-label {
-    color: white; 
-    text-shadow: 0px 0px 0.5px white;
-    background-color: #212026;
-    padding-top: 10px;
-    border-left: 0.5px solid #EADCD2;
-    border-right: 0.5px solid #EADCD2;
-    border-bottom: 2px solid #212026;
-    border-top: 6px solid #EADCD2;
-    transform: translate3d(0, 1.5px, 0);
-    transition: border-top 600ms;
-  }
-  #panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4 label.panel-label::after {
-    height: 6px;
-  }
-
-  #panel-5-ctrl:checked ~ #tabs-list #li-for-panel-5 {
-    pointer-events: none;
-    cursor: default;
-    box-shadow: none;
-    border-right: none;
-  }
-  #panel-5-ctrl:checked ~ #tabs-list #li-for-panel-5 label.panel-label {
-    color: white; 
-    text-shadow: 0px 0px 0.5px white;
-    background-color: #212026;
-    padding-top: 10px;
-    border-left: 0.5px solid #EADCD2;
-    border-right: 0.5px solid #EADCD2;
-    border-bottom: 2px solid #212026;
-    border-top: 6px solid #EADCD2;
-    transform: translate3d(0, 1.5px, 0);
-    transition: border-top 600ms;
-  }
-  #panel-5-ctrl:checked ~ #tabs-list #li-for-panel-5 label.panel-label::after {
-    height: 6px;
-  }
-
-  ul#tabs-list {
-    text-align: center;
-    border-bottom: 0.5px solid #EADCD2;
-  }
-  ul#tabs-list li {
-    display: inline-block;
-    text-align: center;
-    font-size: 0.875em;
-    width: 18%;
-    position: relative;
-  }
-  ul#tabs-list li:hover {
-    transition: none;
-    border: none;
-  }
-  ul#tabs-list li label.panel-label {
-    position: relative;
-    padding: 10px 0;
-  }
-  ul#tabs-list li label.panel-label::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 100%;
-    background-color: #EADCD2;
-    height: 0;
-    transition-property: height;
-    transition-duration: 200ms;
-  }
-  ul#tabs-list li label.panel-label:hover {
-    padding-top: 10px;
-  }
-  ul#tabs-list li label.panel-label:hover::after {
-    height: 6px;
-  }
 
   #open-nav-label {
     display: none;
@@ -328,6 +172,57 @@ label.panel-label:hover {
   .phone-only {
       display: none;
   }
+
+  #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 {
+    color: white; 
+    text-shadow: 0px 0px 0.5px white;
+    box-shadow: inset 0 -50px 0 0px #212026;
+    transition: box-shadow 300ms ease;
+  }
+  #panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 {
+    color: white; 
+    text-shadow: 0px 0px 0.5px white;
+    box-shadow: inset 0 -50px 0 0px #212026;
+    transition: box-shadow 300ms ease;
+  }
+  #panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 {
+    color: white; 
+    text-shadow: 0px 0px 0.5px white;
+    box-shadow: inset 0 -50px 0 0px #212026;
+    transition: box-shadow 300ms ease;
+  } 
+  #panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4 {
+    color: white; 
+    text-shadow: 0px 0px 0.5px white;
+    box-shadow: inset 0 -50px 0 0px #212026;
+    transition: box-shadow 300ms ease;
+  } 
+  #panel-5-ctrl:checked ~ #tabs-list #li-for-panel-5 {
+    color: white; 
+    text-shadow: 0px 0px 0.5px white;
+    box-shadow: inset 0 -50px 0 0px #212026;
+    transition: box-shadow 300ms ease;
+  }
+
+  ul#tabs-list li {
+    border-top: 1px solid #EADCD2;
+    float: left;
+    text-align: center;
+    width: 20%;
+    position: relative;
+    background-color: #141316;
+    box-shadow: inset 0 0 0 0px #212026;
+    transition: box-shadow 300ms ease;
+  }
+  ul#tabs-list li label.panel-label {
+    position: relative;
+    padding: 10px 0;
+  }
+  ul#tabs-list li:hover {
+    box-shadow: inset 0 -15px 0 0px #212026;
+    transition: box-shadow 300ms ease;
+  }
+
 }
 
 /*-- Hamburger menu animation from https://github.com/jonsuh/hamburgers--*/

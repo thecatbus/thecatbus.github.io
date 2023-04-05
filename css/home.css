@@ -144,6 +144,45 @@ h2 {font-size: 2rem;}
   color: #eadcd23d;
 }
 
+pre {
+    display: block;
+    background-color: #141316;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 0;
+    margin-top: -5px;
+    border-radius: 5px;
+  }
+
+code {
+    font-family: 'Fira mono';
+    font-size: 0.8em;
+    line-height: 100%;
+    padding: 0.5em;
+    letter-spacing: -0.05em;
+    word-break: normal;
+  }
+
+pre code {
+    border: none;
+    background: none;
+    line-height: 1em;
+    letter-spacing: normal;
+    word-break: break-all;
+  }
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgba(255,255,255,.3);
+  box-shadow: 0 0 0.5px rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 0.5px rgba(0,0,0,.5);
+}
+
 @media screen and (max-width: 600pt) {
   body {
     width: 90%;

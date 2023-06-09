@@ -2,7 +2,7 @@
 title: Splitting on the line
 author: Parth
 date: 6 June 2023
-tags: algebraic geometry
+tags: geometry
 ---
 
 <div class="teaser">

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: $title$</title>
+        <link rel="icon" type="image/x-icon" href="/images/catbus-logo.png">
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Hubballi' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+        <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
+            MathJax.Hub.Config({
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
+            });
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"> </script>
+
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title" $if(date)$ $else$ style="text-align: left;" $endif$>
+                <div id="heading">
+                    Parth <small style="font-size: 22pt">( पार्थ ,  パース)</small>
+                </div>
+            </div>
+                $if(author)$
+                $else$
+                    <p class="lastmodified", id="last">
+                    Last modified on:
+                    </p>
+                   <script language="Javascript">
+                      lastMod = document.getElementById("last");
+                      date = new Date(document.lastModified)
+                      lastMod.innerText = "Last updated on " + date.toDateString() + ".";
+                   </script>
+                $endif$
+            $body$
+        </main>
+
+        <div class="clear"></div>
+        $partial("templates/footer.html")$
+    </body>
+</html>

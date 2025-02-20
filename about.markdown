@@ -27,4 +27,4 @@ In Cambridge I was involved with the <a href="https://archim.org.uk">The Archime
  'category', but the truth is I just like cats (and <i>My Neighbour Totoro</i>) and find it incredibly amusing
  that the catbus is a cat and a bus at the same time.
 
- See also: <a href="https://en.wikipedia.org/wiki/Bugcat_Capoo"><i>Bugcat</i></a>, which <a href="https://yanyauc.com">Yan Yau Cheng</a> is a connoisseur of.
+ See also: <a href="https://en.wikipedia.org/wiki/Bugcat_Capoo"><i>Bugcat</i></a>, which <a href="https://yanyauc.com">Yan Yau Cheng</a> is a connoisseur of. If such animated creatures and critters interest you as much as they do us, I highly (highly) recommend <a href="https://youtube.com/playlist?list=PL4ZM20n-jDnfG-QrAbDh-EpcSU6veNhRC&feature=shared">Kid vampir</a>.

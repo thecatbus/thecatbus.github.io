@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: Posts / algebra</title>
+        <link rel="icon" type="image/x-icon" href="/images/catbus-logo.png">
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Hubballi' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+        <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
+            MathJax.Hub.Config({ 
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
+            }); 
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"> </script> 
+
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  style="text-align: left;" >
+                <div id="heading">
+                    Posts / algebra
+                </div>
+            </div>
+                
+                    <p class="lastmodified", id="last">
+                    Last modified on:
+                    </p>
+                   <script language="Javascript">
+                      lastMod = document.getElementById("last");
+                      date = new Date(document.lastModified)
+                      lastMod.innerText = "Last updated on " + date.toDateString() + ".";
+                   </script>
+                
+            <head>
+    <style>
+        .teaser {
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<i>This is my semi active blog, each article is a by-product of me attempting to understand some mathematics. Most articles, hence, are just rehashes of existing literature and most original contributions are either through mistakes which I apologise for in advance, or through non-traditional reordering of topics to suit my taste. It can however provide a starting point to some of the content, or an alternate perspective if you're already familiar with the material.</i>
+<div id="taglist" class="dropdown"> <a href="/posts/bytopic/algebra.html">algebra (1)</a>, <a href="/posts/bytopic/combinatorics.html">combinatorics (1)</a>, <a href="/posts/bytopic/foundations.html">foundations (2)</a>, <a href="/posts/bytopic/geometry.html">geometry (2)</a> </div>
+
+<script>
+    tags = document.getElementById("taglist");
+    var taglist = tags.innerHTML.split(',');
+    heading = document.getElementById("heading");
+    html=heading.innerText;
+    html="Posts / <div class=\"dropdown\"> <div class=\"dropbtn\">" + html.substring(7) +"<\div> <div class=\"dropdown-content\"> <a href=\"/posts.html\">all</a>";
+    taglist.forEach(function(x) {
+        x = x.replace(/ \(\d*\)/,"");
+        console.log(x);
+        html+=x; 
+    });
+    html+="<\div> <\div>";
+    heading.innerHTML=html;
+    tags.innerHTML="";
+</script>
+
+<div class="clear" style="height: 20px;"></div>
+<hr>
+
+<div class="smalltitle">
+Working with quivers 
+<p class="lastmodified" style="margin-top: -3pt;">
+April 21, 2025 (<a title="All pages tagged &#39;algebra&#39;." href="/posts/bytopic/algebra.html">algebra</a>)
+</p>
+</div>
+<div class="hiddenifbig" style="width: 100%; height: 40px"> </div>
+<div class="teaser">
+<p>Quivers have long provided a straightforward, combinatorial, and most importantly, visual construction of associative algebras. To recall, given a quiver (i.e. a directed graph) <span class="math inline">\(Q\)</span>, one simply</p>
+</div>
+
+<div class="lastmodified" style="display: flex;">
+    <a href="/posts/2025-04-21-Quiver-reps.html">read more...</a>
+</div>
+<hr>
+
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/footer-busstop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/footer-logo.png" class="eyes"> 
+
+             <img src="/images/footer-lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / Posts / algebra
+     </div>
+</footer>
+
+    </body>
+</html>

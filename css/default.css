@@ -271,6 +271,9 @@ article .header {
 .dropdown:hover .dropbtn {color: #fff;}
 
 @media (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
   body {
     width: 90%;
     margin: 0;

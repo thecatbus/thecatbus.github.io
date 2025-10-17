@@ -24,11 +24,12 @@ body {
 
 sc {font-family: 'Vollkorn SC';}
 
-.homepage-list {
-    margin: 0;
+ol.homepage-list {
+    margin-left:0;
+    padding:2rem;
 }
 
-.homepage-list li {padding: 0; text-align: left; font-size: 0.9em;}
+ol.homepage-list li {padding: 0; text-align: left; font-size: 0.9em;}
 /*-- .homepage-list li:nth-child(even) {background-color: #141316;} --*/
 
 .catbusfooter {
@@ -203,8 +204,8 @@ pre code {
     padding-top: 0;
     padding-bottom: 200px;
   }
-  .dropthis {font-size: 4.8rem; line-height: 4.8rem}
-  .aestheticGap {height: 0px;}
+  .dropthis {font-size: 5rem}
+  .aestheticGap {height: 50px;}
   .title {font-size: 5rem;}
   .lastmodified{font-size: 1.2rem;}
   footer{visibility: hidden; display: none;}
@@ -224,6 +225,7 @@ pre code {
     padding-bottom: 200px;
   }
   .title {font-size: 8rem;}
+  br.smallscreen {display: none; visibility: hidden;}
 }
 
 @media (max-height: 350pt) {

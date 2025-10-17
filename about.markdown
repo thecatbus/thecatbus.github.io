@@ -1,5 +1,5 @@
 ---
-title: Parth ( पार्थ ,  パース)
+title: Parth (पार्थ, パース )
 ---
 I'm a mathematician in <a href="https://gla.ac.uk">Glasgow</a>, where my PhD is
 supervised by <a href="https://www.maths.gla.ac.uk/~mwemyss/">Michael Wemyss</a>. I am interested in homological phenomena in algebraic geometry and representation theory.

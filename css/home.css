@@ -207,6 +207,7 @@ pre code {
   .aestheticGap {height: 0px;}
   .title {font-size: 5rem;}
   .lastmodified{font-size: 1.2rem;}
+  footer{visibility: hidden; display: none;}
   .catbusfooter{visibility: hidden;}
   .eyes{visibility: hidden;}
   .light{visibility: hidden;}
@@ -227,6 +228,8 @@ pre code {
 
 @media (max-height: 350pt) {
   footer {
+    visibility: hidden;
+    display: none;
     position: relative;
     width: 111.11%;
     top: 150px;

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: Small spanning objects</title>
+        <link rel="icon" type="image/x-icon" href="/images/catbus-logo.png">
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Hubballi' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+        <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
+            MathJax.Hub.Config({
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
+            });
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"> </script>
+
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  >
+                <div id="heading">
+                    Small spanning objects
+                </div>
+            </div>
+                
+                
+            <article>
+    <hr>
+    <section class="lastmodified">
+        Posted on October 30, 2025
+        
+            by Parth
+        
+        <div style="float:right;">
+        
+            (<a title="All pages tagged &#39;geometry&#39;." href="/posts/bytopic/geometry.html">geometry</a>, <a title="All pages tagged &#39;algebra&#39;." href="/posts/bytopic/algebra.html">algebra</a>)
+        
+        </div>
+    </section>
+    <section>
+        <div class="teaser">
+<p>An object <span class="math inline">\(G\)</span> in a triangulated category <span class="math inline">\(\mathscr{T}\)</span> is a <em>classical generator</em> if it is not contained in a proper triangulated subcategory of <span class="math inline">\(\mathscr{T}\)</span>. It is a <em>generator</em> if <span class="math inline">\(\{G\}\)</span> is a spanning class, i.e. <span class="math inline">\(\text{Hom}^\bullet(G,x) = 0\)</span> if and only if <span class="math inline">\(x=0\)</span>. Every classical generator spans; I discuss two geometric counterexamples to the converse — based on Dmitrii Pirozhkov’s <a href="https://arxiv.org/pdf/2510.25558">exposition</a> which attributes them to de Jong.</p>
+</div>
+<!--more-->
+<p>The counterexamples are geometric, we fix the triangulated category <span class="math inline">\(\mathbf{D}^\text{b}\text{Coh}(X)\)</span> associated to a smooth variety <span class="math inline">\(X\)</span>. Why might a generator in <span class="math inline">\(\mathbf{D}^\text{b} \text{Coh} (X)\)</span> not be a classical generator? In other words, what can allow a classical non-generator to have trivial orthogonal-complement?</p>
+<p><em>Support</em> is one good reason; the set of all skyscrapers on <span class="math inline">\(X\)</span> spans but certainly doesn’t classically generate the derived category. Concretely we may take a regular local Noetherian ring <span class="math inline">\(R\)</span> with the maximal ideal <span class="math inline">\(\mathfrak{m}\)</span>, and set <span class="math inline">\(X=\text{Spec}(R)\)</span>: the simple module <span class="math inline">\(R/\mathfrak{m}\)</span> is a generator of <span class="math inline">\(\mathscr{T}\)</span> by Nakayama’s lemma, but the subcategory <span class="math inline">\(\langle R/\mathfrak{m}\rangle\subset\mathscr{T}\)</span> consists only of objects supported at <span class="math inline">\(\mathfrak{m} \in\text{Spec}(R)\)</span> and does not include, for example, <span class="math inline">\(R\)</span> itself.</p>
+<p>The Reimann–Roch theorem is another good reason. Let <span class="math inline">\(X\)</span> be a smooth projective curve of genus <span class="math inline">\(g\geq 2\)</span>, with two rationally inequivalent points <span class="math inline">\(p,q\in X\)</span>, and consider the line bundle <span class="math inline">\(L=\mathscr{O}_X(2p-q)\)</span> which has degree <span class="math inline">\(1\)</span> and satisfies <span class="math inline">\(\text{Hom}(\mathscr{O}_X,L)=\text{Hom}(L,\mathscr{O}_X)=0\)</span>. Now <span class="math inline">\(V=\mathscr{O}_X\oplus L\)</span> certainly doesn’t classically generate <span class="math inline">\(\mathbf{D}^\text{b}\text{Coh} (X)\)</span> (since otherwise the heart <span class="math inline">\(\text{Coh} X\)</span>, which would contain a generating semibrick, would be Artinian). But <span class="math inline">\(V\)</span> does <em>span</em> the category: otherwise there is a complex <span class="math inline">\(W\neq 0\)</span> such that <span class="math inline">\(\text{Hom}^\bullet(V,W)=0\)</span>. Since <span class="math inline">\(W\)</span> <a href="./2023-06-07-CohP1.markdown">splits into its cohomologies</a>, we may assume <span class="math inline">\(W\)</span> is a coherent sheaf. Further <span class="math inline">\(W\)</span> splits into its torsion and torsion-free parts, and <span class="math inline">\(V\)</span> clearly has a morphism to every torsion sheaf so we may assume <span class="math inline">\(W\)</span> is locally free. In other words, we have bundles <span class="math inline">\(W\)</span> and <span class="math inline">\(W&#39;=W(q-2p)\)</span> satisfying <span class="math inline">\(\text{h}^0(W)=\text{h}^1(W)=0\)</span>, <span class="math inline">\(\text{h}^0(W&#39;)=\text{h}^1(W&#39;)=0\)</span>.</p>
+<p>But by the Hirzebruch–Riemann–Roch theorem, we see that <span class="math inline">\(0=\chi(W)=(1-g)\text{rk}W- \text{deg} W\)</span> and <span class="math inline">\(0=\chi(W&#39;)=(1-g)\text{rk}W&#39;- \text{deg} W&#39;\)</span>, which cannot both simultaneously hold since <span class="math inline">\(\text{rk}W&#39;=\text{rk}W\)</span> but <span class="math inline">\(\text{deg} W&#39;= \text{deg} W-1\)</span>.</p>
+    </section>
+    <hr>
+</article>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/footer-busstop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/footer-logo.png" class="eyes"> 
+
+             <img src="/images/footer-lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / Small spanning objects
+     </div>
+</footer>
+
+    </body>
+</html>

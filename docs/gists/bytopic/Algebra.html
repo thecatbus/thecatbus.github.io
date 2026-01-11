@@ -49,7 +49,7 @@
             This is a list of short stand-alone results, (counter) examples, and tricks
 that I have picked up here and there.
 
-<div id="taglist" class="dropdown"> <a href="/gists/bytopic/algebra.html">algebra (3)</a>, <a href="/gists/bytopic/algebraic%20geometry.html">algebraic geometry (1)</a>, <a href="/gists/bytopic/analysis.html">analysis (1)</a>, <a href="/gists/bytopic/logic.html">logic (1)</a> </div>
+<div id="taglist" class="dropdown"> <a href="/gists/bytopic/algebra.html">algebra (4)</a>, <a href="/gists/bytopic/algebraic%20geometry.html">algebraic geometry (1)</a>, <a href="/gists/bytopic/analysis.html">analysis (1)</a>, <a href="/gists/bytopic/logic.html">logic (1)</a> </div>
 
 <script>
     tags = document.getElementById("taglist");
@@ -68,6 +68,18 @@ that I have picked up here and there.
 </script>
 
 <div class="clear" style="height: 20px;"></div>
+<hr>
+
+<div class="smalltitle">
+A tiny infinite colimit 
+<p class="lastmodified" style="margin-top: -3pt;">
+January 11, 2026 (<a title="All pages tagged &#39;algebra&#39;." href="/gists/bytopic/algebra.html">algebra</a>)
+</p>
+</div>
+<div class="hiddenifbig" style="width: 100%; height: 40px"> </div>
+<p> 
+<p>The slogan “<em>colimits are unions</em>” works most of the time, except when it doesn’t – here is a nice example pointed out to me by Jiacheng Tang. Work in the category of <em>finite</em> groups, and consider the directed system <span class="math inline">\(0\hookrightarrow \mathbb{Z}/2\mathbb{Z}\hookrightarrow\mathbb{Z}/4\mathbb{Z}\hookrightarrow \cdots\)</span>. Any non-zero element in this directed system can be halved arbitrarily many times, and hence so can its image under any homomorphism out of the system. But we are working in the category of finite groups, so such an image can only be the trivial (i.e. identity) element. In other words, the colimit of this infinite directed system is the trivial group.</p>
+<p>Of course if one instead works in the larger category of all groups, the colimit is the “infinite union” <span class="math inline">\(\mathbb{Z}[\frac{1}{2}]/\mathbb{Z}\)</span>. 
 <hr>
 
 <div class="smalltitle">

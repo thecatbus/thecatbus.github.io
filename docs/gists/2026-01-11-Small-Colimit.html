@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: A tiny infinite colimit</title>
+        <link rel="icon" type="image/x-icon" href="/images/catbus-logo.png">
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Hubballi' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+        <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
+            MathJax.Hub.Config({
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
+            });
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"> </script>
+
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  style="text-align: left;" >
+                <div id="heading">
+                    A tiny infinite colimit
+                </div>
+            </div>
+                
+                
+            <article>
+    <hr>
+    <section class="lastmodified">
+        Posted on January 11, 2026
+        
+            by Parth
+        
+        <div style="float:right;">
+        
+            (<a title="All pages tagged &#39;algebra&#39;." href="/gists/bytopic/algebra.html">algebra</a>)
+        
+        </div>
+    </section>
+    <section>
+        <p>The slogan “<em>colimits are unions</em>” works most of the time, except when it doesn’t – here is a nice example pointed out to me by Jiacheng Tang. Work in the category of <em>finite</em> groups, and consider the directed system <span class="math inline">\(0\hookrightarrow \mathbb{Z}/2\mathbb{Z}\hookrightarrow\mathbb{Z}/4\mathbb{Z}\hookrightarrow \cdots\)</span>. Any non-zero element in this directed system can be halved arbitrarily many times, and hence so can its image under any homomorphism out of the system. But we are working in the category of finite groups, so such an image can only be the trivial (i.e. identity) element. In other words, the colimit of this infinite directed system is the trivial group.</p>
+<p>Of course if one instead works in the larger category of all groups, the colimit is the “infinite union” <span class="math inline">\(\mathbb{Z}[\frac{1}{2}]/\mathbb{Z}\)</span>. <!--more--></p>
+    </section>
+    <hr>
+</article>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/footer-busstop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/footer-logo.png" class="eyes"> 
+
+             <img src="/images/footer-lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / A tiny infinite colimit
+     </div>
+</footer>
+
+    </body>
+</html>

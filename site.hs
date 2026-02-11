@@ -33,6 +33,9 @@ main = hakyllWith myConfiguration $ do
     route idRoute
     compile compressCssCompiler
 
+  match "preamble.tex" $ do 
+    compile getResourceBody
+
   match "about.markdown" $ do
     route $ setExtension "html"
     compile $
@@ -155,4 +158,11 @@ tikzFilter (CodeBlock (id, "tikzpicture" : extraClasses, namevals) contents) =
     imageBlock fname = Para [Image (id, "tikzpicture" : extraClasses, namevals) [] (Data.Text.pack fname, "")]
 tikzFilter x = return x
 
-myPandocCompiler = pandocCompilerWithTransformM defaultHakyllReaderOptions pandocOptions $ walkM tikzFilter
+myPandocCompiler = do 
+  preamble <- loadBody "preamble.tex"
+  item <- getResourceBody
+  itemWithPreamble <- withItemBody (return . (preamble ++)) item
+    
+  pandocItem <- readPandocWith defaultHakyllReaderOptions itemWithPreamble
+  transformedItem <- (walkM tikzFilter) `traverse` pandocItem
+  return $ writePandocWith pandocOptions transformedItem

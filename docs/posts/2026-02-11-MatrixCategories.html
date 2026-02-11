@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: categories of matrices</title>
+        <link rel="icon" type="image/x-icon" href="/images/catbus-logo.png">
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Hubballi' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+        <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
+            MathJax.Hub.Config({
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
+            });
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"> </script>
+
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  >
+                <div id="heading">
+                    categories of matrices
+                </div>
+            </div>
+                
+                
+            <article>
+    <hr>
+    <section class="lastmodified">
+        Posted on February 11, 2026
+        
+            by Parth
+        
+        <div style="float:right;">
+        
+            (<a title="All pages tagged &#39;algebra&#39;." href="/posts/bytopic/algebra.html">algebra</a>)
+        
+        </div>
+    </section>
+    <section>
+        <div class="teaser">
+<p>A first class on category theory typically introduces this rather silly category whose objects are natural numbers, and morphisms <span class="math inline">\(p\to q\)</span> are <span class="math inline">\(q\times p\)</span> matrices – this is perhaps to drive home the point that anything and everything under the sun can be a category – and then proceeds to show that it is equivalent to the category of vector spaces (an “honest” category by anyone’s definition). Continuing this rather silly exercise, we will examine a category whose objects are all finite matrices, and then proceed to take off its guise.</p>
+</div>
+<!--more-->
+<p>Take a category <span class="math inline">\(\mathcal{C}\)</span> whose objects are all (finite) matrices over a field <span class="math inline">\(\mathbb{k}\)</span>, with morphisms <span class="math inline">\(M\to N\)</span> given by pairs of matrices <span class="math inline">\((F_1,F_2)\)</span> such that <span class="math inline">\(MF_1=F_2N\)</span>. Note the shapes of <span class="math inline">\(F_1\)</span> and <span class="math inline">\(F_2\)</span> are determined by this relation, so the morphism-sets are <span class="math inline">\(\mathbb{k}\)</span>-vector spaces in the obvious way.</p>
+<p>Turns out the category <span class="math inline">\(\mathcal{C}\)</span> is Abelian! A morphism <span class="math inline">\((F_1,F_2)\)</span> is injective if and only if both <span class="math inline">\(F_1\)</span> and <span class="math inline">\(F_2\)</span> have no nullity; it is surjective if both have full rank.</p>
+<p>We describe the category in two equivalent but more familiar forms – first, our category is evidently equivalent to <span class="math inline">\(\mathop{\mathsf{Rep}}(\bullet\to\bullet)\)</span>, i.e. the category of functors <span class="math inline">\([\bullet\to\bullet]\longrightarrow \mathbb{k}\text{-}\mathsf{mod}\)</span>. To spell this out, the objects of this category are diagrams of vector spaces <span class="math inline">\([V_1\xrightarrow{m} V_2]\)</span>, with morphisms <span class="math inline">\([V_1\xrightarrow{m}V_2]\longrightarrow [W_1\xrightarrow{n}V_2]\)</span> given by commuting squares. There is a fully faithful functor <span class="math inline">\(\mathcal{C}\longrightarrow \mathop{\mathsf{Rep}}(\bullet\to \bullet)\)</span> sending an <span class="math inline">\(p\times q\)</span> matrix <span class="math inline">\(M\)</span> to the corresponding linear map <span class="math inline">\(\mathbb{k}^q\to \mathbb{k}^p\)</span>, this functor is essentially surjective since every finite dimensional vector space has a basis.</p>
+<p>Now given <span class="math inline">\([V_1\xrightarrow{m}V_2]\in\mathop{\mathsf{Rep}}(\bullet\to\bullet)\)</span>, consider the right <span class="math inline">\(A=\left(\begin{smallmatrix}\mathbb{k}&amp;0\\\mathbb{k}&amp;\mathbb{k}\end{smallmatrix}\right)\)</span>-module with underlying vector space <span class="math inline">\(V_1\oplus V_2\)</span>, and <span class="math inline">\(A\)</span>-action <span class="math display">\[(v_1\oplus v_2)\cdot \left(\begin{smallmatrix}\lambda&amp;0\\\xi&amp;\mu\end{smallmatrix}\right)=(\lambda \cdot v_1+\xi\cdot mv_2 )\oplus(\mu \cdot v_2).\]</span> Conversely any finitely generated <span class="math inline">\(A\)</span>-module <span class="math inline">\(V\)</span> has underlying vector space <span class="math inline">\(V\left(\begin{smallmatrix}1&amp;0\\0&amp;0\end{smallmatrix}\right) \oplus V\left(\begin{smallmatrix}0&amp;0\\0&amp;1\end{smallmatrix}\right)\)</span>, and the data of the linear map <span class="math display">\[(-)\cdot\left(\begin{smallmatrix}0&amp;0\\1&amp;0\end{smallmatrix}\right)\colon V\left(\begin{smallmatrix}0&amp;0\\0&amp;1\end{smallmatrix}\right)\to V\left(\begin{smallmatrix}1&amp;0\\0&amp;0\end{smallmatrix}\right)\]</span> determines <span class="math inline">\(V\)</span> completely as an <span class="math inline">\(A\)</span>-module. Thus in fact <span class="math inline">\(\mathcal{C}\simeq \mathop{\mathsf{Rep}}(\bullet\to\bullet)\)</span> is equivalent to the <span class="math inline">\(\mathbb{k}\)</span>-linear Abelian category of finitely generated right <span class="math inline">\(A\)</span>-modules.</p>
+<p>Generalising the above, the category of right modules over <span class="math inline">\(K_n=\left(\begin{smallmatrix}\mathbb{k}^{\phantom{n}}&amp;0\\\mathbb{k}^n&amp;\mathbb{k}\end{smallmatrix}\right)\)</span> is equivalent to the category of representations of the <span class="math inline">\(n\)</span>-Kronecker quiver, i.e. the category of <span class="math inline">\(n\)</span>-tuples of equi-shape matrices <span class="math inline">\((M_1,...,M_n)\)</span> where morphisms <span class="math inline">\((M_1,...,M_n)\to (N_1,...,N_n)\)</span> are given by pairs of matrices <span class="math inline">\((F_1,F_2)\)</span> such that <span class="math inline">\(M_iF_1=F_2N_i\)</span> for all <span class="math inline">\(i\)</span>.</p>
+    </section>
+    <hr>
+</article>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/footer-busstop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/footer-logo.png" class="eyes"> 
+
+             <img src="/images/footer-lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / categories of matrices
+     </div>
+</footer>
+
+    </body>
+</html>

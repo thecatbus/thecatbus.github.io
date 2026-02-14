@@ -1,0 +1,109 @@
+---
+title: A line's stability manifold 
+author: Parth
+date: 14 February 2026
+tags: geometry
+---
+
+<div class="teaser">
+Stability manifolds à la Bridgeland have been central to much modern algebraic geometry, yet explicit descriptions remain elusive in all but a handful of cases. Okada So's [computation](http://arxiv.org/abs/math/0411220) of the stability manifold of $\bbP^1$ was among the first major steps to remedy the situation. Whilst the paper remains a great resource for an understanding of both the topology and geometry of $\Stab(\bbP^1)$, I attempt to sketch (literally and figuratively) the manifold and some group actions on it.
+</div>
+<!--more-->
+
+The following observation goes a long way -- we know all stability conditions on $\Db \bbP^1$ explicitly.
+
+<div class="theorem">
+<sc>Theorem.</sc>
+If $(Z,P)$ is a stability condition on $\Db\bbP^1$ then either 
+
+1. $P(0,1]=(\Coh \bbP^1)[i]$ for some $i\in \mathbb{Z}$ and $Z$ is determined by the tuple $(-1)^i\cdot (Z\OO_p, Z\OO_{\bbP^1})\in \mathbb{R}_{<0}\times \mathbb{H}$, or 
+
+2. $P(0,1]=\langle \OO_{\bbP^1}(n-1)[i+1], \OO_{\bbP^1}(n)[i]\rangle$ for some $i,n\in\mathbb{Z}$ and $Z$ is determined by the tuple $(-1)^i(Z\OO_{\bbP^1}(n-1)[1],Z\OO_{\bbP^1}(n))\in \bbH_-^2$, or 
+
+3. $P(0,1]=\langle \OO_{\bbP^1}(n-1)[i+j], \OO_{\bbP^1}(n)[i] \rangle$ for some $i,n\in \mathbb{Z}$ and $j>1$, and $Z$ is given by the tuple $(-1)^{i}\cdot (Z\OO_{\bbP^1}(n-1)[j], Z\OO_{\bbP^1}(n))\in \mathbb{H}_-^{2}$.
+</div>
+
+To see why, suppose $(Z,P)$ is a stability condition. We have a dichotomy between geometric and non-geometric stability conditions, determined by (in)stability of line bundles:
+
+<sc>Either</sc> some $\OO(n)$ is unstable. 
+<div class="proof">
+Then we understand its HN filtration completely, following an argument of [Gorodentscev--Kuleshov--Rudakov (2003)](http://arxiv.org/abs/math/0312442). In particular $\OO(n)$ is either the kernel of a map $\OO(k)^{\oplus k-n+1}\onto \OO(k+1)^{k-n}$, or the cokernel of a map $\OO(k)^{n-k-1}\into \OO(k+1)^{n-k}$, and this gives the HN filtration. Thus up to the $\Pic(\bbP^1)\times \mathbb{Z}\cdot [1]$-action, the HN factors of $\OO(n)$ decompose into $x=\OO(-1)[1]$ and $y=\OO$.
+
+Since $y^{\oplus}\to \OO(n)\to x^{\oplus}\to y^{\oplus}[1]$ is a HN filtration, we have $x\in P(\phi_x)$ and $y\in P(\phi_y)$ for real numbers $\phi_x<\phi_y$. Thus $P(0, 1]$ contains (and hence is equal to) the heart $\langle x[n+j], y[n] \rangle$ for some $n\in \mathbb{Z}$, $j\geq 0$ uniquely determined such that $\phi_x+n+j, \phi_y+n$ both lie in $(0,1]$.
+
+*Notably,* since $\phi_x<\phi_y$, every line bundle that isn\'t $\OO$ or $\OO(-1)$ is unstable in this case, as is every torsion sheaf.
+</div>
+<sc>Or</sc> every line bundle $\OO(n)$ is semi-stable.
+<div class="proof">
+Again, consider $x=\OO(-1)[1]$ and $y=\OO$, which lie in $P(\phi_x)$ and $P(\phi_y)$ respectively. Since every line bundle is semi-stable, we must have $\phi_y\leq \phi_x$. On the other hand, the existence of a morphism $x\to y[1]$ implies $\phi_x\leq \phi_y+1$, so up to the $\Pic(\bbP^1)\times \mathbb{Z}\cdot[1]$-action we may assume $P(0,1]$ contains $y$ and one of the objects $x,x[-1]$.
+
+If $P(0,1]$ contains $x$ then it contains and hence is equal to the Kronecker heart $\langle x, y\rangle$, and $Z$ is determined by its values on $x,y$. On the other hand if $P(0,1]$ contains $x[-1]=\OO(-1)$ and $\phi_x-\phi_y$ is an integer, then $Z\OO$ and $Z\OO(-1)$ (and hence every $Z\OO(n)$) lie on the same line. Further they are unequal since $Z\OO_x\neq 0$, so examining the phases of all $\OO(n)$ shows there is some $n$ such that $Z\OO(n)$ and $Z\OO(n-1)[1]$ have the same phase $\phi_y$. It follows that $P(0,1]=P(\phi_y)$ is the Kronecker heart $\langle \OO(n), \OO(n-1)[1] \rangle$ and $Z$ is determined where it sends the simples.
+
+Lastly if $P(0,1]$ contains $x[-1]=\OO(-1)$ and $\phi_x-\phi_y$ is not an integer, then up to rotating the stability condition we may assume $Z\OO_x=Z\OO-Z\OO(-1)$ is a real number, negative since $\phi_x-1<\phi_y$. Then the heart is $\Coh (\bbP^1)$ up to rotation, and the stability function is determined by where it sends any two line bundles or any line bundle and a skyscraper. Rotations of $\Coh (\bbP^1)$ are either shifts of $\Coh(\bbP^1)$ or Kronecker hearts, so we are done.
+
+*Notably,* explicit examination of the hearts involved shows every line bundle and every torsion sheaf is semistable. 
+</div>
+
+
+## Stability conditions can be reduced to simple numerical data.
+
+Fix a stability condition $(Z,P)\in \Stab(\Db\bbP^1)$. For any integer $i$, write $\phi_i$ for the phase of $\OO(i)$ and $\ell m_i$ for the log-mass $\log |Z\OO(i)|$ whenever $\OO(i)$ is semistable. Thus we say $(\phi_i,\ell m_i)$ is well-defined to mean $\OO(i)$ is semistable.
+
+By the existence of a non-zero morphism $\OO(i-1)\to \OO(i)$, there is an inequality $\phi_{i-1}\leq \phi_i$ whenever both are well-defined.
+
+By the classification of stability conditions, there always is an $i$ such that $(\ell m_i,\phi_i)$ and $(\ell m_{i-1},\phi_{i-1})$ are both well-defined. This yields another dichotomy.
+
+<sc>Non-geometric/semisimple behaviour</sc> 
+<div class="proof">
+The quantity $\phi_i$ is well-defined for exactly two (consecutive) values of $i$ (say $i,i-1$), and the difference between these is *large* i.e. $\phi_i-\phi_{i-1}>1$.
+
+Here there is no non-trivial constraint on the masses of semi-simple objects. In particular, the two well-defined log-masses $\ell m_{i-1}$ and $\ell m_i$ can take any real values, and we will have a unique stability condition determined by the tuple $$(i,\phi_i-\phi_{i-1},\phi_i,\ell m_i-\ell m_{i-1},\ell m_i)\in \bbZ\times (1,\infty)\times \bbR^3.$$
+</div>
+
+<sc>Geometric behaviour</sc> 
+<div class="proof">
+The quantity $\phi_i$ is well-defined for every value of $i$, and the difference between consecutive values is *small* i.e. $\phi_i-\phi_{i-1}\leq 1$.
+
+Here every indecomposable object is semisimple and hence cannot become massless. This is not difficult to achieve when $\phi_i-\phi_{i-1}\neq 0,1$ for some (equivalently, all) $i$. Thus each tuple $$(i, \phi_i-\phi_{i-1}, \phi_i, \ell m_i-\ell m_{i-1},\ell m_i)\in \mathbb{Z}\times (0,1)\times \mathbb{R}^3$$ determines a unique geometric stability condition, its heart is a rotation of $\Coh(\bbP^1)$.
+
+If $\phi_i=\phi_{i-1}$ or $\phi_i = \phi_{i-1}+1$ for some $i$, all indecomposable objects sit on the same line through $0$. Then there is *precisely one* $i$ such that $\phi_i=\phi_{i-1}+1$, and $\phi_j=\phi_{j-1}$ otherwise. In fact in this case, we have $\phi_j=\phi_i$ for all $j\geq i$, and $\phi_j=\phi_{i-1}$ for all $j\leq i-1$. One immediately sees that there is no constraint on the pair $(\ell m_i, \ell m_{i-1})\in \bbR^2$, and each tuple $(i, \phi_i-\phi_{i-1}, \phi_i, \ell m_i, \ell m_{i-1})\in \mathbb{Z}\times \{1\}\times \mathbb{R}^3$ determines a unique geometric stability condition with the Beilinson heart determined by $P(\phi_i)=\langle \OO(i),\OO(i-1)[1]\rangle$.
+
+On the other hand, for $j \neq i$ we see that the quantities $$\begin{gather}|Z\OO_p|=|\exp(\ell m_j)-\exp(\ell m_{j-1})|,\\ |Z\OO(j+k)|=|(k+1)\exp(\ell m_j)-k\, \exp(\ell m_{j-1})|\end{gather}$$ cannot vanish for all $k\in\bbZ$, i.e. $$\ell m_j-\ell m_{j-1}\in\bbR\setminus\{\log\frac{1}{2}, \log\frac{2}{3}, \log\frac{3}{4},…,0,…,\log\frac{4}{3},\log\frac{3}{2},\log\frac{2}{1}\}.$$ Further if $\ell m_j-\ell m_{j-1}$ lies in $(\log\frac{k-1}{k}, \log\frac{k}{k+1})$, then we have $\phi_{j+k}=\phi_{j+k-1}+1$ and hence each tuple $$\begin{gather}(i,\phi_i-\phi_{i-1}, \phi_i, \ell m_i-\ell m_{i-1}, \ell m_i)\\ \qquad\qquad\qquad \in \bbZ\times \{0\}\times \bbR \times \left(\log\frac{k-1}{k},\log\frac{k}{k+1}\right)\times \bbR\end{gather}$$determines a unique geometric stability condition with heart determined by $P(\phi_{j+k})=\langle \OO(j+k),\OO(j+k-1)[1]\rangle$.
+</div>
+    
+Noting that in all cases $(\phi_i,\ell m_i)$ can take any value in $\mathbb{R}^2$, for any fixed $i$ (say $i=0$) we can plot the possible values of $(\phi_i-\phi_{i-1},\ell m_i-\ell m_{i-1})$ as follows.
+
+<center>
+<img src="../images/diag-stabgeo-p1.png" style="width: 100%; filter: invert(90%);">
+</img>
+</center>
+
+## The stability manifold
+
+Writing $V_i\subset \Stab(\Db\bbP^1)$ for the subset of stability conditions $(Z,P)$ which stabilise $\OO(i)$ and $\OO(i-1)$, we see that recording the well-defined quantities $\ell m_i+\sqrt{-1}\pi \phi_i$, $(\ell m_i-\ell m_{i-1})+\sqrt{-1}\pi (\phi_i-\phi_{i-1})$ gives a bijection between $V_i$ and the set
+$$\bigg\{(x,y)\in\bbC^2\;\bigg|\; \begin{matrix} \text{Im}(y)\geq 0, \\
+\text{Im}(y)=0\Rightarrow \text{Re}(y)\notin \{\pm \log 2, \pm \log\frac{3}{2},...,0\}\end{matrix} \bigg\}.$$
+
+Evidently, there is a commutative diagram
+
+<center>
+<img src="https://tinyurl.com/pmmhvnkv" style="width: 75%; filter: invert(90%);">
+</img>
+</center>
+where all maps are local homeomorphisms (considering $V_i$ as a subspace of $\mathbb{C}^2$). Further, the images of all $V_i$ ($i\in \bbZ$) cover the stability manifold, so that the interiors of $V_i$ form an atlas of charts. The intersection is precisely in the locus of geometric stability conditions. The gluing functions are easy to describe too -- $(x,y)\in V_i$ gets glued to $(x+\log(2-e^{-y}), \log(2-e^{-y}))\in V_{i+1}$, and to $(x-\log(2-e^y), -\log(2-e^y))\in V_{i-1}$. More generally, we have $$V_i\ni(x,y)\qquad \sim \qquad \left(x+\log((j+1)e^y-j), \log\frac{(j+1)e^y-j}{je^y-(j-1)}\right)\in V_{i+j}.$$
+
+Now under the rotation action $\bbC\circlearrowright \Stab(\bbP^1)$, the complex number $z\in \bbC$ moves a stability condition $(x,y)\in V_i\subset \Stab(\bbP^1)$ to $(x+z,y)\in V_i$. This is evidently compatible with gluing.
+
+Likewise, tensoring by the line bundle $\OO(j)\in \Pic(\bbP^1)$ will move a stability condition $(x,y)\in V_i$ to the stability condition $(x,y)\in V_{i+j}$. If $(x,y)$ happens to be geometric, the action then can be described entirely on $V_i$ via
+$$\OO(-j)\ast (x,y)=\left(x+\log((j+1)e^y-j)), \log\frac{(j+1)e^y-j}{je^y-(j-1)}\right).$$
+
+Quotienting by the rotation action, we get the following picture of $\Stab(\bbP^1)$ with a fundamental domain of the Picard action marked off.
+
+<center>
+<img src="../images/diag-stab-p1.png" style="width: 100%; filter: invert(90%);">
+</img>
+</center>
+
+<div class="exercise">
+<sc>Exercise.</sc> What is $\Stab(\bbP^1)$ as a topological manifold? How many complex manifolds have this homeomorphism type? How can we determine which one is $\Stab(\bbP^1)$ biholomorphic to?
+</div>

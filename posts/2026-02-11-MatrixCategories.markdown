@@ -1,5 +1,5 @@
 ---
-title: categories of matrices
+title: Categories of matrices
 author: Parth
 date: 11 February 2026
 tags: algebra 

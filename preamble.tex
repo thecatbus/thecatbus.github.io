@@ -5,10 +5,13 @@
 \newcommand{\smashdual}{\kern -1.5pt \check{}\,}
 \newcommand{\orth}{{}^\perp}
 \newcommand{\notorth}{{}^\top}
-\newcommand{\an}{{}^\mathrm{an}} 
-\newcommand{\op}{{}^\mathrm{op}}
-\newcommand{\ab}{{}^\mathrm{ab}}
-\newcommand{\alg}{{}^\mathrm{alg}}
+\newcommand{\an}{{}^\text{an}} 
+\newcommand{\op}{{}^\text{op}}
+\newcommand{\ab}{{}^\text{ab}}
+\newcommand{\alg}{{}^\text{alg}}
+
+\newcommand{\exp}{\text{exp}}
+\newcommand{\log}{\text{log}}
 
 \newcommand{\into}{\hookrightarrow}
 \newcommand{\onto}{\twoheadrightarrow}
@@ -16,49 +19,49 @@
 
 \newcommand{\Exter}{\bigwedge}
 
-\RedeclareMathOperator*{\inf}{\mathrm{inf}}
-\RedeclareMathOperator*{\sup}{\mathrm{inf}}
-\RedeclareMathOperator*{\max}{\mathrm{max}}
-\RedeclareMathOperator*{\min}{\mathrm{min}}
+\RedeclareMathOperator*{\inf}{\text{inf}}
+\RedeclareMathOperator*{\sup}{\text{inf}}
+\RedeclareMathOperator*{\max}{\text{max}}
+\RedeclareMathOperator*{\min}{\text{min}}
 
-\RedeclareMathOperator{\dim}{\mathrm{dim}}
-\RedeclareMathOperator{\deg}{\mathrm{deg}}
+\RedeclareMathOperator{\dim}{\text{dim}}
+\RedeclareMathOperator{\deg}{\text{deg}}
 
-\RedeclareMathOperator{\ker}{\mathrm{ker}}
-\DeclareMathOperator{\coker}{\mathrm{coker}}
-\DeclareMathOperator{\img}{\mathrm{im}}
-\DeclareMathOperator{\coimg}{\mathrm{coim}}
-\DeclareMathOperator{\cone}{\mathrm{cone}}
-\DeclareMathOperator{\cocone}{\mathrm{cocone}}
-\DeclareMathOperator{\fib}{\mathrm{fib}}
-\DeclareMathOperator{\cofib}{\mathrm{cofib}}
+\RedeclareMathOperator{\ker}{\text{ker}}
+\DeclareMathOperator{\coker}{\text{coker}}
+\DeclareMathOperator{\img}{\text{im}}
+\DeclareMathOperator{\coimg}{\text{coim}}
+\DeclareMathOperator{\cone}{\text{cone}}
+\DeclareMathOperator{\cocone}{\text{cocone}}
+\DeclareMathOperator{\fib}{\text{fib}}
+\DeclareMathOperator{\cofib}{\text{cofib}}
 
-\newcommand{\Mor}{\operatorname{\mathrm{Mor}}}
-\renewcommand{\hom}{\operatorname{\mathrm{hom}}}
-\newcommand{\Hom}{\operatorname{\mathrm{Hom}}}
-\newcommand{\Der}{\operatorname{\mathrm{Der}}}
-\newcommand{\End}{\operatorname{\mathrm{End}}}
-\newcommand{\ext}{\operatorname{\mathrm{ext}}}
-\newcommand{\Ext}{\operatorname{\mathrm{Ext}}}
-\newcommand{\Tor}{\operatorname{\mathrm{Tor}}}
+\newcommand{\Mor}{\operatorname{\text{Mor}}}
+\renewcommand{\hom}{\operatorname{\text{hom}}}
+\newcommand{\Hom}{\operatorname{\text{Hom}}}
+\newcommand{\Der}{\operatorname{\text{Der}}}
+\newcommand{\End}{\operatorname{\text{End}}}
+\newcommand{\ext}{\operatorname{\text{ext}}}
+\newcommand{\Ext}{\operatorname{\text{Ext}}}
+\newcommand{\Tor}{\operatorname{\text{Tor}}}
 \newcommand{\sheafHom}{\operatorname{Hom}}
 \newcommand{\sheafEnd}{\operatorname{End}}
 \newcommand{\sheafExt}{\operatorname{Ext}}
-\newcommand{\RHom}{\operatorname{\mathbf{R}\mathrm{Hom}}}
+\newcommand{\RHom}{\operatorname{\mathbf{R}\text{Hom}}}
 \newcommand{\LTensor}{\otimes^\mathbf{L}}
 
-\newcommand{\Aut}{\mathop\mathrm{Aut}}
-\newcommand{\AutEq}{\mathop\mathrm{AutEq}}
+\newcommand{\Aut}{\mathop\text{Aut}}
+\newcommand{\AutEq}{\mathop\text{AutEq}}
 
-\newcommand{\Sym}{\mathrm{Sym}}
-\newcommand{\SymAlg}{\mathop{\mathrm{Sym}^\bullet}}
+\newcommand{\Sym}{\text{Sym}}
+\newcommand{\SymAlg}{\mathop{\text{Sym}^\bullet}}
 \newcommand{\ExtAlg}{\mathop{\Exter^\bullet}}
 
-\newcommand{\MaxMod}[1]{\mathop\mathrm{MM}{}^{#1}}
-\newcommand{\MaxModGen}[1]{\mathop\mathrm{MMG}{}^{#1}}
+\newcommand{\MaxMod}[1]{\mathop\text{MM}{}^{#1}}
+\newcommand{\MaxModGen}[1]{\mathop\text{MMG}{}^{#1}}
 
-\DeclareMathOperator{\Hochs}{\mathrm{HH}}
-\DeclareMathOperator{\Stab}{\mathrm{Stab}}
+\DeclareMathOperator{\Hochs}{\text{HH}}
+\newcommand{\Stab}{\text{Stab}}
 
 \newcommand{\Rep}{\mathop{\mathsf{Rep}}}
 \newcommand{\rmod}{\mathop{\mathsf{mod}}}
@@ -103,73 +106,73 @@
 \DeclareMathOperator{\MF}{\mathbf{MF}}
 \DeclareMathOperator{\Hmo}{\mathbf{Hmo}}
 \DeclareMathOperator{\Dm}{\mathbf{D}^\mathbf{0}\kern -1.5pt}
-\DeclareMathOperator{\Db}{\mathbf{D}^\mathrm{b}\kern -1pt}
-\DeclareMathOperator{\Dfl}{\mathbf{D}^\mathrm{fl}\kern -1pt}
-\DeclareMathOperator{\Dplus}{\mathbf{D}^\mathrm{+}\kern -1pt}
-\DeclareMathOperator{\Dminus}{\mathbf{D}^\mathrm{--}\kern -1pt}
-\DeclareMathOperator{\Dperf}{\mathbf{D}^{\mathrm{pf}}\kern -1pt}
-\DeclareMathOperator{\Dcpct}{\mathbf{D}^{\mathrm{c}}\kern -1pt}
-\DeclareMathOperator{\Kb}{\mathbf{K}^\mathrm{b}\kern -1pt}
-\DeclareMathOperator{\Kfl}{\mathbf{K}^\mathrm{fl}\kern -1pt}
-\DeclareMathOperator{\Kplus}{\mathbf{K}^\mathrm{+}\kern -1pt}
-\DeclareMathOperator{\Kminus}{\mathbf{K}^\mathrm{--}\kern -1pt}
+\DeclareMathOperator{\Db}{\mathbf{D}^\text{b}\kern -1pt}
+\DeclareMathOperator{\Dfl}{\mathbf{D}^\text{fl}\kern -1pt}
+\DeclareMathOperator{\Dplus}{\mathbf{D}^\text{+}\kern -1pt}
+\DeclareMathOperator{\Dminus}{\mathbf{D}^\text{--}\kern -1pt}
+\DeclareMathOperator{\Dperf}{\mathbf{D}^{\text{pf}}\kern -1pt}
+\DeclareMathOperator{\Dcpct}{\mathbf{D}^{\text{c}}\kern -1pt}
+\DeclareMathOperator{\Kb}{\mathbf{K}^\text{b}\kern -1pt}
+\DeclareMathOperator{\Kfl}{\mathbf{K}^\text{fl}\kern -1pt}
+\DeclareMathOperator{\Kplus}{\mathbf{K}^\text{+}\kern -1pt}
+\DeclareMathOperator{\Kminus}{\mathbf{K}^\text{--}\kern -1pt}
 
-\DeclareMathOperator{\Spec}{\mathrm{Spec}}
-\DeclareMathOperator{\Spc}{\mathrm{Spc}}
-\DeclareMathOperator{\Proj}{\mathrm{Proj}}
+\DeclareMathOperator{\Spec}{\text{Spec}}
+\DeclareMathOperator{\Spc}{\text{Spc}}
+\DeclareMathOperator{\Proj}{\text{Proj}}
 
-\newcommand{\CycleGroup}{\mathrm{Z}_1\kern -1pt}
-\DeclareMathOperator{\Divisors}{\mathrm{Div}}
-\newcommand{\Chamb}{\mathrm{C}}
-\DeclareMathOperator{\Chambers}{\mathrm{Cham}}
-\DeclareMathOperator{\cl}{\mathrm{cl}}
+\newcommand{\CycleGroup}{\text{Z}_1\kern -1pt}
+\DeclareMathOperator{\Divisors}{\text{Div}}
+\newcommand{\Chamb}{\text{C}}
+\DeclareMathOperator{\Chambers}{\text{Cham}}
+\DeclareMathOperator{\cl}{\text{cl}}
 
-\newcommand{\Bir}{\mathop\mathrm{Bir}\kern -1pt}
-\DeclareMathOperator{\Amp}{\mathrm{Amp}}
-\DeclareMathOperator{\Pic}{\mathrm{Pic}}
-\DeclareMathOperator{\RealPic}{\mathrm{Pic}_\mathbb{R}}
-\DeclareMathOperator{\Nef}{\mathrm{Pic}^+}
-\DeclareMathOperator{\RealNef}{\mathrm{Pic}_\mathbb{R}^+}
-\DeclareMathOperator{\AntiNef}{\mathrm{Pic}^-}
-\DeclareMathOperator{\RealAntiNef}{\mathrm{Pic}_\mathbb{R}^-}
+\newcommand{\Bir}{\mathop\text{Bir}\kern -1pt}
+\DeclareMathOperator{\Amp}{\text{Amp}}
+\DeclareMathOperator{\Pic}{\text{Pic}}
+\DeclareMathOperator{\RealPic}{\text{Pic}_\mathbb{R}}
+\DeclareMathOperator{\Nef}{\text{Pic}^+}
+\DeclareMathOperator{\RealNef}{\text{Pic}_\mathbb{R}^+}
+\DeclareMathOperator{\AntiNef}{\text{Pic}^-}
+\DeclareMathOperator{\RealAntiNef}{\text{Pic}_\mathbb{R}^-}
 
-\DeclareMathOperator{\tors}{\mathrm{tors}}
-\DeclareMathOperator{\torf}{\mathrm{torf}}
-\DeclareMathOperator{\ftors}{\mathrm{ftors}}
-\DeclareMathOperator{\ftorf}{\mathrm{ftorf}}
-\DeclareMathOperator{\tstr}{\mathrm{t-str}}
-\DeclareMathOperator{\tilt}{\mathrm{tilt}}
-\DeclareMathOperator{\simp}{\mathrm{simp}}
-\DeclareMathOperator{\algtilt}{\mathrm{alg-tilt}}
-\DeclareMathOperator{\sbrick}{\mathrm{sbrick}}
-\DeclareMathOperator{\HFan}{\mathrm{HFan}}
-\DeclareMathOperator{\faces}{\mathrm{faces}}
-\DeclareMathOperator{\algtstr}{\mathrm{t-str}^\mathrm{alg}}
-\DeclareMathOperator{\Pol}{\mathrm{Pol}}
-\DeclareMathOperator{\Supp}{\mathrm{Supp}}
-\DeclareMathOperator{\reftilt}{\mathrm{reftilt}}
-\DeclareMathOperator{\ExQuiv}{\mathrm{ExQuiv}}
-\DeclareMathOperator{\ExGr}{\mathrm{ExGr}}
-\DeclareMathOperator{\Arr}{\mathrm{Arr}}
-\DeclareMathOperator{\Root}{\mathrm{Root}}
+\DeclareMathOperator{\tors}{\text{tors}}
+\DeclareMathOperator{\torf}{\text{torf}}
+\DeclareMathOperator{\ftors}{\text{ftors}}
+\DeclareMathOperator{\ftorf}{\text{ftorf}}
+\DeclareMathOperator{\tstr}{\text{t-str}}
+\DeclareMathOperator{\tilt}{\text{tilt}}
+\DeclareMathOperator{\simp}{\text{simp}}
+\DeclareMathOperator{\algtilt}{\text{alg-tilt}}
+\DeclareMathOperator{\sbrick}{\text{sbrick}}
+\DeclareMathOperator{\HFan}{\text{HFan}}
+\DeclareMathOperator{\faces}{\text{faces}}
+\DeclareMathOperator{\algtstr}{\text{t-str}^\text{alg}}
+\DeclareMathOperator{\Pol}{\text{Pol}}
+\DeclareMathOperator{\Supp}{\text{Supp}}
+\DeclareMathOperator{\reftilt}{\text{reftilt}}
+\DeclareMathOperator{\ExQuiv}{\text{ExQuiv}}
+\DeclareMathOperator{\ExGr}{\text{ExGr}}
+\DeclareMathOperator{\Arr}{\text{Arr}}
+\DeclareMathOperator{\Root}{\text{Root}}
 
-\newcommand{\dg}{\mathrm{dg}}
-\newcommand{\gr}{\mathrm{gr}}
-\newcommand{\tr}{\mathrm{tr}}
-\newcommand{\tf}{\mathrm{tf}}
-\newcommand{\id}{\mathrm{id}}
-\renewcommand{\tt}{\mathrm{tt}}
-\renewcommand{\ss}{\mathrm{ss}}
-\renewcommand{\sp}{\mathrm{sp}}
-\newcommand{\ch}{\mathrm{ch}}
-\newcommand{\td}{\mathrm{td}}
-\newcommand{\fl}{\mathrm{fl}}
-\newcommand{\gl}{\mathrm{gl}}
+\newcommand{\dg}{\text{dg}}
+\newcommand{\gr}{\text{gr}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\tf}{\text{tf}}
+\newcommand{\id}{\text{id}}
+\renewcommand{\tt}{\text{tt}}
+\renewcommand{\ss}{\text{ss}}
+\renewcommand{\sp}{\text{sp}}
+\newcommand{\ch}{\text{ch}}
+\newcommand{\td}{\text{td}}
+\newcommand{\fl}{\text{fl}}
+\newcommand{\gl}{\text{gl}}
 
 \newcommand{\CC}{\mathbf{C}}
 \newcommand{\DD}{\operatorname{\mathbf{D}}}
 \newcommand{\FF}{\mathscr{F}}
-\newcommand{\HH}{\mathrm{H}}
+\newcommand{\HH}{\text{H}}
 \newcommand{\II}{\mathfrak{I}}
 \newcommand{\JJ}{\mathfrak{J}}
 \newcommand{\KK}{\mathbf{K}}
@@ -177,12 +180,12 @@
 \newcommand{\MM}{\mathscr{M}}
 \newcommand{\NN}{\mathscr{N}}
 \newcommand{\OO}{\mathscr{O}}
-\newcommand{\TT}{\mathrm{T}}
+\newcommand{\TT}{\text{T}}
 \newcommand{\VV}{\mathscr{V\kern -1 pt}}
-\newcommand{\WW}{\mathrm{W}}
+\newcommand{\WW}{\text{W}}
 
-\newcommand{\cc}{\mathrm{c}}
-\newcommand{\hh}{\mathrm{h}}
+\newcommand{\cc}{\text{c}}
+\newcommand{\hh}{\text{h}}
 \newcommand{\mm}{\mathfrak{m}}
 \newcommand{\pp}{\mathfrak{p}}
 \newcommand{\qq}{\mathfrak{q}}

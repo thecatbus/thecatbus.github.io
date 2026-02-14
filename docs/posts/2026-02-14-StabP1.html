@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: A line's stability manifold</title>
+        <link rel="icon" type="image/x-icon" href="/images/catbus-logo.png">
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Hubballi' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+        <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
+            MathJax.Hub.Config({
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
+            });
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"> </script>
+
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  >
+                <div id="heading">
+                    A line's stability manifold
+                </div>
+            </div>
+                
+                
+            <article>
+    <hr>
+    <section class="lastmodified">
+        Posted on February 14, 2026
+        
+            by Parth
+        
+        <div style="float:right;">
+        
+            (<a title="All pages tagged &#39;geometry&#39;." href="/posts/bytopic/geometry.html">geometry</a>)
+        
+        </div>
+    </section>
+    <section>
+        <div class="teaser">
+<p>Stability manifolds à la Bridgeland have been central to much modern algebraic geometry, yet explicit descriptions remain elusive in all but a handful of cases. Okada So’s <a href="http://arxiv.org/abs/math/0411220">computation</a> of the stability manifold of <span class="math inline">\(\mathbb{P}^1\)</span> was among the first major steps to remedy the situation. Whilst the paper remains a great resource for an understanding of both the topology and geometry of <span class="math inline">\(\text{Stab}(\mathbb{P}^1)\)</span>, I attempt to sketch (literally and figuratively) the manifold and some group actions on it.</p>
+</div>
+<!--more-->
+<p>The following observation goes a long way – we know all stability conditions on <span class="math inline">\(\mathop{\mathrm{\mathbf{D}^\text{b}\kern -1pt}}\mathbb{P}^1\)</span> explicitly.</p>
+<div class="theorem">
+<p><sc>Theorem.</sc> If <span class="math inline">\((Z,P)\)</span> is a stability condition on <span class="math inline">\(\mathop{\mathrm{\mathbf{D}^\text{b}\kern -1pt}}\mathbb{P}^1\)</span> then either</p>
+<ol type="1">
+<li><p><span class="math inline">\(P(0,1]=(\mathsf{Coh}\mathbb{P}^1)[i]\)</span> for some <span class="math inline">\(i\in \mathbb{Z}\)</span> and <span class="math inline">\(Z\)</span> is determined by the tuple <span class="math inline">\((-1)^i\cdot (Z\mathscr{O}_p, Z\mathscr{O}_{\mathbb{P}^1})\in \mathbb{R}_{&lt;0}\times \mathbb{H}\)</span>, or</p></li>
+<li><p><span class="math inline">\(P(0,1]=\langle \mathscr{O}_{\mathbb{P}^1}(n-1)[i+1], \mathscr{O}_{\mathbb{P}^1}(n)[i]\rangle\)</span> for some <span class="math inline">\(i,n\in\mathbb{Z}\)</span> and <span class="math inline">\(Z\)</span> is determined by the tuple <span class="math inline">\((-1)^i(Z\mathscr{O}_{\mathbb{P}^1}(n-1)[1],Z\mathscr{O}_{\mathbb{P}^1}(n))\in \mathbb{H}_-^2\)</span>, or</p></li>
+<li><p><span class="math inline">\(P(0,1]=\langle \mathscr{O}_{\mathbb{P}^1}(n-1)[i+j], \mathscr{O}_{\mathbb{P}^1}(n)[i] \rangle\)</span> for some <span class="math inline">\(i,n\in \mathbb{Z}\)</span> and <span class="math inline">\(j&gt;1\)</span>, and <span class="math inline">\(Z\)</span> is given by the tuple <span class="math inline">\((-1)^{i}\cdot (Z\mathscr{O}_{\mathbb{P}^1}(n-1)[j], Z\mathscr{O}_{\mathbb{P}^1}(n))\in \mathbb{H}_-^{2}\)</span>.</p></li>
+</ol>
+</div>
+<p>To see why, suppose <span class="math inline">\((Z,P)\)</span> is a stability condition. We have a dichotomy between geometric and non-geometric stability conditions, determined by (in)stability of line bundles:</p>
+<sc>Either</sc> some <span class="math inline">\(\mathscr{O}(n)\)</span> is unstable.
+<div class="proof">
+<p>Then we understand its HN filtration completely, following an argument of <a href="http://arxiv.org/abs/math/0312442">Gorodentscev–Kuleshov–Rudakov (2003)</a>. In particular <span class="math inline">\(\mathscr{O}(n)\)</span> is either the kernel of a map <span class="math inline">\(\mathscr{O}(k)^{\oplus k-n+1}\twoheadrightarrow\mathscr{O}(k+1)^{k-n}\)</span>, or the cokernel of a map <span class="math inline">\(\mathscr{O}(k)^{n-k-1}\hookrightarrow\mathscr{O}(k+1)^{n-k}\)</span>, and this gives the HN filtration. Thus up to the <span class="math inline">\(\mathop{\mathrm{\text{Pic}}}(\mathbb{P}^1)\times \mathbb{Z}\cdot [1]\)</span>-action, the HN factors of <span class="math inline">\(\mathscr{O}(n)\)</span> decompose into <span class="math inline">\(x=\mathscr{O}(-1)[1]\)</span> and <span class="math inline">\(y=\mathscr{O}\)</span>.</p>
+<p>Since <span class="math inline">\(y^{\oplus}\to \mathscr{O}(n)\to x^{\oplus}\to y^{\oplus}[1]\)</span> is a HN filtration, we have <span class="math inline">\(x\in P(\phi_x)\)</span> and <span class="math inline">\(y\in P(\phi_y)\)</span> for real numbers <span class="math inline">\(\phi_x&lt;\phi_y\)</span>. Thus <span class="math inline">\(P(0, 1]\)</span> contains (and hence is equal to) the heart <span class="math inline">\(\langle x[n+j], y[n] \rangle\)</span> for some <span class="math inline">\(n\in \mathbb{Z}\)</span>, <span class="math inline">\(j\geq 0\)</span> uniquely determined such that <span class="math inline">\(\phi_x+n+j, \phi_y+n\)</span> both lie in <span class="math inline">\((0,1]\)</span>.</p>
+<p><em>Notably,</em> since <span class="math inline">\(\phi_x&lt;\phi_y\)</span>, every line bundle that isn't <span class="math inline">\(\mathscr{O}\)</span> or <span class="math inline">\(\mathscr{O}(-1)\)</span> is unstable in this case, as is every torsion sheaf.</p>
+</div>
+<sc>Or</sc> every line bundle <span class="math inline">\(\mathscr{O}(n)\)</span> is semi-stable.
+<div class="proof">
+<p>Again, consider <span class="math inline">\(x=\mathscr{O}(-1)[1]\)</span> and <span class="math inline">\(y=\mathscr{O}\)</span>, which lie in <span class="math inline">\(P(\phi_x)\)</span> and <span class="math inline">\(P(\phi_y)\)</span> respectively. Since every line bundle is semi-stable, we must have <span class="math inline">\(\phi_y\leq \phi_x\)</span>. On the other hand, the existence of a morphism <span class="math inline">\(x\to y[1]\)</span> implies <span class="math inline">\(\phi_x\leq \phi_y+1\)</span>, so up to the <span class="math inline">\(\mathop{\mathrm{\text{Pic}}}(\mathbb{P}^1)\times \mathbb{Z}\cdot[1]\)</span>-action we may assume <span class="math inline">\(P(0,1]\)</span> contains <span class="math inline">\(y\)</span> and one of the objects <span class="math inline">\(x,x[-1]\)</span>.</p>
+<p>If <span class="math inline">\(P(0,1]\)</span> contains <span class="math inline">\(x\)</span> then it contains and hence is equal to the Kronecker heart <span class="math inline">\(\langle x, y\rangle\)</span>, and <span class="math inline">\(Z\)</span> is determined by its values on <span class="math inline">\(x,y\)</span>. On the other hand if <span class="math inline">\(P(0,1]\)</span> contains <span class="math inline">\(x[-1]=\mathscr{O}(-1)\)</span> and <span class="math inline">\(\phi_x-\phi_y\)</span> is an integer, then <span class="math inline">\(Z\mathscr{O}\)</span> and <span class="math inline">\(Z\mathscr{O}(-1)\)</span> (and hence every <span class="math inline">\(Z\mathscr{O}(n)\)</span>) lie on the same line. Further they are unequal since <span class="math inline">\(Z\mathscr{O}_x\neq 0\)</span>, so examining the phases of all <span class="math inline">\(\mathscr{O}(n)\)</span> shows there is some <span class="math inline">\(n\)</span> such that <span class="math inline">\(Z\mathscr{O}(n)\)</span> and <span class="math inline">\(Z\mathscr{O}(n-1)[1]\)</span> have the same phase <span class="math inline">\(\phi_y\)</span>. It follows that <span class="math inline">\(P(0,1]=P(\phi_y)\)</span> is the Kronecker heart <span class="math inline">\(\langle \mathscr{O}(n), \mathscr{O}(n-1)[1] \rangle\)</span> and <span class="math inline">\(Z\)</span> is determined where it sends the simples.</p>
+<p>Lastly if <span class="math inline">\(P(0,1]\)</span> contains <span class="math inline">\(x[-1]=\mathscr{O}(-1)\)</span> and <span class="math inline">\(\phi_x-\phi_y\)</span> is not an integer, then up to rotating the stability condition we may assume <span class="math inline">\(Z\mathscr{O}_x=Z\mathscr{O}-Z\mathscr{O}(-1)\)</span> is a real number, negative since <span class="math inline">\(\phi_x-1&lt;\phi_y\)</span>. Then the heart is <span class="math inline">\(\mathsf{Coh}(\mathbb{P}^1)\)</span> up to rotation, and the stability function is determined by where it sends any two line bundles or any line bundle and a skyscraper. Rotations of <span class="math inline">\(\mathsf{Coh}(\mathbb{P}^1)\)</span> are either shifts of <span class="math inline">\(\mathsf{Coh}(\mathbb{P}^1)\)</span> or Kronecker hearts, so we are done.</p>
+<p><em>Notably,</em> explicit examination of the hearts involved shows every line bundle and every torsion sheaf is semistable.</p>
+</div>
+<h2 id="stability-conditions-can-be-reduced-to-simple-numerical-data.">Stability conditions can be reduced to simple numerical data.</h2>
+<p>Fix a stability condition <span class="math inline">\((Z,P)\in \text{Stab}(\mathop{\mathrm{\mathbf{D}^\text{b}\kern -1pt}}\mathbb{P}^1)\)</span>. For any integer <span class="math inline">\(i\)</span>, write <span class="math inline">\(\phi_i\)</span> for the phase of <span class="math inline">\(\mathscr{O}(i)\)</span> and <span class="math inline">\(\ell m_i\)</span> for the log-mass <span class="math inline">\(\text{log}|Z\mathscr{O}(i)|\)</span> whenever <span class="math inline">\(\mathscr{O}(i)\)</span> is semistable. Thus we say <span class="math inline">\((\phi_i,\ell m_i)\)</span> is well-defined to mean <span class="math inline">\(\mathscr{O}(i)\)</span> is semistable.</p>
+<p>By the existence of a non-zero morphism <span class="math inline">\(\mathscr{O}(i-1)\to \mathscr{O}(i)\)</span>, there is an inequality <span class="math inline">\(\phi_{i-1}\leq \phi_i\)</span> whenever both are well-defined.</p>
+<p>By the classification of stability conditions, there always is an <span class="math inline">\(i\)</span> such that <span class="math inline">\((\ell m_i,\phi_i)\)</span> and <span class="math inline">\((\ell m_{i-1},\phi_{i-1})\)</span> are both well-defined. This yields another dichotomy.</p>
+<sc>Non-geometric/semisimple behaviour</sc>
+<div class="proof">
+<p>The quantity <span class="math inline">\(\phi_i\)</span> is well-defined for exactly two (consecutive) values of <span class="math inline">\(i\)</span> (say <span class="math inline">\(i,i-1\)</span>), and the difference between these is <em>large</em> i.e. <span class="math inline">\(\phi_i-\phi_{i-1}&gt;1\)</span>.</p>
+<p>Here there is no non-trivial constraint on the masses of semi-simple objects. In particular, the two well-defined log-masses <span class="math inline">\(\ell m_{i-1}\)</span> and <span class="math inline">\(\ell m_i\)</span> can take any real values, and we will have a unique stability condition determined by the tuple <span class="math display">\[(i,\phi_i-\phi_{i-1},\phi_i,\ell m_i-\ell m_{i-1},\ell m_i)\in \mathbb{Z}\times (1,\infty)\times \mathbb{R}^3.\]</span></p>
+</div>
+<sc>Geometric behaviour</sc>
+<div class="proof">
+<p>The quantity <span class="math inline">\(\phi_i\)</span> is well-defined for every value of <span class="math inline">\(i\)</span>, and the difference between consecutive values is <em>small</em> i.e. <span class="math inline">\(\phi_i-\phi_{i-1}\leq 1\)</span>.</p>
+<p>Here every indecomposable object is semisimple and hence cannot become massless. This is not difficult to achieve when <span class="math inline">\(\phi_i-\phi_{i-1}\neq 0,1\)</span> for some (equivalently, all) <span class="math inline">\(i\)</span>. Thus each tuple <span class="math display">\[(i, \phi_i-\phi_{i-1}, \phi_i, \ell m_i-\ell m_{i-1},\ell m_i)\in \mathbb{Z}\times (0,1)\times \mathbb{R}^3\]</span> determines a unique geometric stability condition, its heart is a rotation of <span class="math inline">\(\mathsf{Coh}(\mathbb{P}^1)\)</span>.</p>
+<p>If <span class="math inline">\(\phi_i=\phi_{i-1}\)</span> or <span class="math inline">\(\phi_i = \phi_{i-1}+1\)</span> for some <span class="math inline">\(i\)</span>, all indecomposable objects sit on the same line through <span class="math inline">\(0\)</span>. Then there is <em>precisely one</em> <span class="math inline">\(i\)</span> such that <span class="math inline">\(\phi_i=\phi_{i-1}+1\)</span>, and <span class="math inline">\(\phi_j=\phi_{j-1}\)</span> otherwise. In fact in this case, we have <span class="math inline">\(\phi_j=\phi_i\)</span> for all <span class="math inline">\(j\geq i\)</span>, and <span class="math inline">\(\phi_j=\phi_{i-1}\)</span> for all <span class="math inline">\(j\leq i-1\)</span>. One immediately sees that there is no constraint on the pair <span class="math inline">\((\ell m_i, \ell m_{i-1})\in \mathbb{R}^2\)</span>, and each tuple <span class="math inline">\((i, \phi_i-\phi_{i-1}, \phi_i, \ell m_i, \ell m_{i-1})\in \mathbb{Z}\times \{1\}\times \mathbb{R}^3\)</span> determines a unique geometric stability condition with the Beilinson heart determined by <span class="math inline">\(P(\phi_i)=\langle \mathscr{O}(i),\mathscr{O}(i-1)[1]\rangle\)</span>.</p>
+<p>On the other hand, for <span class="math inline">\(j \neq i\)</span> we see that the quantities <span class="math display">\[\begin{gather}|Z\mathscr{O}_p|=|\text{exp}(\ell m_j)-\text{exp}(\ell m_{j-1})|,\\ |Z\mathscr{O}(j+k)|=|(k+1)\text{exp}(\ell m_j)-k\, \text{exp}(\ell m_{j-1})|\end{gather}\]</span> cannot vanish for all <span class="math inline">\(k\in\mathbb{Z}\)</span>, i.e. <span class="math display">\[\ell m_j-\ell m_{j-1}\in\mathbb{R}\setminus\{\text{log}\frac{1}{2}, \text{log}\frac{2}{3}, \text{log}\frac{3}{4},…,0,…,\text{log}\frac{4}{3},\text{log}\frac{3}{2},\text{log}\frac{2}{1}\}.\]</span> Further if <span class="math inline">\(\ell m_j-\ell m_{j-1}\)</span> lies in <span class="math inline">\((\text{log}\frac{k-1}{k}, \text{log}\frac{k}{k+1})\)</span>, then we have <span class="math inline">\(\phi_{j+k}=\phi_{j+k-1}+1\)</span> and hence each tuple <span class="math display">\[\begin{gather}(i,\phi_i-\phi_{i-1}, \phi_i, \ell m_i-\ell m_{i-1}, \ell m_i)\\ \qquad\qquad\qquad \in \mathbb{Z}\times \{0\}\times \mathbb{R}\times \left(\text{log}\frac{k-1}{k},\text{log}\frac{k}{k+1}\right)\times \mathbb{R}\end{gather}\]</span>determines a unique geometric stability condition with heart determined by <span class="math inline">\(P(\phi_{j+k})=\langle \mathscr{O}(j+k),\mathscr{O}(j+k-1)[1]\rangle\)</span>.</p>
+</div>
+<p>Noting that in all cases <span class="math inline">\((\phi_i,\ell m_i)\)</span> can take any value in <span class="math inline">\(\mathbb{R}^2\)</span>, for any fixed <span class="math inline">\(i\)</span> (say <span class="math inline">\(i=0\)</span>) we can plot the possible values of <span class="math inline">\((\phi_i-\phi_{i-1},\ell m_i-\ell m_{i-1})\)</span> as follows.</p>
+<center>
+<img src="../images/diag-stabgeo-p1.png" style="width: 100%; filter: invert(90%);"> </img>
+</center>
+<h2 id="the-stability-manifold">The stability manifold</h2>
+<p>Writing <span class="math inline">\(V_i\subset \text{Stab}(\mathop{\mathrm{\mathbf{D}^\text{b}\kern -1pt}}\mathbb{P}^1)\)</span> for the subset of stability conditions <span class="math inline">\((Z,P)\)</span> which stabilise <span class="math inline">\(\mathscr{O}(i)\)</span> and <span class="math inline">\(\mathscr{O}(i-1)\)</span>, we see that recording the well-defined quantities <span class="math inline">\(\ell m_i+\sqrt{-1}\pi \phi_i\)</span>, <span class="math inline">\((\ell m_i-\ell m_{i-1})+\sqrt{-1}\pi (\phi_i-\phi_{i-1})\)</span> gives a bijection between <span class="math inline">\(V_i\)</span> and the set <span class="math display">\[\bigg\{(x,y)\in\mathbb{C}^2\;\bigg|\; \begin{matrix} \text{Im}(y)\geq 0, \\
+\text{Im}(y)=0\Rightarrow \text{Re}(y)\notin \{\pm \text{log}2, \pm \text{log}\frac{3}{2},...,0\}\end{matrix} \bigg\}.\]</span></p>
+<p>Evidently, there is a commutative diagram</p>
+<center>
+<img src="https://tinyurl.com/pmmhvnkv" style="width: 75%; filter: invert(90%);"> </img>
+</center>
+<p>where all maps are local homeomorphisms (considering <span class="math inline">\(V_i\)</span> as a subspace of <span class="math inline">\(\mathbb{C}^2\)</span>). Further, the images of all <span class="math inline">\(V_i\)</span> (<span class="math inline">\(i\in \mathbb{Z}\)</span>) cover the stability manifold, so that the interiors of <span class="math inline">\(V_i\)</span> form an atlas of charts. The intersection is precisely in the locus of geometric stability conditions. The gluing functions are easy to describe too – <span class="math inline">\((x,y)\in V_i\)</span> gets glued to <span class="math inline">\((x+\text{log}(2-e^{-y}), \text{log}(2-e^{-y}))\in V_{i+1}\)</span>, and to <span class="math inline">\((x-\text{log}(2-e^y), -\text{log}(2-e^y))\in V_{i-1}\)</span>. More generally, we have <span class="math display">\[V_i\ni(x,y)\qquad \sim \qquad \left(x+\text{log}((j+1)e^y-j), \text{log}\frac{(j+1)e^y-j}{je^y-(j-1)}\right)\in V_{i+j}.\]</span></p>
+<p>Now under the rotation action <span class="math inline">\(\mathbb{C}\circlearrowright \text{Stab}(\mathbb{P}^1)\)</span>, the complex number <span class="math inline">\(z\in \mathbb{C}\)</span> moves a stability condition <span class="math inline">\((x,y)\in V_i\subset \text{Stab}(\mathbb{P}^1)\)</span> to <span class="math inline">\((x+z,y)\in V_i\)</span>. This is evidently compatible with gluing.</p>
+<p>Likewise, tensoring by the line bundle <span class="math inline">\(\mathscr{O}(j)\in \mathop{\mathrm{\text{Pic}}}(\mathbb{P}^1)\)</span> will move a stability condition <span class="math inline">\((x,y)\in V_i\)</span> to the stability condition <span class="math inline">\((x,y)\in V_{i+j}\)</span>. If <span class="math inline">\((x,y)\)</span> happens to be geometric, the action then can be described entirely on <span class="math inline">\(V_i\)</span> via <span class="math display">\[\mathscr{O}(-j)\ast (x,y)=\left(x+\text{log}((j+1)e^y-j)), \text{log}\frac{(j+1)e^y-j}{je^y-(j-1)}\right).\]</span></p>
+<p>Quotienting by the rotation action, we get the following picture of <span class="math inline">\(\text{Stab}(\mathbb{P}^1)\)</span> with a fundamental domain of the Picard action marked off.</p>
+<center>
+<img src="../images/diag-stab-p1.png" style="width: 100%; filter: invert(90%);"> </img>
+</center>
+<div class="exercise">
+<p><sc>Exercise.</sc> What is <span class="math inline">\(\text{Stab}(\mathbb{P}^1)\)</span> as a topological manifold? How many complex manifolds have this homeomorphism type? How can we determine which one is <span class="math inline">\(\text{Stab}(\mathbb{P}^1)\)</span> biholomorphic to?</p>
+</div>
+    </section>
+    <hr>
+</article>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/footer-busstop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/footer-logo.png" class="eyes"> 
+
+             <img src="/images/footer-lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / A line's stability manifold
+     </div>
+</footer>
+
+    </body>
+</html>

@@ -166,3 +166,6 @@ myPandocCompiler = do
   pandocItem <- readPandocWith defaultHakyllReaderOptions itemWithPreamble
   transformedItem <- (walkM tikzFilter) `traverse` pandocItem
   return $ writePandocWith pandocOptions transformedItem
+
+x :: String
+x = 1 + "hello"

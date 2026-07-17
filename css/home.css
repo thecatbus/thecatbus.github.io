@@ -27,6 +27,7 @@ sc {font-family: 'Vollkorn SC';}
 ol.homepage-list {
     margin-left:0;
     padding:2rem;
+    padding-left: 2.5rem;
 }
 
 ol.homepage-list li {padding: 0; text-align: left; font-size: 0.9em;}

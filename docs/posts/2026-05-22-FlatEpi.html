@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catbus: Affine subsets</title>
+        <link rel="icon" type="image/x-icon" href="/images/catbus-logo.png">
+        <link rel="stylesheet" href="/css/default.css" />
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Caudex" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Hubballi' rel='stylesheet'>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <!--        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+        <script type="text/x-mathjax-config">
+            var font = "Neo-Euler";
+            MathJax.Hub.Config({
+            "CommonHTML" : { preferredFont: font },
+            "HTML-CSS" : { webFont: font,
+                           imageFont: font,
+                           preferredFont: font,
+                           availableFonts: [],
+                           mtextFontInherit: true},
+            "SVG"      : { font:font }
+            });
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"> </script>
+
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="title"  >
+                <div id="heading">
+                    Affine subsets
+                </div>
+            </div>
+                
+                
+            <article>
+    <hr>
+    <section class="lastmodified">
+        Posted on May 22, 2026
+        
+            by Parth
+        
+        <div style="float:right;">
+        
+            (<a title="All pages tagged &#39;geometry&#39;." href="/posts/bytopic/geometry.html">geometry</a>, <a title="All pages tagged &#39;algebra&#39;." href="/posts/bytopic/algebra.html">algebra</a>)
+        
+        </div>
+    </section>
+    <section>
+        <div class="teaser">
+<p>The structure sheaf <span class="math inline">\(\mathscr{O}_X\)</span> of a scheme <span class="math inline">\(X\)</span>, upon taking inverse image, enhances <em>any</em> collection of points <span class="math inline">\(U\subset X\)</span> with the structure of a locally ringed space. The most tame and familiar instance of this is when <span class="math inline">\(U\)</span> is the space underlying an open subset of <span class="math inline">\(X\)</span>, where the corresponding locally ringed space is simply an open subscheme. What subsets of an affine scheme are affine? Based on [[Jan Šťovíček]]’s <a href="zotero://select/library/items/87L84PJB">article</a>.</p>
+</div>
+<!--more-->
+<p>There are also affine open subsets not of this form.</p>
+<div class="theorem">
+<p><sc>Example.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></sc> Take an elliptic curve <span class="math inline">\(E\subset \mathbb{P}^2\)</span> intersecting <span class="math inline">\(\{z=0\}\)</span> in the divisor <span class="math inline">\(3p\)</span>, so that <span class="math inline">\(X=E\smallsetminus \{p\}\)</span> is affine. For any <span class="math inline">\(q\in X\)</span>, the open subvariety <span class="math inline">\(X\smallsetminus \{q\}\)</span> is affine (since <span class="math inline">\(np+nq\)</span> is very ample on <span class="math inline">\(E\)</span> for <span class="math inline">\(n\gg 0\)</span>). But it is not always a distinguished open subset cut by a non-zero divisor in <span class="math inline">\(\mathbb{C}[X]\)</span>.</p>
+<p>Indeed if <span class="math inline">\(q=\mathbb{V}(f)\)</span> for some <span class="math inline">\(f\in \mathbb{C}[X]\)</span>, then some multiple of <span class="math inline">\(q-p\)</span> is the principle divisor <span class="math inline">\((f) \in \text{Div}(E)\)</span>, so that <span class="math inline">\(q-p\)</span> is a torsion element in <span class="math inline">\(\text{Pic}^0(E)\)</span>. But there are many choices of <span class="math inline">\(q\)</span> for which <span class="math inline">\(q-p\in \mathop{\mathrm{\text{Pic}}}^0(E)\)</span> is torsion-free!</p>
+</div>
+<p>The correspondence also accounts for subsets that aren’t open at all – if <span class="math inline">\(\mathfrak{p}\subset A\)</span> is a prime ideal, then we have the flat epimorphism <span class="math inline">\(A\to A_\mathfrak{p}\)</span> which defines the subset <span class="math inline">\(\{\mathfrak{q}\in \mathop{\mathrm{\text{Spec}}}A\;|\; \mathfrak{q}\subset \mathfrak{p}\}\)</span>. This contains the generic points of all irreducible closed subschemes that generically pass through <span class="math inline">\(\mathbb{V}(\mathfrak{p})\)</span>.</p>
+<p>Precisely characterising the collection of subsets <span class="math inline">\(\mathcal{U}\subset 2^{\mathop{\mathrm{\text{Spec}}}A}\)</span> defined by flat epimorphisms is thus a subtle problem.</p>
+<p>The set <span class="math inline">\(\mathcal{U}\)</span> is known to be closed under arbitrary intersections. We also have some necessary conditions it must satisfy:</p>
+<ol type="1">
+<li><p>Any set <span class="math inline">\(U\in\mathcal{U}\)</span> must be the intersection of quasi-compact Zariski opens, i.e. its complement must be a <em>Thomason set</em>. If <span class="math inline">\(A\)</span> is Noetherian, this is equivalent to being closed under <em>generalisation</em>.</p></li>
+<li><p>If <span class="math inline">\(A\)</span> is Noetherian, we have a version of Serre’s criterion for affine-ness: <span class="math inline">\(U\in \mathcal{U}\)</span> if and only if it is generalisation-closed and the local cohomology groups <span class="math inline">\(\text{H}^{&gt;1}_{V}(X,\mathscr{O}_X)\)</span> at <span class="math inline">\(V=X\smallsetminus U\)</span> vanish<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. It follows that each minimal prime in <span class="math inline">\(X\setminus U\)</span> must have height <span class="math inline">\(\leq 1\)</span>, i.e. <span class="math inline">\(X\smallsetminus U\)</span> (and hence <span class="math inline">\(U\)</span>) is determined the collection of irreducible codimension <span class="math inline">\(\leq 1\)</span> subvarieties (i.e. connected components and prime divisors) generically inside it.</p></li>
+</ol>
+<p>If <span class="math inline">\(X=\mathop{\mathrm{\text{Spec}}}A\)</span> is connected and Noetherian, non-trivial flat epimorphisms out of <span class="math inline">\(A\)</span> thus furnish bipartitions of the set <span class="math inline">\(\text{Prime}(X)\)</span> of the prime divisors in <span class="math inline">\(X\)</span>. For example any multiplicatively closed subset <span class="math inline">\(S\subset A\)</span> determines a partition rule <em>“<span class="math inline">\(Y\notin U\)</span> if and only if some <span class="math inline">\(f\in S\)</span> generically vanishes on <span class="math inline">\(Y\)</span>”,</em> and the corresponding flat epimorphism is precisely the localisation <span class="math inline">\(A\to S^{-1}A\)</span>. <img src="Sketch%201.png" /></p>
+<p>If <span class="math inline">\(X\)</span> above is locally factorial, this injection <span class="math inline">\(\mathcal{U}\setminus \{X\}\hookrightarrow 2^{\text{Prime}(X)}\)</span> is in fact a bijection, i.e. each subset of <span class="math inline">\(\text{Prime}(X)\)</span> determines a flat epimorphism. The same holds when <span class="math inline">\(X\)</span> is a connected curve, the set of non-trivial flat epimorphisms is in bijection with the powerset on closed points of <span class="math inline">\(X\)</span>.</p>
+<p>In general the condition is not sufficient.</p>
+<blockquote>
+<p>[!example] Example<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Writing <span class="math inline">\(Z=\mathop{\mathrm{\text{Spec}}}\mathbb{C}[[x,y]]\)</span> for the formal neighbourhood of the origin in <span class="math inline">\(\mathbb{A}^2\)</span>, note that <span class="math inline">\(X\setminus \{0\}\)</span> cannot support a flat epimorphism by the height criterion.</p>
+<p>We bootstrap this by stretching <span class="math inline">\(\{0\}\)</span> into a prime divisor – in the formal neighbourhood <span class="math inline">\(\mathop{\mathrm{\text{Spec}}}\mathbb{C}[[x,y,z]]\)</span> of the origin in <span class="math inline">\(\mathbb{A}^3\)</span>, consider the surface <span class="math inline">\(\mathbb{V}(xz)\)</span>, i.e. the union <span class="math inline">\(X\cup Z\)</span> of the <span class="math inline">\(y\)</span>-<span class="math inline">\(z\)</span> and <span class="math inline">\(x\)</span>-<span class="math inline">\(y\)</span> planes. The <span class="math inline">\(z\)</span>-axis <span class="math inline">\(\mathbb{V}(x,y)\)</span> is a prime divisor in <span class="math inline">\(\mathbb{V}(xz)\)</span>, but we show that <span class="math inline">\(U=\mathbb{V}(xz)\smallsetminus \mathbb{V}(x,y)\)</span> cannot arise from a flat epimorphism – indeed if it did, then the base change to (i.e. intersection with) <span class="math inline">\(Z\)</span> would arise from a flat epimorphism, but this doesn’t happen.</p>
+<p>Stretching up a dimension again, consider the formal <span class="math inline">\(cA_1\)</span> singularity <span class="math inline">\(\mathbb{V}(xy-zw)\subset \mathop{\mathrm{\text{Spec}}}\mathbb{C}[[x,y,z,w]]\)</span>. The divisor <span class="math inline">\(\mathbb{V}(x,y)\)</span> does not have affine complement – the proof is analogous, since intersecting with <span class="math inline">\(\{w=0\}\)</span> leaves us with the above case of a line in two intersecting planes.</p>
+</blockquote>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Mathoverflow user <a href="https://mathoverflow.net/users/1508/pinaki"><code>pinaki</code></a>, <em>“affine open subset of affine scheme”</em> (<code><a href="https://mathoverflow.net/q/133474" class="uri">https://mathoverflow.net/q/133474</a></code>).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Hügel, L. A., Marks, F., Stovicek, J., Takahashi, R. &amp; Vitória, J. Flat ring epimorphisms and universal localisations of commutative rings. <em>The Quarterly Journal of Mathematics</em> <strong>71</strong>, 1489–1520 (2020).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Hügel, L. A., Marks, F., Stovicek, J., Takahashi, R. &amp; Vitória, J. Flat ring epimorphisms and universal localisations of commutative rings. <em>The Quarterly Journal of Mathematics</em> <strong>71</strong>, 1489–1520 (2020).<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+    </section>
+    <hr>
+</article>
+
+        </main>
+
+        <div class="clear"></div>
+        <footer> 
+     <img src="/images/footer-busstop.png" class="busStop"> 
+     <a href="/index.html">
+         <div class="homebox">
+             <img src="/images/footer-logo.png" class="eyes"> 
+
+             <img src="/images/footer-lights.png" class="light"> 
+         </div>
+     </a>
+     <div class="hakyll">
+         Powered by <a href="https://jaspervdj.be/hakyll/">hakyll</a>.
+     </div>
+     <div class="catbusfooter">
+         <a href="/index.html">Catbus</a> / Affine subsets
+     </div>
+</footer>
+
+    </body>
+</html>
